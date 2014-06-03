@@ -61,6 +61,7 @@ circle("#circle1", 85);
 circle("#circle1", 50);
 circle("#circle1", 45);
 
-rune("#circle1",45,"ω2 = ω02 + 2α(θ − θ0)",20);
 rune("#circle1",85,"ω2 = ω02 + 2α(θ − θ0)",20);
+rune("#circle1",45,"ω2 = ω02 + 2α(θ − θ0)",10);
+rune("#circle1",105,"ω2 = ω02 + 2α(θ − θ0)",45);
 
