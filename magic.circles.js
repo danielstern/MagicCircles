@@ -31,13 +31,24 @@ function circleRing(selector, radius, count, innerRadius) {
 			var completeness = i / count;
 			// debugger;
 			var q = 1;
-			svg.append("circle")
+			var g = svg.append("g")
+
+			g
+			  //.attr("transform","translate(500,500)");
+
+			g.append("circle")
 			    .attr("r", innerRadius)
 			    .attr("cx", width / 2 + (Math.cos(completeness * RAD) )* q * radius )
 			    .attr("cy", height / 2 + (Math.sin(completeness * RAD)) * q * radius)
 			    .attr("stroke", "gray")
 			    .attr("fill", "none")
-			    .attr("stroke-width", 3)
+			    .attr("stroke-width", 3);
+
+			// g
+			//     .transition()
+			//     .duration(10000)
+			//     .ease("linear")
+			//     .attr("transform", "translate(0,-500) rotate("+180+")");;
 		}
 
 
@@ -104,6 +115,7 @@ function rune(selector, radius, text, fontSize, reverse) {
 
 circle("#circle1", 150);
 circle("#circle1", 145);
+circle("#circle1", 180);
 
 circle("#circle1", 105);
 circle("#circle1", 85);
@@ -111,11 +123,15 @@ circle("#circle1", 85);
 circle("#circle1", 50);
 circle("#circle1", 45);
 
-circleRing("#circle1", 70, 6,15);
-circleRing("#circle1", 145, 12,3);
-circleRing("#circle1", 85, 12, 2);
+circle("#circle1", 35);
+circle("#circle1", 25);
 
-rune("#circle1", 45, "parturient montes, nascetur ridiculus mus", 8, false);
-rune("#circle1", 90, "si post fata venit gloria non propero", 15,true);
-rune("#circle1", 115, "stultorum calami carbones moenia chartae ", 35);
+circleRing("#circle1", 70, 6,15);
+circleRing("#circle1", 85, 40, 2);
+ circleRing("#circle1", 165, 24,6);
+
+rune("#circle1", 45, "ηκε ολοσχερώς στο μυαλό των θεατών από τη φαντασ", 8, false);
+rune("#circle1", 90, "μέχρι το μυαλό της σε μια εμφάνιση του θάρρους. Όταν", 15,true);
+rune("#circle1", 115, "δάκρυ φάνηκε να σκοτεινιάζει τα μάτια της όταν μας είδε? αλλά ανάρρωσε γρήγορα τον εαυτό της ", 35);
+rune("#circle1", 160, "δάκρυ φάνηκε να σκοτεινιάζει τα μάτια της όταν μας είδε? αλλά ανάρρωσε γρήγορα τον εαυτό της ", 15,true);
 //rune("#circle1", 145, lol.hipster() + lol.hipster(), 7,true);
