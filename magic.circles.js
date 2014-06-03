@@ -1,7 +1,7 @@
 function circle(selector,radius) {
 
-	var width = $(selector).width();
-	height = $(selector).height();
+	var width = 500;
+	height = 500;
 	svg = d3.select(selector);
 
 	var frame = $(selector).find('svg')[0];
@@ -14,21 +14,24 @@ function circle(selector,radius) {
 	        .attr("class","main")
 	        .attr("width", width)
 	        .attr("height", height)
-	        .append("circle")
+	       
+
+	    }   else {
+	        var svg = d3.select(selector).select(".main");
+	    }
+
+	    svg .append("circle")
 	        .attr("r",0)
-	        .attr("cx",width/4)
-	        .attr("cy",height/4)
+	        .attr("cx",width/2)
+	        .attr("cy",height/2)
 	        .attr("stroke","#000")
 	        .attr("fill","none")
 	        .attr("stroke-width",3)
 	        	.transition()
 	        	.duration(500)
-	        	.attr("r",150)
+	        	.attr("r",radius)
 
-
-	    }   else {
-	        var svg = d3.select(selector).select(".main");
-	    }
 }
 
-circle("#circle1")
+circle("#circle1",150)
+circle("#circle1",125)
