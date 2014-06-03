@@ -18,6 +18,30 @@ function circle(selector, radius) {
 
 }
 
+function circleRing(selector, radius, count) {
+
+    var width = 500;
+    var height = 500;
+    var innerRadius = radius / count + 5;
+    svg = d3.select(selector)
+        .select("svg")
+
+		for (var i = 0; i < count; i++) {
+
+			svg.append("circle")
+			    .attr("r", innerRadius)
+			    .attr("cx", width / 2 + (Math.sin(i) * count / Math.PI) * (radius - 5))
+			    .attr("cy", height / 2 + (Math.cos(i) * count / Math.PI) * (radius - 5))
+			    .attr("stroke", "gray")
+			    .attr("fill", "none")
+			    .attr("stroke-width", 3)
+		}
+
+
+    
+
+}
+
 function rune(selector, radius, text, fontSize, reverse) {
 
     var width = $(selector).width();
@@ -83,6 +107,9 @@ circle("#circle1", 85);
 
 circle("#circle1", 50);
 circle("#circle1", 45);
+
+circleRing("#circle1", 45, 6);
+circleRing("#circle1", 50, 12);
 
 rune("#circle1", 45, "parturient montes, nascetur ridiculus mus", 8, false);
 rune("#circle1", 90, "si post fata venit gloria non propero", 15,true);
