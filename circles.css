@@ -1,5 +1,17 @@
 magic {
 	display: block;
+	-webkit-animation: jewelbox 45s infinite linear;
+	width: 500px;
+	height: 500px;
+}
+
+@-webkit-keyframes jewelbox {
+    0% {
+        -webkit-transform: rotateY(0deg) rotateX(0deg);
+    }
+    100% {
+        -webkit-transform: rotateY(359deg) rotateX(359deg);
+    }
 }
 
 svg {

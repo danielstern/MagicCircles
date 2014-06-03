@@ -33,5 +33,11 @@ function circle(selector,radius) {
 
 }
 
-circle("#circle1",150)
-circle("#circle1",125)
+circle("#circle1",150);
+circle("#circle1",145);
+
+circle("#circle1",100);
+circle("#circle1",85);
+
+circle("#circle1",50);
+circle("#circle1",45);
