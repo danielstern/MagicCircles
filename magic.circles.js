@@ -18,11 +18,10 @@ function circle(selector, radius) {
 
 }
 
-function circleRing(selector, radius, count) {
+function circleRing(selector, radius, count, innerRadius) {
 
     var width = 500;
     var height = 500;
-    var innerRadius = radius / count + 5;
     var RAD = Math.PI * 2;
     svg = d3.select(selector)
         .select("svg")
@@ -112,9 +111,9 @@ circle("#circle1", 85);
 circle("#circle1", 50);
 circle("#circle1", 45);
 
-circleRing("#circle1", 45, 6);
-circleRing("#circle1", 145, 12);
-circleRing("#circle1", 85, 12);
+circleRing("#circle1", 70, 6,15);
+circleRing("#circle1", 145, 12,3);
+circleRing("#circle1", 85, 12, 2);
 
 rune("#circle1", 45, "parturient montes, nascetur ridiculus mus", 8, false);
 rune("#circle1", 90, "si post fata venit gloria non propero", 15,true);
