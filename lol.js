@@ -28,5 +28,16 @@ var lol = {
 
         //to do!
 
+    },
+    hipster: function() {
+        var equations = [
+           "Chillwave selfies narwhal actually blog. Marfa Austin craft beer tousled fixie,",
+           ". IPhone tote bag salvia, Portland Bushwick chia next level letterpress farm-to-table 3 wolf moon trust fund shabby chic Marfa cray.",
+        ]
+
+        return equations[Math.floor(Math.random() * equations.length)];
+
+        //to do!
+
     }
 }

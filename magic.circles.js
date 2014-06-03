@@ -18,11 +18,12 @@ function circle(selector, radius) {
 
 }
 
-function rune(selector, radius, text, fontSize) {
+function rune(selector, radius, text, fontSize, reverse) {
 
     var width = $(selector).width();
     var height = $(selector).height();
-    var rotation = 179;
+    var rotation = 0;
+    rotation = (reverse) ? rotation - 179.9 : rotation + 179.9;
 
     var svg = d3.select(selector)
         .select("svg")
@@ -33,24 +34,29 @@ function rune(selector, radius, text, fontSize) {
     path
         .attr("id", "s3" + runeId)
         .attr("d", "M 0,-1   C 0.5523, -1   1, -0.5523    1,0  C 1, 0.5523    0.5523, 1     0,1  C -0.5523, 1   -1, 0.5523    -1,0         C -1, -0.5523  -0.5523, -1   0,-1")
-        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ") scale(" + radius + "," + radius + ")")
-        .transition()
-        .duration(5000)
-        .ease("linear")
-        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ") scale(" + radius + "," + radius + ") rotate("+rotation+")");
+        .attr("transform", "scale(" + radius + "," + radius + ")");
+        // .transition()
+        // .duration(5000)
+        // .ease("linear")
+        // .attr("transform", "scale(" + radius + "," + radius + ")");
 
-    setInterval(function() {
-    		rotation += 179.9;
-        path
-            .transition()
-            .duration(5000)
-            .ease("linear")
-            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ") scale(" + radius + "," + radius + ") rotate("+rotation+")");
-    }, 5000);
+
+    function animate() {
+    			rotation = (reverse) ? rotation - 179.9 : rotation + 179.9;
+    	    thing
+    	        .transition()
+    	        .duration(5000)
+    	        .ease("linear")
+    	        .attr("transform","translate(" + width / 2 + "," + height / 2 + ")  rotate("+rotation+")");
+
+    }
+    
+    setInterval(animate, 5000);
+
 
     var thing = svg.append("g")
         .attr("id", "thing" + runeId)
-        .style("fill", "navy");
+        .attr('transform',"translate(" + width / 2 + "," + height / 2 + ")  rotate("+rotation+")")
 
     thing.append("text")
         .style("font-size", fontSize || 20 + "px")
@@ -61,7 +67,10 @@ function rune(selector, radius, text, fontSize) {
     thing.append("use")
         .attr("xlink:href", "#s3" + runeId)
         .style("stroke", "none")
+        .attr("text-rendering", "optimizeSpeed ")
         .style("fill", "none");
+    
+	    animate();
 
 }
 
@@ -69,12 +78,13 @@ function rune(selector, radius, text, fontSize) {
 circle("#circle1", 150);
 circle("#circle1", 145);
 
-circle("#circle1", 100);
+circle("#circle1", 105);
 circle("#circle1", 85);
 
 circle("#circle1", 50);
 circle("#circle1", 45);
 
-rune("#circle1", 85, lol.physics(), 20);
-rune("#circle1", 45, lol.physics(), 10);
-rune("#circle1", 105, lol.physics(), 45);
+rune("#circle1", 45, "parturient montes, nascetur ridiculus mus", 8, false);
+rune("#circle1", 90, "si post fata venit gloria non propero", 15,true);
+rune("#circle1", 115, "stultorum calami carbones moenia chartae ", 35);
+//rune("#circle1", 145, lol.hipster() + lol.hipster(), 7,true);

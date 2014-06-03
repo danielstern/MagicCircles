@@ -1,3 +1,10 @@
+.container {
+
+	width: 500px;
+	background-color: black;
+	height: 500px;
+}
+
 magic {
 	display: block;
 	-webkit-animation: jewelbox 100s infinite linear;
@@ -17,4 +24,16 @@ magic {
 svg {
 	height: 500px;
 	width: 500px;
+
+}
+
+text {
+	font-family: Garamond;
+	fill: white;
+	text-transform: uppercase;
+	letter-spacing: 5pt;
+}
+
+circle {
+	stroke: white;
 }
