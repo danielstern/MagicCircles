@@ -23,15 +23,19 @@ function circleRing(selector, radius, count) {
     var width = 500;
     var height = 500;
     var innerRadius = radius / count + 5;
+    var RAD = Math.PI * 2;
     svg = d3.select(selector)
         .select("svg")
 
 		for (var i = 0; i < count; i++) {
 
+			var completeness = i / count;
+			// debugger;
+			var q = 1;
 			svg.append("circle")
 			    .attr("r", innerRadius)
-			    .attr("cx", width / 2 + (Math.sin(i) * count / Math.PI) * (radius - 5))
-			    .attr("cy", height / 2 + (Math.cos(i) * count / Math.PI) * (radius - 5))
+			    .attr("cx", width / 2 + (Math.cos(completeness * RAD) )* q * radius )
+			    .attr("cy", height / 2 + (Math.sin(completeness * RAD)) * q * radius)
 			    .attr("stroke", "gray")
 			    .attr("fill", "none")
 			    .attr("stroke-width", 3)
@@ -109,7 +113,8 @@ circle("#circle1", 50);
 circle("#circle1", 45);
 
 circleRing("#circle1", 45, 6);
-circleRing("#circle1", 50, 12);
+circleRing("#circle1", 145, 12);
+circleRing("#circle1", 85, 12);
 
 rune("#circle1", 45, "parturient montes, nascetur ridiculus mus", 8, false);
 rune("#circle1", 90, "si post fata venit gloria non propero", 15,true);
