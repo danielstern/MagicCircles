@@ -18,10 +18,13 @@ function circle(selector, radius) {
 
 }
 
-function rune(selector, text) {
+function rune(selector, radius, text) {
 
-    var width = 500;
-    height = 500;
+    var width = $(selector).width();
+    var height = $(selector).height();
+
+//    var radius = width / 2;
+
     var svg = d3.select(selector)
     	.select("svg")
 
@@ -44,10 +47,12 @@ function rune(selector, text) {
     //     .append("textPath")
     //     	.attr("xlink:href", "#cs")
 
+
     svg.append("defs").append("path")
     .attr("id", "s3")
     .attr("d", "M 0,-1   C 0.5523, -1   1, -0.5523    1,0  C 1, 0.5523    0.5523, 1     0,1  C -0.5523, 1   -1, 0.5523    -1,0         C -1, -0.5523  -0.5523, -1   0,-1")
-    .attr("transform","translate(100,100) scale(100,100)")
+     .attr("transform","translate("+width/2+","+height/2+") scale("+radius+","+radius+")")
+    // .attr("scale",150)
 
     var thing = svg.append("g")
         .attr("id", "thing")
@@ -76,4 +81,4 @@ circle("#circle1", 85);
 circle("#circle1", 50);
 circle("#circle1", 45);
 
-rune("#circle1","ω2 = ω02 + 2α(θ − θ0)");
+rune("#circle1",85,"ω2 = ω02 + 2α(θ − θ0)");
