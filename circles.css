@@ -1,6 +1,6 @@
 magic {
 	display: block;
-	-webkit-animation: jewelbox 3s linear;
+	-webkit-animation: jewelbox 100s infinite linear;
 	width: 500px;
 	height: 500px;
 }
