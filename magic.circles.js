@@ -1,6 +1,10 @@
 var MagicCircle = function(selector) {
 
-    var RAD = Math.PI * 2;
+    var magicCircle = this;
+
+    var RAD = Math.PI * 2;    
+    var animationSpeed = 500;
+
 
     var width = $(selector).width();
     var height = $(selector).height();
@@ -11,6 +15,18 @@ var MagicCircle = function(selector) {
     var defs = svg.append("defs");
 
     this.draw = {};
+    this.animationListeners = [];
+    this.onanimate = function(l) {
+        this.animationListeners.push(l);
+    }
+
+    setInterval(animate, 100);
+
+    function animate() {
+        for (var i = 0; i < magicCircle.animationListeners.length; i++) {
+            magicCircle.animationListeners[i]();
+        }
+    }
 
     var colors = {
         ring: "#182645",
@@ -18,41 +34,39 @@ var MagicCircle = function(selector) {
         smallRing: "#304f93",
     }
 
-        function init() {
+    function init() {
 
-            var shadowFilter = defs.append("filter")
-                .attr("id", "drop-shadow")
-                .attr("height", "130%");
+        var shadowFilter = defs.append("filter")
+            .attr("id", "drop-shadow")
+            .attr("height", "130%");
 
-            // SourceAlpha refers to opacity of graphic that this filter will be applied to
-            // convolve that with a Gaussian with standard deviation 3 and store result
-            // in blur
-            shadowFilter.append("feGaussianBlur")
-                .attr("in", "SourceAlpha")
-                .attr("stdDeviation", 5)
-                .attr("result", "blur");
+        // SourceAlpha refers to opacity of graphic that this filter will be applied to
+        // convolve that with a Gaussian with standard deviation 3 and store result
+        // in blur
+        shadowFilter.append("feGaussianBlur")
+            .attr("in", "SourceAlpha")
+            .attr("stdDeviation", 5)
+            .attr("result", "blur");
 
-            // translate output of Gaussian blur to the right and downwards with 2px
-            // store result in offsetBlur
-            shadowFilter.append("feOffset")
-                .attr("in", "blur")
-                .attr("dx", 2)
-                .attr("dy", 2)
-                .attr("result", "offsetBlur");
+        // translate output of Gaussian blur to the right and downwards with 2px
+        // store result in offsetBlur
+        shadowFilter.append("feOffset")
+            .attr("in", "blur")
+            .attr("dx", 2)
+            .attr("dy", 2)
+            .attr("result", "offsetBlur");
 
-            // overlay original SourceGraphic over translated blurred opacity by using
-            // feMerge filter. Order of specifying inputs is important!
-            var feMerge = shadowFilter.append("feMerge");
+        // overlay original SourceGraphic over translated blurred opacity by using
+        // feMerge filter. Order of specifying inputs is important!
+        var feMerge = shadowFilter.append("feMerge");
 
-            feMerge.append("feMergeNode")
-                .attr("in", "offsetBlur")
-            feMerge.append("feMergeNode")
-                .attr("in", "SourceGraphic");
-        };
+        feMerge.append("feMergeNode")
+            .attr("in", "offsetBlur")
+        feMerge.append("feMergeNode")
+            .attr("in", "SourceGraphic");
+    };
 
     init();
-
-    var animationSpeed = 500;
 
     this.draw.circle = function(selector, radius) {
 
@@ -77,14 +91,14 @@ var MagicCircle = function(selector) {
 
         var offset = 0;
 
-        var g = svg.append("g")
+        var ring = svg.append("g")
 
         for (var i = 0; i < count; i++) {
 
             var completeness = i / count;
             var q = 1;
 
-            var circle = g.append("circle");
+            var circle = ring.append("circle");
             circle
                 .attr("r", 0)
                 .attr("cx", width / 2 + (Math.cos((offset + completeness) * RAD)) * q * radius)
@@ -102,27 +116,19 @@ var MagicCircle = function(selector) {
 
         }
 
-        setInterval(animate, 100, g);
-
-        function animate(ring) {
+        magicCircle.onanimate(function(){
             offset = (reverse) ? offset - 1 : offset + 1;
             ring
                 .transition()
                 .ease("linear")
                 .duration(100)
                 .attr("transform", "rotate(" + offset + ", 250, 250)");
-
-        }
-
-
-
-
+        });
     }
 
     this.draw.runeRing = function(selector, radius, text, fontSize, reverse) {
 
         var rotation = 0;
-        rotation = (reverse) ? rotation - 179.9 : rotation + 179.9;
 
         var runeId = lol.guid();
 
@@ -133,19 +139,15 @@ var MagicCircle = function(selector) {
             .attr("transform", "scale(" + radius + "," + radius + ")")
 
 
-
-        function animate() {
-            rotation = (reverse) ? rotation - 179.9 : rotation + 179.9;
+        magicCircle.onanimate(function(){
+            rotation = (reverse) ? rotation - 1 : rotation + 1;
             ring
                 .transition()
-                .duration(5000)
+                .duration(100)
                 .ease("linear")
                 .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")  rotate(" + rotation + ")");
 
-        }
-
-        setInterval(animate, 5000);
-
+        });
 
         var ring = svg.append("g")
             .attr("id", "ring" + runeId)
@@ -169,8 +171,6 @@ var MagicCircle = function(selector) {
             .style("stroke", "none")
             .attr("text-rendering", "optimizeSpeed ")
             .style("fill", "none");
-
-        animate();
 
 
 
