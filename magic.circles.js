@@ -8,7 +8,6 @@ var MagicCircle = function(selector) {
 
     var svg;
 
-    // user settings    
 
     // initializers
     this.draw = {};
@@ -24,10 +23,10 @@ var MagicCircle = function(selector) {
         for (var i = 0; i < magicCircle.animationListeners.length; i++) {
             magicCircle.animationListeners[i]();
         }
-
         console.log("animate");
     }
 
+    // user settings    
     this.styles = {
         colors: {
             ring: "#182645",
@@ -110,13 +109,8 @@ var MagicCircle = function(selector) {
         shadowFeMerge.append("feMergeNode")
             .attr("in", "SourceGraphic");
 
-
-
-        // animator = setInterval(magicCircle.animate, 100);
-
     };
 
-    // init();
 
     // methods
     this.draw.circle = function(radius) {
@@ -147,7 +141,6 @@ var MagicCircle = function(selector) {
                     .attr("r", 0);
             }
         }
-
     }
 
     this.draw.circleRing = function(radius, count, innerRadius, speed, reverse) {
@@ -256,9 +249,6 @@ var MagicCircle = function(selector) {
                     .attr("opacity", 0);
             }
         }
-
-
-
     }
 
 
@@ -276,7 +266,7 @@ var MagicCircle = function(selector) {
                 svg.remove()
             }
 
-            , 1000);
+            , magicCircle.styles.animation.inSpeed + 100);
     }
 
     this.cast = function(rad) {
