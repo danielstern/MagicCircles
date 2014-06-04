@@ -1,13 +1,13 @@
 .container {
 
 	width: 500px;
-	background-color: black;
+	background-color: white;
 	height: 500px;
 }
 
 magic {
 	display: block;
-	/*-webkit-animation: jewelbox 100s infinite linear;*/
+	-webkit-animation: jewelbox 100s infinite linear;
 	width: 500px;
 	height: 500px;
 }
@@ -29,11 +29,11 @@ svg {
 
 text {
 	font-family: Garamond;
-	fill: white;
+	fill: green;
 	text-transform: uppercase;
 	letter-spacing: 5pt;
 }
 
 circle {
-	stroke: white;
+	stroke: blue;
 }
