@@ -39,17 +39,17 @@ var MagicCircle = function(selector, animationSpeed) {
 
         var shadowFilter = defs.append("filter")
             .attr("id", "drop-shadow")
-            .attr("height", "130%");
+            .attr("height", "130%")
 
         shadowFilter.append("feGaussianBlur")
             .attr("in", "SourceAlpha")
-            .attr("stdDeviation", 5)
+            .attr("stdDeviation", 4)
             .attr("result", "blur");
 
         shadowFilter.append("feOffset")
             .attr("in", "blur")
-            .attr("dx", 2)
-            .attr("dy", 2)
+            .attr("dx", 0)
+            .attr("dy", 0)
             .attr("result", "offsetBlur");
 
         var feMerge = shadowFilter.append("feMerge");
@@ -75,6 +75,7 @@ var MagicCircle = function(selector, animationSpeed) {
             .attr("cy", height / 2)
             .attr("stroke", colors.ring)
             .attr("fill", "none")
+            .style("filter", "url(#drop-shadow)")
             .attr("stroke-width", radius / 100)
 
         circle
@@ -102,6 +103,7 @@ var MagicCircle = function(selector, animationSpeed) {
                 .attr("cy", height / 2 + (Math.sin((offset + completeness) * RAD)) * q * radius)
                 .attr("stroke", colors.smallRing)
                 .attr("fill", "none")
+                .style("filter", "url(#drop-shadow)")
                 .attr("stroke-width", 0.5 + innerRadius / 15);
 
             circle
