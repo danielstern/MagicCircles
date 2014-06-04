@@ -23,7 +23,7 @@ magic {
 
 
 
-text {
+/*text {
 	font-family: Garamond;
 	text-transform: uppercase;
 	letter-spacing: 5pt;
@@ -32,7 +32,7 @@ text {
 circle {
 	/*stroke: blue;*/
 }
-
+*/
 #circle2 {
 	width: 250px;
 	height: 250px;

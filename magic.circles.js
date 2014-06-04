@@ -84,7 +84,7 @@ var MagicCircle = function(selector, animationSpeed) {
 
     }
 
-    this.draw.circleRing = function(selector, radius, count, innerRadius, reverse) {
+    this.draw.circleRing = function(selector, radius, count, innerRadius, speed, reverse) {
 
         var offset = 0;
 
@@ -110,11 +110,10 @@ var MagicCircle = function(selector, animationSpeed) {
                 .attr("r", innerRadius)
 
 
-
         }
 
         magicCircle.onanimate(function(){
-            offset = (reverse) ? offset - 1 * animationSpeed : offset + 1 * animationSpeed;
+            offset = (reverse) ? offset - 1 * (speed || animationSpeed) : offset + 1 * (speed || animationSpeed);
             ring
                 .transition()
                 .ease("linear")
@@ -137,7 +136,7 @@ var MagicCircle = function(selector, animationSpeed) {
 
 
         magicCircle.onanimate(function(){
-            rotation = (reverse) ? rotation - 1 * animationSpeed : rotation + 1 * animationSpeed;
+            rotation = (reverse) ? rotation - 1 * (speed || animationSpeed) : rotation + 1 * (speed || animationSpeed);
             ring
                 .transition()
                 .duration(100)
@@ -185,6 +184,11 @@ var MagicCircle = function(selector, animationSpeed) {
                 if (radius) return this.space(radius);
                 return this;
             },
+            circleRing:function(count,innerRadius,speed,reverse) {
+                draw.circleRing(selector, this.currentRadius + innerRadius, count, innerRadius, speed, reverse);
+                this.currentRadius += innerRadius * 2;
+                return this;
+            },
             space:function(length){
                 this.currentRadius += length;
                 return this;
@@ -227,24 +231,42 @@ var MagicCircle = function(selector, animationSpeed) {
         draw.runeRing("#circle1", 115, "δάκρυ φάνηκε να σκοτεινιάζει τα μάτια της όταν μας είδε? αλλά ανάρρωσε γρήγορα τον εαυτό της ", 35);
         draw.runeRing("#circle1", 160, "δάκρυ φάνηκε να σκοτεινιάζει τα μάτια της όταν μας είδε? αλλά ανάρρωσε γρήγορα τον εαυτό της ", 15, true);
         draw.runeRing("#circle1", 145, lol.hipster() + lol.hipster(), 7, true);
-
     }
 
 }
 
 
 
-var magic = new MagicCircle("#circle1");
+var magic = new MagicCircle("#circle1", 2);
+var magic2 = new MagicCircle("#circle2", 2);
+
+
 magic.cast()
     .ring(10)
-    .text(7, "Hey hey mr dj!")
+    .text(7, lol.hipster())
     .ring(5)
     .ring(5)
     .ring(5)
-    .text(15, "You're the ring now dog",10)
+    .text(15, lol.hipster(),10, true)
     .ring(5)
     .ring(5)
     .space(10)
     .ring()
     .space(5)
     .ring()
+    .circleRing(10,5,10,true)
+    .ring()
+    .text(15, lol.hipster(),10, true)
+    .ring()
+    .circleRing(10,5,10)
+    .ring()
+    .space(2)
+    .circleRing(3,21,10)
+    .space(2)
+    .ring()
+    .backspace(10)
+    .text(10, lol.hipster(),10, false)
+    .backspace(30)
+    .ring(5)
+    .ring(5)
+    .ring(5)
