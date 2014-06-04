@@ -129,6 +129,17 @@ var MagicCircle = function(selector) {
             .duration(magicCircle.styles.animation.inSpeed)
             .attr("r", radius)
 
+        return {
+            disperse:function(){
+              circle
+                .attr("opacity",1)
+                .transition()
+                .duration(magicCircle.styles.animation.inSpeed)
+                 .attr("opacity", 0)
+                 .attr("r", 0);
+            }
+        }
+
     }
 
     this.draw.circleRing = function(radius, count, innerRadius, speed, reverse) {
@@ -218,8 +229,29 @@ var MagicCircle = function(selector) {
             .attr("text-rendering", "optimizeSpeed ")
             .style("fill", "none");
 
+        return {
+            disperse:function(){
+               ring
+                .transition()
+                .duration(magicCircle.styles.animation.inSpeed)
+                .ease("linear")
+                 .attr("opacity", 0)
+                 .attr("r", 0);
+            }
+        }
 
 
+
+    }
+
+
+    this.allElements = [];
+    this.disperse = function() {
+        _.each(magicCircle.allElements,function(element){
+            element.disperse();
+        }) 
+
+        magicCircle.allElements = [];
     }
 
     this.cast = function(rad) {
@@ -232,7 +264,8 @@ var MagicCircle = function(selector) {
             currentRadius: 0,
             selector: selector,
             ring: function(radius) {
-                draw.circle(this.currentRadius);
+                var circle = draw.circle(this.currentRadius);
+                magicCircle.allElements.push(circle);
                 if (radius) return this.space(radius);
                 return this;
             },
@@ -254,6 +287,9 @@ var MagicCircle = function(selector) {
                 draw.runeRing(this.currentRadius + padding, text, height, speed || 10, reverse);
                 this.currentRadius += height;
                 return this;
+            },
+            disperse: function() {
+                magicCircle.disperse();
             }
         }
 
@@ -269,6 +305,14 @@ var magic2 = new MagicCircle("#circle2", 2);
 magic.styles.colors.ring = "#8091d4"
 magic.styles.colors.smallRing = "#bfc8ea"
 magic.styles.colors.text = "#9facdf"
+
+var fire = {
+    ring: "#b43b54",
+    smallRing: "#c8526a",
+    text: "#fee"
+}
+
+//magic.styles.colors = fire;
 
 
 magic.cast()
@@ -300,4 +344,9 @@ magic.cast()
     .backspace(30)
     .ring(5)
     .ring(5)
-    .ring(5)
+    .ring(5);
+
+setTimeout(function(){
+    magic.disperse();
+
+},1000);
