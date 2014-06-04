@@ -155,7 +155,7 @@ circle("#circle1", 25);
 
 circleRing("#circle1", 70, 6,15);
 circleRing("#circle1", 85, 40, 2);
- circleRing("#circle1", 165, 24,6);
+ circleRing("#circle1", 195, 24,6);
 
 rune("#circle1", 45, "ηκε ολοσχερώς στο μυαλό των θεατών από τη φαντασ", 8, false);
 rune("#circle1", 90, "μέχρι το μυαλό της σε μια εμφάνιση του θάρρους. Όταν", 15,true);
