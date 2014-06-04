@@ -149,8 +149,8 @@ function rune(selector, radius, text, fontSize, reverse) {
     // store result in offsetBlur
     filter.append("feOffset")
         .attr("in", "blur")
-        .attr("dx", 5)
-        .attr("dy", 5)
+        .attr("dx", 2)
+        .attr("dy", 2)
         .attr("result", "offsetBlur");
 
     // overlay original SourceGraphic over translated blurred opacity by using
