@@ -119,6 +119,7 @@ var MagicCircle = function(selector) {
             .attr("r", 0)
             .attr("cx", width / 2)
             .attr("cy", height / 2)
+            .attr("opacity",1)
             .attr("stroke", magicCircle.styles.colors.ring)
             .attr("fill", "none")
             .style("filter", "url(#drop-shadow)")
@@ -132,7 +133,6 @@ var MagicCircle = function(selector) {
         return {
             disperse:function(){
               circle
-                .attr("opacity",1)
                 .transition()
                 .duration(magicCircle.styles.animation.inSpeed)
                  .attr("opacity", 0)
@@ -147,6 +147,7 @@ var MagicCircle = function(selector) {
         var offset = 0;
 
         var ring = svg.append("g")
+          .attr("opacity",1);
 
         for (var i = 0; i < count; i++) {
 
@@ -179,6 +180,16 @@ var MagicCircle = function(selector) {
                 .duration(100)
                 .attr("transform", "rotate(" + offset + ", " + width / 2 + ", " + width / 2 + ")");
         });
+
+        return {
+            disperse:function(){
+                console.log('dispersing ring');
+               ring
+                .transition()
+                .duration(magicCircle.styles.animation.inSpeed)
+                 .attr("opacity",0);
+            }
+        }
     }
 
     this.draw.runeRing = function(radius, text, fontSize, speed, reverse) {
@@ -212,6 +223,7 @@ var MagicCircle = function(selector) {
             .style("font-size", fontSize + "px")
             .append("textPath")
             .attr("xlink:href", "#s3" + runeId)
+
             .style("letter-spacing", magicCircle.styles.type.leading)
             .style( "text-transform", magicCircle.styles.type.typecase)
             .style("filter", "url(#drop-blur)")
@@ -234,9 +246,7 @@ var MagicCircle = function(selector) {
                ring
                 .transition()
                 .duration(magicCircle.styles.animation.inSpeed)
-                .ease("linear")
-                 .attr("opacity", 0)
-                 .attr("r", 0);
+                 .attr("opacity", 0);
             }
         }
 
@@ -252,6 +262,7 @@ var MagicCircle = function(selector) {
         }) 
 
         magicCircle.allElements = [];
+        magicCircle.animationListeners = [];
     }
 
     this.cast = function(rad) {
@@ -270,7 +281,8 @@ var MagicCircle = function(selector) {
                 return this;
             },
             circleRing: function(count, innerRadius, speed, reverse) {
-                draw.circleRing(this.currentRadius + innerRadius, count, innerRadius, speed, reverse);
+                var circleRing = draw.circleRing(this.currentRadius + innerRadius, count, innerRadius, speed, reverse);
+                magicCircle.allElements.push(circleRing);
                 this.currentRadius += innerRadius * 2;
                 return this;
             },
@@ -284,7 +296,8 @@ var MagicCircle = function(selector) {
             },
             text: function(height, text, speed, reverse) {
                 var padding = 2;
-                draw.runeRing(this.currentRadius + padding, text, height, speed || 10, reverse);
+                var text = draw.runeRing(this.currentRadius + padding, text, height, speed || 10, reverse);
+                magicCircle.allElements.push(text);
                 this.currentRadius += height;
                 return this;
             },
