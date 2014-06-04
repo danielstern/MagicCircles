@@ -1,26 +1,27 @@
 var MagicCircle = function(selector) {
 
-    var magicCircle = this;
-
+    // CONSTS
     var RAD = Math.PI * 2;    
-    var animationSpeed = 500;
-
-
+    var magicCircle = this;
     var width = $(selector).width();
     var height = $(selector).height();
-
     var svg = d3.select(selector)
         .select("svg")
 
     var defs = svg.append("defs");
+
+
+    // user settings    
+    var introAnimationTime = 777;
+    var animationSpeed = 5;
+
+
 
     this.draw = {};
     this.animationListeners = [];
     this.onanimate = function(l) {
         this.animationListeners.push(l);
     }
-
-    setInterval(animate, 100);
 
     function animate() {
         for (var i = 0; i < magicCircle.animationListeners.length; i++) {
@@ -40,30 +41,25 @@ var MagicCircle = function(selector) {
             .attr("id", "drop-shadow")
             .attr("height", "130%");
 
-        // SourceAlpha refers to opacity of graphic that this filter will be applied to
-        // convolve that with a Gaussian with standard deviation 3 and store result
-        // in blur
         shadowFilter.append("feGaussianBlur")
             .attr("in", "SourceAlpha")
             .attr("stdDeviation", 5)
             .attr("result", "blur");
 
-        // translate output of Gaussian blur to the right and downwards with 2px
-        // store result in offsetBlur
         shadowFilter.append("feOffset")
             .attr("in", "blur")
             .attr("dx", 2)
             .attr("dy", 2)
             .attr("result", "offsetBlur");
 
-        // overlay original SourceGraphic over translated blurred opacity by using
-        // feMerge filter. Order of specifying inputs is important!
         var feMerge = shadowFilter.append("feMerge");
 
         feMerge.append("feMergeNode")
             .attr("in", "offsetBlur")
         feMerge.append("feMergeNode")
             .attr("in", "SourceGraphic");
+
+        setInterval(animate, 100);
     };
 
     init();
@@ -82,7 +78,7 @@ var MagicCircle = function(selector) {
 
         circle
             .transition()
-            .duration(animationSpeed)
+            .duration(introAnimationTime)
             .attr("r", radius)
 
     }
@@ -105,11 +101,11 @@ var MagicCircle = function(selector) {
                 .attr("cy", height / 2 + (Math.sin((offset + completeness) * RAD)) * q * radius)
                 .attr("stroke", colors.smallRing)
                 .attr("fill", "none")
-                .attr("stroke-width", innerRadius / 5);
+                .attr("stroke-width", 0.5 + innerRadius / 15);
 
             circle
                 .transition()
-                .duration(animationSpeed)
+                .duration(introAnimationTime)
                 .attr("r", innerRadius)
 
 
@@ -117,7 +113,7 @@ var MagicCircle = function(selector) {
         }
 
         magicCircle.onanimate(function(){
-            offset = (reverse) ? offset - 1 : offset + 1;
+            offset = (reverse) ? offset - 1 * animationSpeed : offset + 1 * animationSpeed;
             ring
                 .transition()
                 .ease("linear")
@@ -140,7 +136,7 @@ var MagicCircle = function(selector) {
 
 
         magicCircle.onanimate(function(){
-            rotation = (reverse) ? rotation - 1 : rotation + 1;
+            rotation = (reverse) ? rotation - 1 * animationSpeed : rotation + 1 * animationSpeed;
             ring
                 .transition()
                 .duration(100)
@@ -162,7 +158,7 @@ var MagicCircle = function(selector) {
             .attr("opacity", 0)
             .attr("fill", colors.text)
             .transition()
-            .duration(400)
+            .duration(introAnimationTime)
             .ease("linear")
             .attr("opacity", 1);
 
@@ -195,8 +191,8 @@ var MagicCircle = function(selector) {
         draw.circle("#circle1", 35);
         draw.circle("#circle1", 25);
 
-        draw.circleRing("#circle1", 70, 6, 15, true);
-        draw.circleRing("#circle1", 70, 18, 5);
+        draw.circleRing("#circle1", 67, 6, 15, true);
+        draw.circleRing("#circle1", 67, 18, 5);
         draw.circleRing("#circle1", 85, 40, 2, true);
         draw.circleRing("#circle1", 185, 72, 3);
 
