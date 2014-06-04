@@ -10,6 +10,11 @@ magic {
 	/*-webkit-animation: jewelbox 100s infinite linear;*/
 	width: 500px;
 	height: 500px;
+	top: 100px;
+}
+
+svg {
+		position: absolute;
 }
 
 @-webkit-keyframes jewelbox {

@@ -269,8 +269,11 @@ var MagicCircle = function(selector) {
 
         magicCircle.allElements = [];
         magicCircle.animationListeners = [];
-        clearInterval(animator);
-        svg.remove();
+        setTimeout(function(){
+            clearInterval(animator);
+             svg.remove()}
+        
+        ,1500);
     }
 
     this.cast = function(rad) {
@@ -361,6 +364,6 @@ setInterval(function() {
 
     setTimeout(function() {
         _magic.disperse();
-    }, 700);
+    }, 1500);
 
-}, 1000);
+}, 3000);
