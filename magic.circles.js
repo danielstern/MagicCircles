@@ -5,15 +5,16 @@ var MagicCircle = function(selector) {
     var magicCircle = this;
     var width = $(selector).width();
     var height = $(selector).height();
-    var svg = d3.select(selector)
-        .select("svg")
 
-    var defs = svg.append("defs");
+
+
+    var svg;
 
     // user settings    
 
     // initializers
     this.draw = {};
+    var animator = undefined;
     this.animationListeners = [];
     this.onanimate = function(l) {
         this.animationListeners.push(l);
@@ -37,7 +38,7 @@ var MagicCircle = function(selector) {
         },
         animation: {
             inSpeed: 666,
-            animationSpeed:6.66
+            animationSpeed: 6.66
         },
         graphics: {
             blur: {
@@ -51,6 +52,10 @@ var MagicCircle = function(selector) {
     }
 
     this.init = function() {
+
+        svg = d3.select(selector)
+            .append("svg")
+        var defs = svg.append("defs");
 
         var blurFilter = defs.append("filter")
             .attr("id", "drop-blur")
@@ -92,8 +97,8 @@ var MagicCircle = function(selector) {
 
         shadowFilter.append("feComponentTransfer")
             .append("feFuncA")
-                .attr("type","linear")
-                .attr("slope","0.2")
+            .attr("type", "linear")
+            .attr("slope", "0.2")
 
         var shadowFeMerge = shadowFilter.append("feMerge");
 
@@ -103,9 +108,10 @@ var MagicCircle = function(selector) {
         shadowFeMerge.append("feMergeNode")
             .attr("in", "SourceGraphic");
 
-        setInterval(magicCircle.animate, 100);
+        
 
-        this.init = null;
+        // animator = setInterval(magicCircle.animate, 100);
+
     };
 
     // init();
@@ -119,7 +125,7 @@ var MagicCircle = function(selector) {
             .attr("r", 0)
             .attr("cx", width / 2)
             .attr("cy", height / 2)
-            .attr("opacity",1)
+            .attr("opacity", 1)
             .attr("stroke", magicCircle.styles.colors.ring)
             .attr("fill", "none")
             .style("filter", "url(#drop-shadow)")
@@ -131,12 +137,12 @@ var MagicCircle = function(selector) {
             .attr("r", radius)
 
         return {
-            disperse:function(){
-              circle
-                .transition()
-                .duration(magicCircle.styles.animation.inSpeed)
-                 .attr("opacity", 0)
-                 .attr("r", 0);
+            disperse: function() {
+                circle
+                    .transition()
+                    .duration(magicCircle.styles.animation.inSpeed)
+                    .attr("opacity", 0)
+                    .attr("r", 0);
             }
         }
 
@@ -147,7 +153,7 @@ var MagicCircle = function(selector) {
         var offset = 0;
 
         var ring = svg.append("g")
-          .attr("opacity",1);
+            .attr("opacity", 1);
 
         for (var i = 0; i < count; i++) {
 
@@ -182,12 +188,12 @@ var MagicCircle = function(selector) {
         });
 
         return {
-            disperse:function(){
+            disperse: function() {
                 console.log('dispersing ring');
-               ring
-                .transition()
-                .duration(magicCircle.styles.animation.inSpeed)
-                 .attr("opacity",0);
+                ring
+                    .transition()
+                    .duration(magicCircle.styles.animation.inSpeed)
+                    .attr("opacity", 0);
             }
         }
     }
@@ -224,8 +230,8 @@ var MagicCircle = function(selector) {
             .append("textPath")
             .attr("xlink:href", "#s3" + runeId)
 
-            .style("letter-spacing", magicCircle.styles.type.leading)
-            .style( "text-transform", magicCircle.styles.type.typecase)
+        .style("letter-spacing", magicCircle.styles.type.leading)
+            .style("text-transform", magicCircle.styles.type.typecase)
             .style("filter", "url(#drop-blur)")
             .text(text)
             .attr("opacity", 0)
@@ -233,7 +239,7 @@ var MagicCircle = function(selector) {
             .transition()
             .duration(magicCircle.styles.animation.inSpeed)
             .ease("linear")
-             .attr("opacity", 1);
+            .attr("opacity", 1);
 
         ring.append("use")
             .attr("xlink:href", "#s3" + runeId)
@@ -242,11 +248,11 @@ var MagicCircle = function(selector) {
             .style("fill", "none");
 
         return {
-            disperse:function(){
-               ring
-                .transition()
-                .duration(magicCircle.styles.animation.inSpeed)
-                 .attr("opacity", 0);
+            disperse: function() {
+                ring
+                    .transition()
+                    .duration(magicCircle.styles.animation.inSpeed)
+                    .attr("opacity", 0);
             }
         }
 
@@ -257,17 +263,20 @@ var MagicCircle = function(selector) {
 
     this.allElements = [];
     this.disperse = function() {
-        _.each(magicCircle.allElements,function(element){
+        _.each(magicCircle.allElements, function(element) {
             element.disperse();
-        }) 
+        })
 
         magicCircle.allElements = [];
         magicCircle.animationListeners = [];
+        clearInterval(animator);
+        svg.remove();
     }
 
     this.cast = function(rad) {
 
         var draw = this.draw;
+        animator = setInterval(magicCircle.animate, 100);
 
         this.init();
 
@@ -326,40 +335,32 @@ var fire = {
 }
 
 //magic.styles.colors = fire;
+var miscRing = function(count) {
+    var _magic = new MagicCircle("#circle1");
+    var returner;
+
+    for (var i = 0; i < count; i++) {
+        if (!returner) {
+            returner = _magic.cast();
+        } else {
+            returner = returner
+                .ring(10)
+                .circleRing(10, 5, 10, true)
+                .ring()
+                .text(7, lol.hipster())
+        }
 
 
-magic.cast()
-    .ring(10)
-    .text(7, lol.hipster())
-    .ring(5)
-    .ring(5)
-    .ring(5)
-    .text(15, lol.hipster(), 10, true)
-    .ring(5)
-    .ring(5)
-    .space(10)
-    .ring()
-    .space(5)
-    .ring()
-    .circleRing(10, 5, 10, true)
-    .ring()
-    .text(15, lol.hipster(), 10, true)
-    .ring()
-    .circleRing(10, 5, 10)
-    .ring()
-    .space(2)
-    .circleRing(3, 21, 10)
-    .space(2)
-    .ring()
-    .backspace(10)
-    .ring()
-    .text(10, lol.hipster(), 10, false)
-    .backspace(30)
-    .ring(5)
-    .ring(5)
-    .ring(5);
+    }
 
-setTimeout(function(){
-    magic.disperse();
+    return returner;
+}
 
-},1000);
+setInterval(function() {
+    var _magic = miscRing(4);
+
+    setTimeout(function() {
+        _magic.disperse();
+    }, 700);
+
+}, 1000);
