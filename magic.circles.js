@@ -10,7 +10,6 @@ var MagicCircle = function(selector, animationSpeed) {
 
     var defs = svg.append("defs");
 
-
     // user settings    
     var introAnimationTime = 777;
     var animationSpeed = animationSpeed || 5;
@@ -65,7 +64,7 @@ var MagicCircle = function(selector, animationSpeed) {
     init();
 
     // methods
-    this.draw.circle = function(selector, radius) {
+    this.draw.circle = function(radius) {
 
         var circle = svg.append("circle");
 
@@ -85,7 +84,7 @@ var MagicCircle = function(selector, animationSpeed) {
 
     }
 
-    this.draw.circleRing = function(selector, radius, count, innerRadius, speed, reverse) {
+    this.draw.circleRing = function(radius, count, innerRadius, speed, reverse) {
 
         var offset = 0;
 
@@ -124,7 +123,7 @@ var MagicCircle = function(selector, animationSpeed) {
         });
     }
 
-    this.draw.runeRing = function(selector, radius, text, fontSize, speed, reverse) {
+    this.draw.runeRing = function(radius, text, fontSize, speed, reverse) {
 
         var rotation = 0;
 
@@ -182,12 +181,12 @@ var MagicCircle = function(selector, animationSpeed) {
             currentRadius: 0,
             selector: selector,
             ring:function(radius){
-                draw.circle(selector, this.currentRadius);
+                draw.circle(this.currentRadius);
                 if (radius) return this.space(radius);
                 return this;
             },
             circleRing:function(count,innerRadius,speed,reverse) {
-                draw.circleRing(selector, this.currentRadius + innerRadius, count, innerRadius, speed, reverse);
+                draw.circleRing(this.currentRadius + innerRadius, count, innerRadius, speed, reverse);
                 this.currentRadius += innerRadius * 2;
                 return this;
             },
@@ -201,38 +200,12 @@ var MagicCircle = function(selector, animationSpeed) {
             },
             text:function(height,text,speed,reverse){
                 var padding = 2;
-                draw.runeRing(this.selector, this.currentRadius + padding, text, height, speed || 10, reverse);
+                draw.runeRing(this.currentRadius + padding, text, height, speed || 10, reverse);
                 this.currentRadius += height;
                 return this;
             }
         }
 
-        draw.circle("#circle1", 180);
-        draw.circle("#circle1", 190);
-
-        draw.circle("#circle1", 150);
-        draw.circle("#circle1", 145);
-
-        draw.circle("#circle1", 105);
-        draw.circle("#circle1", 85);
-
-        draw.circle("#circle1", 50);
-        draw.circle("#circle1", 45);
-
-        draw.circle("#circle1", 35);
-        draw.circle("#circle1", 25);
-
-        draw.circleRing("#circle1", 67, 6, 15, true);
-        draw.circleRing("#circle1", 67, 18, 5);
-        draw.circleRing("#circle1", 85, 40, 2, true);
-        draw.circleRing("#circle1", 185, 72, 3);
-
-        draw.runeRing("#circle1", 27, "ηκε ολοσχερώς στο μυαλό των θεατών από τη φαντασ", 5, true);
-        draw.runeRing("#circle1", 45, "ηκε ολοσχερώς στο μυαλό των θεατών από τη φαντασ", 8, false);
-        draw.runeRing("#circle1", 90, "μέχρι το μυαλό της σε μια εμφάνιση του θάρρους. Όταν", 15, true);
-        draw.runeRing("#circle1", 115, "δάκρυ φάνηκε να σκοτεινιάζει τα μάτια της όταν μας είδε? αλλά ανάρρωσε γρήγορα τον εαυτό της ", 35);
-        draw.runeRing("#circle1", 160, "δάκρυ φάνηκε να σκοτεινιάζει τα μάτια της όταν μας είδε? αλλά ανάρρωσε γρήγορα τον εαυτό της ", 15, true);
-        draw.runeRing("#circle1", 145, lol.hipster() + lol.hipster(), 7, true);
     }
 
 }
