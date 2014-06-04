@@ -16,14 +16,14 @@ var MagicCircle = function(selector) {
     var animationSpeed = 5;
 
 
-
+    // initializers
     this.draw = {};
     this.animationListeners = [];
     this.onanimate = function(l) {
         this.animationListeners.push(l);
     }
 
-    function animate() {
+    this.animate = function() {
         for (var i = 0; i < magicCircle.animationListeners.length; i++) {
             magicCircle.animationListeners[i]();
         }
@@ -59,11 +59,12 @@ var MagicCircle = function(selector) {
         feMerge.append("feMergeNode")
             .attr("in", "SourceGraphic");
 
-        setInterval(animate, 100);
+        setInterval(magicCircle.animate, 100);
     };
 
     init();
 
+    // methods
     this.draw.circle = function(selector, radius) {
 
         var circle = svg.append("circle");
@@ -118,7 +119,7 @@ var MagicCircle = function(selector) {
                 .transition()
                 .ease("linear")
                 .duration(100)
-                .attr("transform", "rotate(" + offset + ", 250, 250)");
+                .attr("transform", "rotate(" + offset + ", "+width/2+", "+width/2+")");
         });
     }
 
