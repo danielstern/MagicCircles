@@ -173,9 +173,18 @@ var MagicCircle = function(selector) {
 
     }
 
-    this.cast = function(defs) {
+    this.cast = function(rad) {
 
         var draw = this.draw;
+
+        return {
+            currentRadius: 0,
+            selector: selector,
+            ring:function(radius){
+                draw.circle(selector, radius);
+                return this;
+            }
+        }
 
         draw.circle("#circle1", 180);
         draw.circle("#circle1", 190);
@@ -210,5 +219,8 @@ var MagicCircle = function(selector) {
 
 
 
-var circle = new MagicCircle("#circle1");
-circle.cast();
+var magic = new MagicCircle("#circle1");
+magic.cast()
+    .ring(10)
+    .ring(15)
+    .ring(5)
