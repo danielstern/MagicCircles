@@ -18,7 +18,7 @@ function circle(selector, radius) {
 
 }
 
-function circleRing(selector, radius, count, innerRadius) {
+function circleRing(selector, radius, count, innerRadius, reverse) {
 
     var width = 500;
     var height = 500;
@@ -36,20 +36,47 @@ function circleRing(selector, radius, count, innerRadius) {
 			g
 			  //.attr("transform","translate(500,500)");
 
-			g.append("circle")
+            var offset = 0;
+
+			var circle = g.append("circle");
+            circle
 			    .attr("r", innerRadius)
-			    .attr("cx", width / 2 + (Math.cos(completeness * RAD) )* q * radius )
-			    .attr("cy", height / 2 + (Math.sin(completeness * RAD)) * q * radius)
+			    .attr("cx", width / 2 + (Math.cos((offset + completeness) * RAD) )* q * radius )
+                .attr("cy", height / 2 + (Math.sin((offset + completeness) * RAD)) * q * radius)
+			    .attr("completeness", completeness)
 			    .attr("stroke", "gray")
 			    .attr("fill", "none")
 			    .attr("stroke-width", 3);
-
-			// g
 			//     .transition()
 			//     .duration(10000)
 			//     .ease("linear")
 			//     .attr("transform", "translate(0,-500) rotate("+180+")");;
+
+
+
+            setInterval(animate, 1000,circle);
+
 		}
+
+        function animate(thing) {
+               offset = (reverse) ? offset - 0.001 : offset + 0.001;
+
+               console.log("animating thing");
+                thing
+                    .transition()
+                    .ease("linear")
+                    .duration(1000)
+                    .attr("cx", function(d,t,s) {
+                        var completeness = parseFloat(thing.attr('completeness'));
+                        // debugger;
+                        return width / 2 + (Math.cos((offset + completeness) * RAD) )* q * radius; 
+                    })
+                    .attr("cy", function(d,t,s) {
+                        var completeness = parseFloat(thing.attr('completeness'));
+                        return height / 2 + (Math.sin((offset + completeness) * RAD)) * q * radius;
+                    });
+
+        }
 
 
     
