@@ -23,58 +23,44 @@ function circleRing(selector, radius, count, innerRadius, reverse) {
     var width = 500;
     var height = 500;
     var RAD = Math.PI * 2;
+    var offset = 0;
+
     svg = d3.select(selector)
         .select("svg")
+    var g = svg.append("g")
 
-		for (var i = 0; i < count; i++) {
+        for (var i = 0; i < count; i++) {
 
-			var completeness = i / count;
-			// debugger;
-			var q = 1;
-			var g = svg.append("g")
+            var completeness = i / count;
+            var q = 1;
 
-			g
-			  //.attr("transform","translate(500,500)");
+            // g
+              //.attr("transform","translate(500,500)");
 
-            var offset = 0;
 
 			var circle = g.append("circle");
             circle
 			    .attr("r", innerRadius)
 			    .attr("cx", width / 2 + (Math.cos((offset + completeness) * RAD) )* q * radius )
                 .attr("cy", height / 2 + (Math.sin((offset + completeness) * RAD)) * q * radius)
-			    .attr("completeness", completeness)
 			    .attr("stroke", "gray")
 			    .attr("fill", "none")
-			    .attr("stroke-width", 3);
+			    .attr("stroke-width", innerRadius / 5);
 			//     .transition()
-			//     .duration(10000)
-			//     .ease("linear")
-			//     .attr("transform", "translate(0,-500) rotate("+180+")");;
+			
 
 
-
-            setInterval(animate, 1000,circle);
-
-		}
+        }
+         setInterval(animate, 100,g);
 
         function animate(thing) {
-               offset = (reverse) ? offset - 0.001 : offset + 0.001;
+               offset = (reverse) ? offset - 1 : offset + 1;
 
-               console.log("animating thing");
                 thing
                     .transition()
                     .ease("linear")
-                    .duration(1000)
-                    .attr("cx", function(d,t,s) {
-                        var completeness = parseFloat(thing.attr('completeness'));
-                        // debugger;
-                        return width / 2 + (Math.cos((offset + completeness) * RAD) )* q * radius; 
-                    })
-                    .attr("cy", function(d,t,s) {
-                        var completeness = parseFloat(thing.attr('completeness'));
-                        return height / 2 + (Math.sin((offset + completeness) * RAD)) * q * radius;
-                    });
+                    .duration(100)
+                    .attr("transform","rotate("+offset+", 250, 250)");
 
         }
 
