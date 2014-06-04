@@ -29,11 +29,11 @@ svg {
 
 text {
 	font-family: Garamond;
-	fill: green;
+	/*fill: green;*/
 	text-transform: uppercase;
 	letter-spacing: 5pt;
 }
 
 circle {
-	stroke: blue;
+	/*stroke: blue;*/
 }
