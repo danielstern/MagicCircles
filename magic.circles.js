@@ -1,4 +1,4 @@
-var MagicCircle = function(selector) {
+var MagicCircle = function(selector, animationSpeed) {
 
     // CONSTS
     var RAD = Math.PI * 2;    
@@ -13,7 +13,7 @@ var MagicCircle = function(selector) {
 
     // user settings    
     var introAnimationTime = 777;
-    var animationSpeed = 5;
+    var animationSpeed = animationSpeed || 5;
 
 
     // initializers
@@ -123,7 +123,7 @@ var MagicCircle = function(selector) {
         });
     }
 
-    this.draw.runeRing = function(selector, radius, text, fontSize, reverse) {
+    this.draw.runeRing = function(selector, radius, text, fontSize, speed, reverse) {
 
         var rotation = 0;
 
@@ -181,7 +181,22 @@ var MagicCircle = function(selector) {
             currentRadius: 0,
             selector: selector,
             ring:function(radius){
-                draw.circle(selector, radius);
+                draw.circle(selector, this.currentRadius);
+                if (radius) return this.space(radius);
+                return this;
+            },
+            space:function(length){
+                this.currentRadius += length;
+                return this;
+            },
+            backspace:function(length){
+                this.currentRadius -= length;
+                return this;
+            },
+            text:function(height,text,speed,reverse){
+                var padding = 2;
+                draw.runeRing(this.selector, this.currentRadius + padding, text, height, speed || 10, reverse);
+                this.currentRadius += height;
                 return this;
             }
         }
@@ -222,5 +237,14 @@ var MagicCircle = function(selector) {
 var magic = new MagicCircle("#circle1");
 magic.cast()
     .ring(10)
-    .ring(15)
+    .text(7, "Hey hey mr dj!")
     .ring(5)
+    .ring(5)
+    .ring(5)
+    .text(15, "You're the ring now dog",10)
+    .ring(5)
+    .ring(5)
+    .space(10)
+    .ring()
+    .space(5)
+    .ring()
