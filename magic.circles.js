@@ -5,17 +5,52 @@ var MagicCircle = function(selector) {
     var width = $(selector).width();
     var height = $(selector).height();
 
-
     var svg = d3.select(selector)
         .select("svg")
+
+    var defs = svg.append("defs");
 
     this.draw = {};
 
     var colors = {
-        ring: "#F0F",
-        text: "#0FF",
-        smallRing: "#FF0",
+        ring: "#182645",
+        text: "#243a6c",
+        smallRing: "#304f93",
     }
+
+        function init() {
+
+            var shadowFilter = defs.append("filter")
+                .attr("id", "drop-shadow")
+                .attr("height", "130%");
+
+            // SourceAlpha refers to opacity of graphic that this filter will be applied to
+            // convolve that with a Gaussian with standard deviation 3 and store result
+            // in blur
+            shadowFilter.append("feGaussianBlur")
+                .attr("in", "SourceAlpha")
+                .attr("stdDeviation", 5)
+                .attr("result", "blur");
+
+            // translate output of Gaussian blur to the right and downwards with 2px
+            // store result in offsetBlur
+            shadowFilter.append("feOffset")
+                .attr("in", "blur")
+                .attr("dx", 2)
+                .attr("dy", 2)
+                .attr("result", "offsetBlur");
+
+            // overlay original SourceGraphic over translated blurred opacity by using
+            // feMerge filter. Order of specifying inputs is important!
+            var feMerge = shadowFilter.append("feMerge");
+
+            feMerge.append("feMergeNode")
+                .attr("in", "offsetBlur")
+            feMerge.append("feMergeNode")
+                .attr("in", "SourceGraphic");
+        };
+
+    init();
 
     var animationSpeed = 500;
 
@@ -123,7 +158,7 @@ var MagicCircle = function(selector) {
             .style("filter", "url(#drop-shadow)")
             .text(text)
             .attr("opacity", 0)
-            .attr("fill",colors.text)
+            .attr("fill", colors.text)
             .transition()
             .duration(400)
             .ease("linear")
@@ -137,36 +172,40 @@ var MagicCircle = function(selector) {
 
         animate();
 
-        var defs = svg.append("defs");
 
-        var filter = defs.append("filter")
-            .attr("id", "drop-shadow")
-            .attr("height", "130%");
 
-        // SourceAlpha refers to opacity of graphic that this filter will be applied to
-        // convolve that with a Gaussian with standard deviation 3 and store result
-        // in blur
-        filter.append("feGaussianBlur")
-            .attr("in", "SourceAlpha")
-            .attr("stdDeviation", 5)
-            .attr("result", "blur");
+    }
 
-        // translate output of Gaussian blur to the right and downwards with 2px
-        // store result in offsetBlur
-        filter.append("feOffset")
-            .attr("in", "blur")
-            .attr("dx", 2)
-            .attr("dy", 2)
-            .attr("result", "offsetBlur");
+    this.cast = function(defs) {
 
-        // overlay original SourceGraphic over translated blurred opacity by using
-        // feMerge filter. Order of specifying inputs is important!
-        var feMerge = filter.append("feMerge");
+        var draw = this.draw;
 
-        feMerge.append("feMergeNode")
-            .attr("in", "offsetBlur")
-        feMerge.append("feMergeNode")
-            .attr("in", "SourceGraphic");
+        draw.circle("#circle1", 180);
+        draw.circle("#circle1", 190);
+
+        draw.circle("#circle1", 150);
+        draw.circle("#circle1", 145);
+
+        draw.circle("#circle1", 105);
+        draw.circle("#circle1", 85);
+
+        draw.circle("#circle1", 50);
+        draw.circle("#circle1", 45);
+
+        draw.circle("#circle1", 35);
+        draw.circle("#circle1", 25);
+
+        draw.circleRing("#circle1", 70, 6, 15, true);
+        draw.circleRing("#circle1", 70, 18, 5);
+        draw.circleRing("#circle1", 85, 40, 2, true);
+        draw.circleRing("#circle1", 185, 72, 3);
+
+        draw.runeRing("#circle1", 27, "ηκε ολοσχερώς στο μυαλό των θεατών από τη φαντασ", 5, true);
+        draw.runeRing("#circle1", 45, "ηκε ολοσχερώς στο μυαλό των θεατών από τη φαντασ", 8, false);
+        draw.runeRing("#circle1", 90, "μέχρι το μυαλό της σε μια εμφάνιση του θάρρους. Όταν", 15, true);
+        draw.runeRing("#circle1", 115, "δάκρυ φάνηκε να σκοτεινιάζει τα μάτια της όταν μας είδε? αλλά ανάρρωσε γρήγορα τον εαυτό της ", 35);
+        draw.runeRing("#circle1", 160, "δάκρυ φάνηκε να σκοτεινιάζει τα μάτια της όταν μας είδε? αλλά ανάρρωσε γρήγορα τον εαυτό της ", 15, true);
+        draw.runeRing("#circle1", 145, lol.hipster() + lol.hipster(), 7, true);
 
     }
 
@@ -175,32 +214,4 @@ var MagicCircle = function(selector) {
 
 
 var circle = new MagicCircle("#circle1");
-
-var draw = circle.draw;
-
-draw.circle("#circle1", 180);
-draw.circle("#circle1", 190);
-
-draw.circle("#circle1", 150);
-draw.circle("#circle1", 145);
-
-draw.circle("#circle1", 105);
-draw.circle("#circle1", 85);
-
-draw.circle("#circle1", 50);
-draw.circle("#circle1", 45);
-
-draw.circle("#circle1", 35);
-draw.circle("#circle1", 25);
-
-draw.circleRing("#circle1", 70, 6, 15, true);
-draw.circleRing("#circle1", 70, 18, 5);
-draw.circleRing("#circle1", 85, 40, 2, true);
-draw.circleRing("#circle1", 185, 72, 3);
-
-draw.runeRing("#circle1", 27, "ηκε ολοσχερώς στο μυαλό των θεατών από τη φαντασ", 5, true);
-draw.runeRing("#circle1", 45, "ηκε ολοσχερώς στο μυαλό των θεατών από τη φαντασ", 8, false);
-draw.runeRing("#circle1", 90, "μέχρι το μυαλό της σε μια εμφάνιση του θάρρους. Όταν", 15, true);
-draw.runeRing("#circle1", 115, "δάκρυ φάνηκε να σκοτεινιάζει τα μάτια της όταν μας είδε? αλλά ανάρρωσε γρήγορα τον εαυτό της ", 35);
-draw.runeRing("#circle1", 160, "δάκρυ φάνηκε να σκοτεινιάζει τα μάτια της όταν μας είδε? αλλά ανάρρωσε γρήγορα τον εαυτό της ", 15, true);
-draw.runeRing("#circle1", 145, lol.hipster() + lol.hipster(), 7,true);
+circle.cast();
