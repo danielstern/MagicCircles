@@ -6,8 +6,6 @@ var MagicCircle = function(selector) {
     var width = $(selector).width();
     var height = $(selector).height();
 
-
-
     var svg;
 
     // user settings    
@@ -20,10 +18,14 @@ var MagicCircle = function(selector) {
         this.animationListeners.push(l);
     }
 
+    this.currentRadius = 0;
+
     this.animate = function() {
         for (var i = 0; i < magicCircle.animationListeners.length; i++) {
             magicCircle.animationListeners[i]();
         }
+
+        console.log("animate");
     }
 
     this.styles = {
@@ -108,7 +110,7 @@ var MagicCircle = function(selector) {
         shadowFeMerge.append("feMergeNode")
             .attr("in", "SourceGraphic");
 
-        
+
 
         // animator = setInterval(magicCircle.animate, 100);
 
@@ -189,7 +191,6 @@ var MagicCircle = function(selector) {
 
         return {
             disperse: function() {
-                console.log('dispersing ring');
                 ring
                     .transition()
                     .duration(magicCircle.styles.animation.inSpeed)
@@ -269,11 +270,13 @@ var MagicCircle = function(selector) {
 
         magicCircle.allElements = [];
         magicCircle.animationListeners = [];
-        setTimeout(function(){
-            clearInterval(animator);
-             svg.remove()}
-        
-        ,1500);
+        magicCircle.currentRadius = 0;
+        clearInterval(animator);
+        setTimeout(function() {
+                svg.remove()
+            }
+
+            , 1000);
     }
 
     this.cast = function(rad) {
@@ -284,33 +287,32 @@ var MagicCircle = function(selector) {
         this.init();
 
         return {
-            currentRadius: 0,
             selector: selector,
             ring: function(radius) {
-                var circle = draw.circle(this.currentRadius);
+                var circle = draw.circle(magicCircle.currentRadius);
                 magicCircle.allElements.push(circle);
                 if (radius) return this.space(radius);
                 return this;
             },
             circleRing: function(count, innerRadius, speed, reverse) {
-                var circleRing = draw.circleRing(this.currentRadius + innerRadius, count, innerRadius, speed, reverse);
+                var circleRing = draw.circleRing(magicCircle.currentRadius + innerRadius, count, innerRadius, speed, reverse);
                 magicCircle.allElements.push(circleRing);
-                this.currentRadius += innerRadius * 2;
+                magicCircle.currentRadius += innerRadius * 2;
                 return this;
             },
             space: function(length) {
-                this.currentRadius += length;
+                magicCircle.currentRadius += length;
                 return this;
             },
             backspace: function(length) {
-                this.currentRadius -= length;
+                magicCircle.currentRadius -= length;
                 return this;
             },
             text: function(height, text, speed, reverse) {
                 var padding = 2;
-                var text = draw.runeRing(this.currentRadius + padding, text, height, speed || 10, reverse);
+                var text = draw.runeRing(magicCircle.currentRadius + padding, text, height, speed || 10, reverse);
                 magicCircle.allElements.push(text);
-                this.currentRadius += height;
+                magicCircle.currentRadius += height;
                 return this;
             },
             disperse: function() {
@@ -339,7 +341,7 @@ var fire = {
 
 //magic.styles.colors = fire;
 var miscRing = function(count) {
-    var _magic = new MagicCircle("#circle1");
+    var _magic = magic;
     var returner;
 
     for (var i = 0; i < count; i++) {
@@ -360,10 +362,14 @@ var miscRing = function(count) {
 }
 
 setInterval(function() {
+    drawAndErase();
+
+}, 3000);
+
+function drawAndErase() {
     var _magic = miscRing(4);
 
     setTimeout(function() {
         _magic.disperse();
     }, 1500);
-
-}, 3000);
+}
