@@ -13,7 +13,9 @@ var MagicCircle = function(selector) {
     // initializers
     this.draw = {};
     var animator = undefined;
+
     this.animationListeners = [];
+    this.allElements = [];
     this.onanimate = function(l) {
         this.animationListeners.push(l);
     }
@@ -54,8 +56,11 @@ var MagicCircle = function(selector) {
 
     this.init = function() {
 
+        console.log("Inited");
+
         svg = d3.select(selector)
             .append("svg")
+            .append("g");
         var defs = svg.append("defs");
 
         var blurFilter = defs.append("filter")
@@ -65,7 +70,7 @@ var MagicCircle = function(selector) {
         blurFilter.append("feGaussianBlur")
             .attr("in", "SourceAlpha")
             .attr("stdDeviation", magicCircle.styles.graphics.blur.level)
-            .attr("result", "blur");
+            // .attr("result", "blur");
 
         blurFilter.append("feOffset")
             .attr("in", "blur")
@@ -110,6 +115,8 @@ var MagicCircle = function(selector) {
             .attr("in", "SourceGraphic");
 
     };
+
+    $(this.init);
 
 
     // methods
@@ -251,8 +258,6 @@ var MagicCircle = function(selector) {
         }
     }
 
-
-    this.allElements = [];
     this.disperse = function() {
         _.each(magicCircle.allElements, function(element) {
             element.disperse();
@@ -261,12 +266,14 @@ var MagicCircle = function(selector) {
         magicCircle.allElements = [];
         magicCircle.animationListeners = [];
         magicCircle.currentRadius = 0;
-        clearInterval(animator);
+        // clearInterval(animator);
         setTimeout(function() {
-                svg.remove()
+                svg
+                    .remove()
             }
+        , magicCircle.styles.animation.inSpeed + 100);
 
-            , magicCircle.styles.animation.inSpeed + 100);
+        if (magicCircle.caster) return magicCircle.caster;
     }
 
     this.cast = function(rad) {
@@ -276,7 +283,7 @@ var MagicCircle = function(selector) {
         var draw = this.draw;
         animator = setInterval(magicCircle.animate, 100);
 
-        this.init();
+        // this.init();
 
         magicCircle.caster = {
             selector: selector,

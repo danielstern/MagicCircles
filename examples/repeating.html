@@ -13,24 +13,19 @@
 </artboard>
 
 <script>
-var magic = new MagicCircle("#repeating", 2);
 
+(function(){var magic = new MagicCircle("#repeating", 2);
 function getRandomNumber(max) {
     return Math.floor(Math.random()*(max||10))
 }
 
-
 //magic.styles.colors = fire;
 var miscRing = function(count) {
-    var _magic = magic;
-    var returner;
 
 
     for (var i = 0; i < count; i++) {
-        if (!returner) {
-            returner = _magic.cast();
-        } else {
-            returner = returner
+
+        magic.cast()
                 .circleRing(getRandomNumber(3) * (count + 3), getRandomNumber(2)  * (count + 1), getRandomNumber(3)  * (count + 1), getRandomNumber(1)  * (count + 1))
                 .ring()
                 .text(getRandomNumber(4)  * (count + 1), lol.physics() + lol.physics() + lol.physics())
@@ -42,15 +37,14 @@ var miscRing = function(count) {
 
     }
 
-    return returner;
-}
 
 miscRing(5);
 
-function reroll() {
+window.reroll = function() {
     console.log("Rerolling");
     magic.disperse();
     setTimeout(miscRing,2000,getRandomNumber(5) + 3)
 }
+})()
 </script>
 
