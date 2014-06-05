@@ -5,6 +5,7 @@ var MagicCircle = function(selector) {
     var magicCircle = this;
     var width = $(selector).width();
     var height = $(selector).height();
+    var caster = undefined;
 
     var svg;
 
@@ -270,12 +271,14 @@ var MagicCircle = function(selector) {
 
     this.cast = function(rad) {
 
+        if (magicCircle.caster) return magicCircle.caster;
+
         var draw = this.draw;
         animator = setInterval(magicCircle.animate, 100);
 
         this.init();
 
-        return {
+        magicCircle.caster = {
             selector: selector,
             ring: function(radius) {
                 var circle = draw.circle(magicCircle.currentRadius);
@@ -308,6 +311,8 @@ var MagicCircle = function(selector) {
                 magicCircle.disperse();
             }
         }
+
+        return magicCircle.caster;
 
     }
 

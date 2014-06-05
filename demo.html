@@ -4,23 +4,37 @@
     <script src="bower_components/d3/d3.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/angular/angular.js"></script>
-		<script src='lol.js'></script>
+    <script src='lol.js'></script>
 </head>
 
 <body ng-app="MagicCirclesDemo" ng-controller="Main">
-	<h1>
-		Magic Circles Demos
-	</h1>
-	<div class='container'>
-		<div ng-include="'examples/repeating.html'"></div>
-	</div>
+    <h1>
+        Magic Circles Demos
+    </h1>
+    <div class='container'>
+        <div ng-controller='CastingController' ng-include="'examples/casting.html'"></div>
+    </div>
+    <div class='container'>
+        <div ng-include="'examples/repeating.html'"></div>
+    </div>
 </body>
 
 
 <script src='magic.circles.js'></script>
 <script>
-	angular.module("MagicCirclesDemo",[])
-		.controller("Main",function($scope){
-			console.log("hi from demo.");
-		})
+angular.module("MagicCirclesDemo", [])
+    .controller("Main", function($scope) {
+        console.log("hi from demo.");
+    })
+    .controller("CastingController", function($scope) {
+    	var magic = new MagicCircle("#casting", 2);
+    	//var spell = magic.cast();
+    //	spell.space(5);
+
+        $scope.ring = function() {
+            // console.log("Drawin ring", spell);
+            magic.cast()
+             .ring(15)
+        }
+    })
 </script>
