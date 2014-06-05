@@ -11,9 +11,9 @@
     <h1>
         Magic Circles Demos
     </h1>
-  <!--   <div class='container'>
+    <div class='container'>
         <div ng-controller='CastingController' ng-include="'examples/casting.html'"></div>
-    </div> -->
+    </div>
     <div class='container'>
         <div ng-include="'examples/repeating.html'"></div>
     </div>
@@ -27,7 +27,9 @@ angular.module("MagicCirclesDemo", [])
         console.log("hi from demo.");
     })
     .controller("CastingController", function($scope) {
-    	var magic = new MagicCircle("#repeating", 2);
+    	var magic = new MagicCircle("#casting", 2);
+    		
+    		$scope.circle = magic;
 
         $scope.ring = function() {
             // console.log("Drawin ring", spell);
