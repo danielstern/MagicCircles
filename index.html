@@ -10,13 +10,44 @@
 	<h1>
 		Magic Circles
 	</h1>
-	<div class='container'>
-	<magic id='circle1'>
-		<!-- <svg>
-		</svg> -->
-	</magic>
+	<div class='container' id='headerCircle'>
+	</div>
+	<ol>
+		<li>
+		<a href="https://github.com/danielstern/MagicCircles">	Github Page</a>
+		</li>
+		<li>
+			<a href="demo.html">Demo Page</a>
+		</li>
+		<p>
+			Doesn't work? Try it in Chrome.
+		</p>
 
 </body>
 
 
 <script src='magic.circles.js'></script>
+<script>
+	var intro = new MagicCircle("#headerCircle");
+		intro.cast()
+			.circleRing(12,16)
+			.ring(5)
+			.ring(0)
+			.ring()
+			.text(10,lol.hipster())
+			.ring()
+			.circleRing(8,16,2,true)
+			.backspace(24)
+			.circleRing(24,8,4,false)
+			.space(8)
+			.ring(5)
+			.ring()
+			.text(24,"Magic Circles by Azureda",1)
+			.ring()
+			.circleRing(48,4,2)
+			.ring(5)
+			.ring()
+			.text(12,"Make your own today! The astonishing circle framework by international technology innovators Azureda and Friends!",1)
+			.ring();
+
+</script>
