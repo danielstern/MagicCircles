@@ -3,20 +3,24 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/d3/d3.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
 		<script src='lol.js'></script>
 </head>
 
-<body>
+<body ng-app="MagicCirclesDemo" ng-controller="Main">
 	<h1>
 		Magic Circles Demos
 	</h1>
 	<div class='container'>
-	<magic id='circle1'>
-		<!-- <svg>
-		</svg> -->
-	</magic>
-
+		<div ng-include="'examples/repeating.html'"></div>
+	</div>
 </body>
 
 
 <script src='magic.circles.js'></script>
+<script>
+	angular.module("MagicCirclesDemo",[])
+		.controller("Main",function($scope){
+			console.log("hi from demo.");
+		})
+</script>

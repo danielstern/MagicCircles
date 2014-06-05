@@ -1,0 +1,35 @@
+<artboard id='repeating'>
+
+</artboard>
+<script>
+var magic = new MagicCircle("#repeating", 2);
+
+
+//magic.styles.colors = fire;
+var miscRing = function(count) {
+    var _magic = magic;
+    var returner;
+
+    for (var i = 0; i < count; i++) {
+        if (!returner) {
+            returner = _magic.cast();
+        } else {
+            returner = returner
+                .space(10)
+                .ring()
+                .circleRing(10, 5, 10, true)
+                .ring()
+                .text(7, "I am a sweet magic circle")
+                .ring()
+                .text(10, "Better believe I use HTML", 3, true)
+        }
+
+
+    }
+
+    return returner;
+}
+
+miscRing(10);
+</script>
+

@@ -23,7 +23,6 @@ var MagicCircle = function(selector) {
         for (var i = 0; i < magicCircle.animationListeners.length; i++) {
             magicCircle.animationListeners[i]();
         }
-        console.log("animate");
     }
 
     // user settings    
@@ -174,7 +173,7 @@ var MagicCircle = function(selector) {
         }
 
         magicCircle.onanimate(function() {
-            offset = (reverse) ? offset - 1 * (speed || animationSpeed) : offset + 1 * (speed || animationSpeed);
+            offset = (reverse) ? offset - 1 * (speed || magicCircle.styles.animation.animationSpeed) : offset + 1 * (speed || magicCircle.styles.animation.animationSpeed);
             ring
                 .transition()
                 .ease("linear")
@@ -206,7 +205,7 @@ var MagicCircle = function(selector) {
 
 
         magicCircle.onanimate(function() {
-            rotation = (reverse) ? rotation - 1 * (speed || animationSpeed) : rotation + 1 * (speed || animationSpeed);
+            rotation = (reverse) ? rotation - 1 * (speed || magicCircle.styles.animation.animationSpeed) : rotation + 1 * (speed || magicCircle.styles.animation.animationSpeed);
             ring
                 .transition()
                 .duration(100)
@@ -314,52 +313,3 @@ var MagicCircle = function(selector) {
 
 }
 
-
-
-var magic = new MagicCircle("#circle1", 2);
-var magic2 = new MagicCircle("#circle2", 2);
-
-magic.styles.colors.ring = "#8091d4"
-magic.styles.colors.smallRing = "#bfc8ea"
-magic.styles.colors.text = "#9facdf"
-
-var fire = {
-    ring: "#b43b54",
-    smallRing: "#c8526a",
-    text: "#fee"
-}
-
-//magic.styles.colors = fire;
-var miscRing = function(count) {
-    var _magic = magic;
-    var returner;
-
-    for (var i = 0; i < count; i++) {
-        if (!returner) {
-            returner = _magic.cast();
-        } else {
-            returner = returner
-                .ring(10)
-                .circleRing(10, 5, 10, true)
-                .ring()
-                .text(7, lol.hipster())
-        }
-
-
-    }
-
-    return returner;
-}
-
-setInterval(function() {
-    drawAndErase();
-
-}, 3000);
-
-function drawAndErase() {
-    var _magic = miscRing(4);
-
-    setTimeout(function() {
-        _magic.disperse();
-    }, 1500);
-}

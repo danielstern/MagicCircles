@@ -5,7 +5,7 @@
 	height: 500px;
 }
 
-magic {
+artboard {
 	display: block;
 	/*-webkit-animation: jewelbox 100s infinite linear;*/
 	width: 500px;
@@ -14,7 +14,7 @@ magic {
 }
 
 svg {
-		position: absolute;
+		/*position: absolute;*/
 }
 
 @-webkit-keyframes jewelbox {
