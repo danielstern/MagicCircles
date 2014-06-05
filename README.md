@@ -10,6 +10,10 @@ What is Magic Circles?
 --------
 Magic Circles is a library for making sweet animated magic (or "summoning") circles like in Diablo, Final Fantasy, etc. Magic Circles uses D3 and SVG graphics to provide a smooth experience.
 
+<h2>
+  <a href="http://azureda.com/magicCircles/demo.html">Check out the Demo Page!
+</h2>
+
 ### But, why?
 Because I DON'T KNOW!
 
