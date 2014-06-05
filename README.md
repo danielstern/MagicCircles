@@ -46,5 +46,26 @@ Draws a ring. If a margin is included, adds that much space after the ring (sinc
 ##### magicCircle.cast().circleRing(count, radius, optionalSpeed, optionalReverseDirection)
 Draw a circle of [count] * other, smaller circles, each with a radius of [radius]. Optional speed paramater makes this section of the circle spin faster of slower.
 
+##### magicCircle.cast().text(text, fontSize, optionalSpeed, optionalReverseDirection)
+Draw a circle of text equal to [text], with a font height of [fontSize];
 
-  
+##### `magicCircle.cast().space(distance)`
+Creates an empty space equal to [distance] between the proceeding and preceeding elements.
+
+##### `magicCircle.cast().backspace(distance)`
+Moves the drawing radius inwards [distance], cool for overlapping effects!
+
+##### magicCircle.disperse()
+Makes the magic circle disappears. Runs a cleanup as well to reduce processor strain.
+
+
+#### Styling
+Limited styling is currently available.
+
+```javascript
+magicCircle.styles.colors.ring = "#f0f";  // styles the rings
+magicCircle.styles.colors.text = "#f00";  // colors the text
+magicCircle.styles.colors.smallRing = "#f0c";  // colors the smaller rings in circleRing()
+```
+
+
