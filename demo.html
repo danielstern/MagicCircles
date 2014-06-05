@@ -17,6 +17,9 @@
     <div class='container'>
         <div ng-include="'examples/repeating.html'"></div>
     </div>
+    <div class='container'>
+        <div ng-include="'examples/styling.html'"></div>
+    </div>
 </body>
 
 
@@ -27,14 +30,15 @@ angular.module("MagicCirclesDemo", [])
         console.log("hi from demo.");
     })
     .controller("CastingController", function($scope) {
-    	var magic = new MagicCircle("#casting", 2);
-    		
-    		$scope.circle = magic;
+        var magic = new MagicCircle("#casting", 2);
 
-        $scope.ring = function() {
-            // console.log("Drawin ring", spell);
-            magic.cast()
-             .ring(15)
-        }
+        $scope.circle = magic;
+        $scope.lol = lol;
+        setTimeout(
+            function() {
+                $scope.circle.cast().ring(5).ring(2).ring(10).ring(5);
+            }, 100
+        )
+
     })
 </script>

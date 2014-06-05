@@ -3,18 +3,19 @@
 <p>
     In this example, you can cast circles in real time. Click on the buttons below to make your own magic ring.
 </p>
-<button ng-click='ring()'>
+<button ng-click='circle.cast().ring(15)'>
     Ring
 </button>
-<button ng-click='text()'>
+<button ng-click='circle.cast().text(10, text || lol.hipster())'>
     Text
 </button>
-<button ng-click='circles()'>
+<button ng-click='circle.cast().circleRing(6, 10)'>
     Circles
 </button>
 <button ng-click='circle.disperse()'>
     Disperse
 </button>
+<input ng-model="text" placeholder='Text (default:random)'>
 <artboard id='casting'>
 
 </artboard>
