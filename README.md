@@ -50,7 +50,7 @@ Draws a ring. If a margin is included, adds that much space after the ring (sinc
 #####` magicCircle.cast().circleRing(count, radius, optionalSpeed, optionalReverseDirection)`
 Draw a circle of [count] * other, smaller circles, each with a radius of [radius]. Optional speed paramater makes this section of the circle spin faster of slower.
 
-##### `magicCircle.cast().text(text, fontSize, optionalSpeed, optionalReverseDirection)`
+##### `magicCircle.cast().text(fontSize, text, optionalSpeed, optionalReverseDirection)`
 Draw a circle of text equal to [text], with a font height of [fontSize];
 
 ##### `magicCircle.cast().space(distance)`

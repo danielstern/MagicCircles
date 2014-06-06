@@ -1,7 +1,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="circles.css">
     <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/d3/d3.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.8/d3.min.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src='lol.js'></script>
@@ -36,7 +36,7 @@ angular.module("MagicCirclesDemo", [])
         $scope.lol = lol;
         setTimeout(
             function() {
-                $scope.circle.cast().ring(5).ring(2).ring(10).ring(5);
+                // $scope.circle.cast().ring(5).ring(2).ring(10).ring(5);
             }, 100
         )
 
