@@ -29,15 +29,23 @@ var lol = {
         //to do!
 
     },
+    randomColor: function() {
+        var letters = '0123456789ABCDEF'.split('');
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    },
     hipster: function() {
         var equations = [
-           "Chillwave selfies narwhal actually blog. Marfa Austin craft beer tousled fixie,",
-           "DIY street art wolf, Carles hoodie Echo Park 90's.,",
-           "Truffaut deep v put a bird on it pop-up, aesthetic mixtape readymade ugh Echo Park",
-           "polaroid semiotics mustache dreamcatcher swag bespoke Thundercats drinking vinegar",
-           "Pinterest bicycle rights McSweeney's fap. Schlitz vegan distillery bitters, semiotics quinoa vinyl Carles fingerstache",
-           "Direct trade you probably haven't heard of them photo booth fanny pack",
-           ". IPhone tote bag salvia, Portland Bushwick chia next level letterpress farm-to-table 3 wolf moon trust fund shabby chic Marfa cray.",
+            "Chillwave selfies narwhal actually blog. Marfa Austin craft beer tousled fixie,",
+            "DIY street art wolf, Carles hoodie Echo Park 90's.,",
+            "Truffaut deep v put a bird on it pop-up, aesthetic mixtape readymade ugh Echo Park",
+            "polaroid semiotics mustache dreamcatcher swag bespoke Thundercats drinking vinegar",
+            "Pinterest bicycle rights McSweeney's fap. Schlitz vegan distillery bitters, semiotics quinoa vinyl Carles fingerstache",
+            "Direct trade you probably haven't heard of them photo booth fanny pack",
+            ". IPhone tote bag salvia, Portland Bushwick chia next level letterpress farm-to-table 3 wolf moon trust fund shabby chic Marfa cray.",
         ]
 
         return equations[Math.floor(Math.random() * equations.length)];
