@@ -148,7 +148,7 @@ var MagicCircle = function(selector) {
                     .duration(magicCircle.styles.animation.inSpeed)
                     .attr("opacity", 0)
                     .attr("r", 0)
-                    .each("end", deferred.resolve());
+                    .each("end", deferred.resolve);
 
 
                 return deferred.promise;
@@ -240,23 +240,24 @@ var MagicCircle = function(selector) {
             .attr("id", "ring" + runeId)
             .attr('transform', "translate(" + width / 2 + "," + height / 2 + ")  rotate(" + rotation + ")")
 
-        ring.append("text")
+        var text = ring.append("text")
             .style("font-size", fontSize + "px")
             .append("textPath")
             .attr("xlink:href", "#s3" + runeId)
-
-        .style("letter-spacing", magicCircle.styles.type.leading)
+            .style("letter-spacing", magicCircle.styles.type.leading)
             .style("text-transform", magicCircle.styles.type.typecase)
             .style("filter", "url(#drop-shadow)")
             .text(text)
-            .attr("opacity", 0)
             .attr("fill", magicCircle.styles.colors.text)
+            .attr("opacity", 0);
+
+        text
             .transition()
             .duration(magicCircle.styles.animation.inSpeed)
             .ease("linear")
             .attr("opacity", 1);
 
-        ring.append("use")
+        var use = ring.append("use")
             .attr("xlink:href", "#s3" + runeId)
             .style("stroke", "none")
             .attr("text-rendering", "optimizeSpeed ")
@@ -266,11 +267,11 @@ var MagicCircle = function(selector) {
             ref: ring,
             disperse: function() {
                 var deferred = Q.defer();
-                ring
+                text
                     .transition()
                     .duration(magicCircle.styles.animation.inSpeed)
                     .attr("opacity", 0)
-                    .each("end", deferred.resolve());
+                    .each("end", deferred.resolve);
 
                 return deferred.promise;
 
