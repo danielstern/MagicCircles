@@ -251,11 +251,13 @@ var MagicCircle = function(selector) {
             .attr("fill", magicCircle.styles.colors.text)
             .attr("opacity", 0);
 
-        text
-            .transition()
+        var transition = text.transition()
             .duration(magicCircle.styles.animation.inSpeed)
             .ease("linear")
-            .attr("opacity", 1);
+            .attr("opacity", 1)
+            .each("end",function(){
+                transition = null;
+            });
 
         var use = ring.append("use")
             .attr("xlink:href", "#s3" + runeId)
@@ -266,12 +268,9 @@ var MagicCircle = function(selector) {
         return {
             ref: ring,
             recolor: function(newColor) {
-                // debugger;
-                text
-                    // .transition()
-                    // .duration(magicCircle.styles.animation.inSpeed);
+                transition = transition || text.transition();
+                transition
                     .attr("fill", newColor)
-
             },
             disperse: function() {
                 var deferred = Q.defer();
