@@ -139,13 +139,19 @@ var MagicCircle = function(selector) {
       .style("filter", "url(#drop-shadow)")
       .attr("stroke-width", radius / 100)
 
-    circle
-      .transition()
+    var transition = circle.transition()
       .duration(magicCircle.styles.animation.inSpeed)
       .attr("r", radius)
+      .each("end",function(){transition = null});
 
     return {
       ref: circle,
+      recolor: function(newColor) {
+        console.log("transition?")
+          transition = transition || circle.transition();
+          transition
+            .attr("stroke", newColor);
+      },
       disperse: function() {
         var deferred = Q.defer();
         circle
@@ -189,10 +195,9 @@ var MagicCircle = function(selector) {
         .duration(magicCircle.styles.animation.inSpeed)
         .attr("r", innerRadius)
         .each("end", function() {
-            delete circle.t;
+          delete circle.t;
         });
-    circle.t = transition;
-
+      circle.t = transition;
       circles.push(circle)
     }
 
