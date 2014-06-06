@@ -5,8 +5,8 @@ var MagicCircle = function(selector) {
     var magicCircle = this;
 
     var caster = undefined;
-    var width,defs,
-    height;
+    var width, defs,
+        height;
 
     var svg;
 
@@ -57,7 +57,7 @@ var MagicCircle = function(selector) {
 
     this.init = function() {
 
-        console.log("Inited",selector,$(selector));
+        console.log("Inited", selector, $(selector));
 
         width = $(selector).width();
         height = $(selector).height();
@@ -73,7 +73,7 @@ var MagicCircle = function(selector) {
         blurFilter.append("feGaussianBlur")
             .attr("in", "SourceAlpha")
             .attr("stdDeviation", magicCircle.styles.graphics.blur.level)
-            // .attr("result", "blur");
+        // .attr("result", "blur");
 
         blurFilter.append("feOffset")
             .attr("in", "blur")
@@ -142,11 +142,16 @@ var MagicCircle = function(selector) {
         return {
             ref: circle,
             disperse: function() {
+                var deferred = Q.defer();
                 circle
                     .transition()
                     .duration(magicCircle.styles.animation.inSpeed)
                     .attr("opacity", 0)
-                    .attr("r", 0);
+                    .attr("r", 0)
+                    .each("end", deferred.resolve());
+
+
+                return deferred.promise;
             }
         }
     }
@@ -158,7 +163,7 @@ var MagicCircle = function(selector) {
         var ring = svg.append("g")
             .attr("opacity", 1);
 
-        console.log("HW?",height,width);
+        console.log("HW?", height, width);
 
         for (var i = 0; i < count; i++) {
 
@@ -193,12 +198,17 @@ var MagicCircle = function(selector) {
         });
 
         return {
+            ref: ring,
             disperse: function() {
-                ref: ring,
+                var deferred = Q.defer();
                 ring
                     .transition()
                     .duration(magicCircle.styles.animation.inSpeed)
-                    .attr("opacity", 0);
+                    .attr("opacity", 0)
+                    .each("end", deferred.resolve);
+
+
+                return deferred.promise;
             }
         }
     }
@@ -255,17 +265,33 @@ var MagicCircle = function(selector) {
         return {
             ref: ring,
             disperse: function() {
+                var deferred = Q.defer();
                 ring
                     .transition()
                     .duration(magicCircle.styles.animation.inSpeed)
-                    .attr("opacity", 0);
+                    .attr("opacity", 0)
+                    .each("end", deferred.resolve());
+
+                return deferred.promise;
+
             }
         }
     }
 
     this.disperse = function() {
+
+        var elementCount = magicCircle.allElements.length;
+        var elementsDispersed = 0;
         _.each(magicCircle.allElements, function(element) {
-            element.disperse();
+            element.disperse()
+                .then(function() {
+                    elementsDispersed++;
+                    if (elementsDispersed == elementCount) {
+                        console.log("All elements disappeared");
+                        svg.remove()
+                        svg = null;
+                    }
+                })
         })
 
         magicCircle.allElements = [];
@@ -273,12 +299,6 @@ var MagicCircle = function(selector) {
         clearInterval(animator);
         animator = null;
         magicCircle.currentRadius = 0;
-        setTimeout(function() {
-                svg
-                    .remove()
-                svg = null;
-            }
-        , magicCircle.styles.animation.inSpeed + 100);
 
         magicCircle.caster = null;
     }
@@ -291,7 +311,7 @@ var MagicCircle = function(selector) {
 
         magicCircle.caster = {
             selector: selector,
-            last:null,
+            last: null,
             ring: function(radius) {
                 var circle = draw.circle(magicCircle.currentRadius);
                 magicCircle.allElements.push(circle);
@@ -332,4 +352,3 @@ var MagicCircle = function(selector) {
     }
 
 }
-

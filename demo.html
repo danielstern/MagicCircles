@@ -4,6 +4,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.8/d3.min.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/q/q.js"></script>
     <script src='lol.js'></script>
 </head>
 
@@ -27,18 +28,13 @@
 <script>
 angular.module("MagicCirclesDemo", [])
     .controller("Main", function($scope) {
-        console.log("hi from demo.");
+
     })
     .controller("CastingController", function($scope) {
         var magic = new MagicCircle("#casting", 2);
 
         $scope.circle = magic;
         $scope.lol = lol;
-        setTimeout(
-            function() {
-                // $scope.circle.cast().ring(5).ring(2).ring(10).ring(5);
-            }, 100
-        )
 
     })
 </script>
