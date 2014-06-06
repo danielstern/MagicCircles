@@ -265,6 +265,14 @@ var MagicCircle = function(selector) {
 
         return {
             ref: ring,
+            recolor: function(newColor) {
+                // debugger;
+                text
+                    // .transition()
+                    // .duration(magicCircle.styles.animation.inSpeed);
+                    .attr("fill", newColor)
+
+            },
             disperse: function() {
                 var deferred = Q.defer();
                 text
@@ -313,18 +321,28 @@ var MagicCircle = function(selector) {
         magicCircle.caster = {
             selector: selector,
             last: null,
-            ring: function(radius) {
+            ring: function(spaceBefore,spaceAfter) {
                 var circle = draw.circle(magicCircle.currentRadius);
+                if (spaceBefore) this.space(spaceBefore);
                 magicCircle.allElements.push(circle);
-                this.last = circle.ref;
-                if (radius) return this.space(radius);
+                this.last = circle;
+                if (spaceAfter) this.space(spaceAfter);
+                return this;
+            },
+            color: function(color) {
+                if (this.last.recolor) {
+                    this.last.recolor(color);
+                } else {
+                    console.warn("Cant recolor this element",this.last);
+                }
+
                 return this;
             },
             circleRing: function(count, innerRadius, speed, reverse) {
                 var circleRing = draw.circleRing(magicCircle.currentRadius + innerRadius, count, innerRadius, speed, reverse);
                 magicCircle.allElements.push(circleRing);
                 magicCircle.currentRadius += innerRadius * 2;
-                this.last = circleRing.ref;
+                this.last = circleRing;
                 return this;
             },
             space: function(length) {
@@ -340,7 +358,7 @@ var MagicCircle = function(selector) {
                 var text = draw.runeRing(magicCircle.currentRadius + padding, text, height, speed || 1, reverse);
                 magicCircle.allElements.push(text);
                 magicCircle.currentRadius += height;
-                this.last = text.ref;
+                this.last = text;
                 return this;
             },
             disperse: function() {
