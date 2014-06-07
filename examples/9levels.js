@@ -42,64 +42,64 @@ function romanize (num) {
     },{
         name: "Violence",
         description: "The violent against people and property, the suicides, the blashphemers, the sodomites and the usurers.",
-        color: "#FF0000",
+        color: "#4a1a35",
         subcircles: [{
             name: "Outer Ring",
             description: "Sinners are immersed in Phlegethon, a river of boiling blood and fire, to a level commensurate with their sins:",
-            color: "#00FF00"
+            color: "#702650"
         },{
             name: "Middle ring",
             description: " suicides – the violent against self – are transformed into gnarled thorny bushes and trees and then fed upon by Harpies.",
-            color: "#00AA00"
+            color: "#97326b"
         },{
             name: "Inner ring",
             description: "All reside in a desert of flaming sand with fiery flakes raining from the sky, a fate similar to Sodom and Gomorrah:",
-            color: "#00DD00"
+            color: "#bf3d87"
         }]
     },{
         name: "Fraud",
         description: "Panderers and seducers, flatterers, sorcerers and false prophets, liars, thieves, and Ulysses and Diomedes.",
-        color: "purple",
+        color: "#0d0e26",
         subcircles: [{
             name: "Bolgia I",
             description: " Panderers and seducers march in separate lines in opposite directions, whipped by demons",
-            color: "#00FF00"
+            color: "#1a1c4c"
         },{
             name: "Bolgia II",
             description: " suicides – the violent against self – are transformed into gnarled thorny bushes and trees and then fed upon by Harpies.",
-            color: "#00AA00"
+            color: "#070713"
         },{
             name: "Bolgia III",
             description: " Flatterers also exploited other people, this time using language. They are steeped in human excrement, which represents the words they produced.",
-            color: "#00DD00"
+            color: "#0d0e26"
         },{
             name: "Bolgia IIII",
             description: " Sorcerers, astrologers, and false prophets here have their heads twisted around on their bodies backward",
-            color: "#00DD00"
+            color: "#141539"
         },{
             name: "Bolgia V",
             description: "Corrupt politicians (barrators) are immersed in a lake of boiling pitch, which represents the sticky fingers and dark secrets of their corrupt deals",
-            color: "#00DD00"
+            color: "#1a1c4c"
         },{
             name: "Bolgia VI",
             description: "The hypocrites listlessly walk along wearing gilded lead cloaks, which represent the falsity behind the surface appearance of their actions",
-            color: "#00DD00"
+            color: "#202260"
         },{
             name: "Bolgia VII",
             description: " Two cantos are devoted to the thieves. They are guarded by the centaur Cacus, who has a fire-breathing dragon on his shoulders and snakes covering his equine back",
-            color: "#00DD00"
+            color: "#262973"
         },{
             name: "Bolgia VIII",
             description: "Two further cantos are devoted to fraudulent advisers or evil counsellors, who are concealed within individual flames",
-            color: "#00DD00"
+            color: "#2c2f87"
         },{
             name: "Bolgia IX",
             description: "In the ninth Bolgia, a sword-wielding demon hacks at the Sowers of Discord, dividing parts of their bodies as in life they divided others",
-            color: "#00DD00"
+            color: "#31359b"
         },{
             name: "Bolgia ",
             description: "In the final Bolgia, various sorts of falsifiers (alchemists, counterfeiters, perjurers, and impostors) – who are a disease on society",
-            color: "#00DD00"
+            color: "#373bae"
         }]
     },{
         name: "Treachery",
@@ -108,13 +108,13 @@ function romanize (num) {
     }]
     magic.cast()
         .ring(50)
-        .color('red')
+        .color('black')
 
     hell = hell.reverse();
 
 
     var caster = magic.cast();
-    function drawRing(canto) {
+    function drawRing(canto, verso) {
 
         function rotateText() {
             _.each(subTexts,function(text){
@@ -124,22 +124,31 @@ function romanize (num) {
         }
 
 
-        var totalSize = 20;
+        function resumeAnimation() {
+            _.each(subTexts,function(text){
+                text.animate();
+            })  
+        }
+
+
+
+
+        var totalSize = 24;
 
         var subTexts = [];
 
 
         caster
-            .ring(20)
+            .ring(totalSize)
                 .color(canto.color)
-            .backspace(20);
+            .backspace(totalSize);
         var text1 =  caster
-            .text(10, canto.description, 6)
+            .text(10, canto.description, 1, verso % 2)
                 .color('#eee')
                 .getLast();
 
         var text2 = caster
-            .text(10 , canto.name, 6)
+            .text(14 , canto.name, 1, verso % 2)
                 .color('white')
             .getLast();
 
@@ -151,6 +160,8 @@ function romanize (num) {
         .ring(totalSize)
             .color("rgba(255,0,0,0")
             .on("mouseover",rotateText)
+            .on("mouseout",resumeAnimation)
+
 
     }
     _.each(hell, function(level, i) {
@@ -158,10 +169,16 @@ function romanize (num) {
 
         function rotateText() {
             _.each(subTexts,function(text){
-                console.log("rotating.",text);
                 text.rotation(-15);
             })  
         }
+
+        function resumeAnimation() {
+            _.each(subTexts,function(text){
+                text.animate();
+            })  
+        }
+
 
 
         var subTexts = [];
@@ -175,8 +192,8 @@ function romanize (num) {
         if (level.subcircles) {
             var subcircles = level.subcircles.reverse();
 
-            _.each(level.subcircles,function(sub){
-                drawRing(sub);
+            _.each(level.subcircles,function(sub,index){
+                drawRing(sub,index);
             })
 
         }
@@ -201,6 +218,7 @@ function romanize (num) {
             .ring(totalSize)
                 .color("rgba(255,0,0,0")
                 .on("mouseover",rotateText)
+                .on("mouseout",resumeAnimation)
 
         console.log("Total size?",level.name,totalSize)
 

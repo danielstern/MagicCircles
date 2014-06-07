@@ -17,11 +17,14 @@ var MagicCircle = function(selector) {
   this.animationListeners = [];
   this.allElements = [];
   this.onanimate = function(l) {
-    this.animationListeners.push(l);
+    magicCircle.animationListeners.push(l);
 
     return {
       stop: function() {
         magicCircle.animationListeners = _.without(magicCircle.animationListeners, l);
+      },
+      start: function() {
+        magicCircle.animationListeners.push(l);
       }
     }
   }
@@ -322,6 +325,9 @@ var MagicCircle = function(selector) {
             .transition()
             .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")  rotate(" + rot + ")")
 
+      },
+      animate:function() {
+        timer.start();
       },
       recolor: function(newColor) {
         transition = transition || text.transition();
