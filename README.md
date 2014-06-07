@@ -41,17 +41,18 @@ MC (Magic Circles) has the following depencies, that will need to be loaded befo
 
 #### drawing
 
-##### `magicCircle.cast():caster`
-This is the function used to initialize a ring. It a returns a chainable caster object.
-  
+##### Cast
+##### `magicCircle.cast()`
+Drawing always starts with cast. Returns a chainable caster object.
+ 
+##### Ring 
 ##### `magicCircle.cast().ring(strokeWidth,optionalSpaceBefore,optionalSpaceAfter)`
 
 ![Magic Circle Man](https://raw.githubusercontent.com/danielstern/MagicCircles/master/examples/ring.jpg)
 
 Draws a ring with a width of `strokeWidth`. If a margin is included, adds that much space after the ring (since rings take up no space)
 
-
-  
+##### Circle Ring  
 #####` magicCircle.cast().circleRing(count, radius, optionalSpeed, optionalReverseDirection)`
 
 ![Magic Circle Man](https://raw.githubusercontent.com/danielstern/MagicCircles/master/examples/circleRing1.jpg)
@@ -69,18 +70,22 @@ magic.cast()
 		.circleRing(8,32);
 ```
 
+##### Text
 ##### `magicCircle.cast().text(fontSize, text, optionalSpeed, optionalReverseDirection)`
 
 ![Magic Circle Man](https://raw.githubusercontent.com/danielstern/MagicCircles/master/examples/text.jpg)
 
 Draw a circle of text equal to `text`, with a font height of `fontSize`;
 
+##### Space
 ##### `magicCircle.cast().space(distance)`
 Creates an empty space equal to [distance] between the proceeding and preceeding elements.
 
+##### Distance
 ##### `magicCircle.cast().backspace(distance)`
 Moves the drawing radius inwards [distance], cool for overlapping effects!
 
+##### Disperse
 #####` magicCircle.disperse()`
 Makes the magic circle disappear. Runs a cleanup as well to reduce processor strain.
 
@@ -100,7 +105,9 @@ magicCircle.styles.colors.smallRing = "#f0c";  // colors the smaller rings in ci
 
 You can change the color of an element any time after it has been cast.
 
-###### `color()`
+##### Color
+![Magic Circle Man](https://raw.githubusercontent.com/danielstern/MagicCircles/master/examples/color.jpg)
+##### `color(newColor)`
 
 The `color()` function can be used to change the fill color of text and rings, and the stroke color of circle rings.
 
@@ -108,7 +115,9 @@ The `color()` function can be used to change the fill color of text and rings, a
 	magic.cast().ring(5).color("magenta");
 ```
 
-###### `fill()`
+##### Fill
+![Magic Circle Man](https://raw.githubusercontent.com/danielstern/MagicCircles/master/examples/fill.jpg)
+##### `fill(newColor)`
 
 The fill function can be used to change the color of the fill of circle rings
 
