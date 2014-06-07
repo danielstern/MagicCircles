@@ -79,41 +79,43 @@ function romanize (num) {
         color: "black"
     }]
     magic.cast()
-        .circleRing(16, 12)
+        .ring(50)
         .color('red')
 
     hell = hell.reverse();
 
+
     _.each(hell, function(level, i) {
+        function rotateText() {
+            _.each(subTexts,function(text){
+                text.rotation(0);
+            })  
+        }
+
+        var subTexts = [];
+        var caster = magic.cast();
+        var totalSize = 50;
+        if (level.subcircles) {
+            totalSize += 20 * level.subcircles.length;
+        }
 
         if (level.subcircles) {
             var subcircles = level.subcircles.reverse();
 
-            var subTexts = [];
-
             _.each(level.subcircles,function(sub){
-                magic.cast()
-                    .ring(1)
-                    .ring(25)
+                caster
+                    .ring(20)
                         .color(level.color)
-                    .backspace(25);
-                var text1 =  magic.cast()
-                    .ring()
+                    .backspace(20);
+                var text1 =  caster
                     .text(10, sub.description, i/6, i%2)
                         .color('#eee')
                         .getLast();
 
-                var text2 = magic.cast()
-                    .space(5)
-                    .ring(0)
-                    .text(12 + i, sub.name, i/6, i%2)
+                var text2 = caster
+                    .text(10 + i, sub.name, i/6, i%2)
                         .color('white')
                     .getLast();
-
-                magic.cast()
-                    .space(1)
-                    .ring()
-                        .color('white')
 
                     subTexts.push(text1);
                     subTexts.push(text2);
@@ -121,25 +123,32 @@ function romanize (num) {
 
         }
 
-        magic.cast()
-            .ring(1)
+        caster
             .ring(50)
                 .color(level.color)
-                .on("mouseover",function(g){
-                    console.log('mouse over',g);
-                    g.rotation(0);
-                    
-                })
+             
             .backspace(50)
-            .text(12, level.description, i/6, i%2)
+        var text4 = caster
+            .text(15, level.description, i/6, i%2)
                 .color('white')
-            .space(5)
-            .ring(0)
+                .getLast();
+        caster
+        var text3 = caster
             .text(25 + i,'CIRCLE ' + romanize(i + 1) + ": " +  level.name, i/6, i%2)
-            .space(1)
                 .color('white')
+            .getLast();
+        caster
             .ring(5)
                 .color('white')
+            .backspace(totalSize)
+            .ring(totalSize)
+                .color("rgba(255,0,0,0")
+                .on("mouseover",rotateText)
+
+        console.log("Total size?",level.name,totalSize)
+
+        subTexts.push(text3);
+        subTexts.push(text4);
             
             
 

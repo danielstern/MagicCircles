@@ -10,7 +10,6 @@ var MagicCircle = function(selector) {
 
   var svg;
 
-
   // initializers
   this.draw = {};
   var animator = undefined;
@@ -19,9 +18,10 @@ var MagicCircle = function(selector) {
   this.allElements = [];
   this.onanimate = function(l) {
     this.animationListeners.push(l);
+
     return {
       stop: function() {
-        _.without(this.animationListeners, l);
+        magicCircle.animationListeners = _.without(magicCircle.animationListeners, l);
       }
     }
   }
@@ -273,7 +273,7 @@ var MagicCircle = function(selector) {
       .attr("transform", "scale(" + radius + "," + radius + ")")
 
 
-    magicCircle.onanimate(function() {
+    var timer = magicCircle.onanimate(function() {
       rotation = (reverse) ? rotation - 1 * (speed || magicCircle.styles.animation.animationSpeed) : rotation + 1 * (speed || magicCircle.styles.animation.animationSpeed);
       ring
         .transition()
@@ -286,6 +286,7 @@ var MagicCircle = function(selector) {
     var ring = svg.append("g")
       .attr("id", "ring" + runeId)
       .attr('transform', "translate(" + width / 2 + "," + height / 2 + ")  rotate(" + rotation + ")")
+      .style("pointer-events", "none")
 
     var text = ring.append("text")
       .style("font-size", fontSize + "px")
@@ -293,6 +294,7 @@ var MagicCircle = function(selector) {
       .attr("xlink:href", "#s3" + runeId)
       .style("letter-spacing", magicCircle.styles.type.leading)
       .style("text-transform", magicCircle.styles.type.typecase)
+      .style("pointer-events", "none")
       .style("filter", "url(#drop-shadow)")
       .text(text)
       .attr("fill", magicCircle.styles.colors.text)
@@ -315,8 +317,10 @@ var MagicCircle = function(selector) {
     return {
       ref: ring,
       rotation: function(rot) {
+        timer.stop();
         ring
-            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")  rotate(" + rot + ")");
+            .transition()
+            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")  rotate(" + rot + ")")
 
       },
       recolor: function(newColor) {
@@ -404,7 +408,7 @@ var MagicCircle = function(selector) {
         if (this.last.rotation) {
           this.last.rotation(rotation);
         } else {
-          console.warn("Cant fill rotation element", this.last);
+          console.warn("Cant rotate element", this.last);
         }
 
         return this;
@@ -441,8 +445,7 @@ var MagicCircle = function(selector) {
         if (this.last.on) {
           this.last.on(event,function(){
             returner.last = target;
-            // console.log("setting new last", target);
-            listener(returner,target);
+            listener(returner,target);1
           })
         } else {
           console.warn("Can't attach a listener to this object");
