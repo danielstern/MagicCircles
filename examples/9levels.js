@@ -61,16 +61,44 @@ function romanize (num) {
         description: "Panderers and seducers, flatterers, sorcerers and false prophets, liars, thieves, and Ulysses and Diomedes.",
         color: "purple",
         subcircles: [{
-            name: "Bolgia 1",
+            name: "Bolgia I",
             description: " Panderers and seducers march in separate lines in opposite directions, whipped by demons",
             color: "#00FF00"
         },{
-            name: "Bolgia 2",
+            name: "Bolgia II",
             description: " suicides – the violent against self – are transformed into gnarled thorny bushes and trees and then fed upon by Harpies.",
             color: "#00AA00"
         },{
-            name: "Bolgia 3",
+            name: "Bolgia III",
             description: " Flatterers also exploited other people, this time using language. They are steeped in human excrement, which represents the words they produced.",
+            color: "#00DD00"
+        },{
+            name: "Bolgia IIII",
+            description: " Sorcerers, astrologers, and false prophets here have their heads twisted around on their bodies backward",
+            color: "#00DD00"
+        },{
+            name: "Bolgia V",
+            description: "Corrupt politicians (barrators) are immersed in a lake of boiling pitch, which represents the sticky fingers and dark secrets of their corrupt deals",
+            color: "#00DD00"
+        },{
+            name: "Bolgia VI",
+            description: "The hypocrites listlessly walk along wearing gilded lead cloaks, which represent the falsity behind the surface appearance of their actions",
+            color: "#00DD00"
+        },{
+            name: "Bolgia VII",
+            description: " Two cantos are devoted to the thieves. They are guarded by the centaur Cacus, who has a fire-breathing dragon on his shoulders and snakes covering his equine back",
+            color: "#00DD00"
+        },{
+            name: "Bolgia VIII",
+            description: "Two further cantos are devoted to fraudulent advisers or evil counsellors, who are concealed within individual flames",
+            color: "#00DD00"
+        },{
+            name: "Bolgia IX",
+            description: "In the ninth Bolgia, a sword-wielding demon hacks at the Sowers of Discord, dividing parts of their bodies as in life they divided others",
+            color: "#00DD00"
+        },{
+            name: "Bolgia ",
+            description: "In the final Bolgia, various sorts of falsifiers (alchemists, counterfeiters, perjurers, and impostors) – who are a disease on society",
             color: "#00DD00"
         }]
     },{
@@ -85,40 +113,70 @@ function romanize (num) {
     hell = hell.reverse();
 
 
-    _.each(hell, function(level, i) {
+    var caster = magic.cast();
+    function drawRing(canto) {
+
         function rotateText() {
             _.each(subTexts,function(text){
-                text.rotation(0);
+                console.log("rotating.",text);
+                text.rotation(-15);
             })  
         }
 
+
+        var totalSize = 20;
+
         var subTexts = [];
-        var caster = magic.cast();
-        var totalSize = 50;
-        if (level.subcircles) {
-            totalSize += 20 * level.subcircles.length;
+
+
+        caster
+            .ring(20)
+                .color(canto.color)
+            .backspace(20);
+        var text1 =  caster
+            .text(10, canto.description, 6)
+                .color('#eee')
+                .getLast();
+
+        var text2 = caster
+            .text(10 , canto.name, 6)
+                .color('white')
+            .getLast();
+
+            subTexts.push(text1);
+            subTexts.push(text2);
+
+        caster 
+        .backspace(totalSize)
+        .ring(totalSize)
+            .color("rgba(255,0,0,0")
+            .on("mouseover",rotateText)
+
+    }
+    _.each(hell, function(level, i) {
+
+
+        function rotateText() {
+            _.each(subTexts,function(text){
+                console.log("rotating.",text);
+                text.rotation(-15);
+            })  
         }
+
+
+        var subTexts = [];
+
+      
+        var totalSize = 50;
+        // if (level.subcircles) {
+        //     totalSize += 20 * level.subcircles.length;
+        // }
 
         if (level.subcircles) {
             var subcircles = level.subcircles.reverse();
 
             _.each(level.subcircles,function(sub){
-                caster
-                    .ring(20)
-                        .color(level.color)
-                    .backspace(20);
-                var text1 =  caster
-                    .text(10, sub.description, i/6, i%2)
-                        .color('#eee')
-                        .getLast();
-
-                var text2 = caster
-                    .text(10 + i, sub.name, i/6, i%2)
-                        .color('white')
-                    .getLast();
-
-                    subTexts.push(text1);
-                    subTexts.push(text2);
+                drawRing(sub);
             })
 
         }
@@ -126,7 +184,6 @@ function romanize (num) {
         caster
             .ring(50)
                 .color(level.color)
-             
             .backspace(50)
         var text4 = caster
             .text(15, level.description, i/6, i%2)
