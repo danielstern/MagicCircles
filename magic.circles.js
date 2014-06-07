@@ -62,10 +62,11 @@ var MagicCircle = function(selector) {
 
   this.init = function() {
 
-    console.log("Inited", selector, $(selector));
 
     width = $(selector).width();
     height = $(selector).height();
+    
+    console.log("Inited", selector, width,height);
 
     svg = d3.select(selector)
       .append("svg")

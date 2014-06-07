@@ -13,13 +13,16 @@
         Magic Circles Demos
     </h1>
     <div class='container'>
+        <div ng-include="'examples/9circles.html'"></div>
+    </div>
+    <div class='container'>
+        <div ng-include="'examples/styling.html'"></div>
+    </div>
+    <div class='container'>
         <div ng-controller='CastingController' ng-include="'examples/casting.html'"></div>
     </div>
     <div class='container'>
         <div ng-include="'examples/repeating.html'"></div>
-    </div>
-    <div class='container'>
-        <div ng-include="'examples/styling.html'"></div>
     </div>
     <div class='container'>
         <div ng-include="'examples/fillstroke.html'"></div>
@@ -35,8 +38,8 @@ angular.module("MagicCirclesDemo", [])
     })
     .controller("CastingController", function($scope) {
         var magic = new MagicCircle("#casting", 2);
-        magic.cast();
-        magic.currentRadius = 50;
+        // magic.cast();
+        // magic.currentRadius = 50;
 
         $scope.circle = magic;
         $scope.lol = lol;

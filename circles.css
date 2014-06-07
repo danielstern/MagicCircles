@@ -26,6 +26,12 @@ svg {
 		height: 500px;
 }
 
+artboard#circles, artboard#circles svg {
+    width: 1000px;
+    height: 1000px;
+}
+
+
 @-webkit-keyframes jewelbox {
     0% {
         -webkit-transform: rotateY(0deg) rotateX(0deg);
