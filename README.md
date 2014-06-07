@@ -39,19 +39,19 @@ MC (Magic Circles) has the following depencies, that will need to be loaded befo
 - underscore.js
 
 
-#### functions
+#### drawing
 
 ##### `magicCircle.cast():caster`
 This is the function used to initialize a ring. It a returns a chainable caster object.
   
-##### `magicCircle.cast().ring(optionalMargin)`
-Draws a ring. If a margin is included, adds that much space after the ring (since rings take up no space)
+##### `magicCircle.cast().ring(strokeWidth,optionalSpaceBefore,optionalSpaceAfter)`
+Draws a ring with a width of `strokeWidth`. If a margin is included, adds that much space after the ring (since rings take up no space)
   
 #####` magicCircle.cast().circleRing(count, radius, optionalSpeed, optionalReverseDirection)`
-Draw a circle of [count] * other, smaller circles, each with a radius of [radius]. Optional speed paramater makes this section of the circle spin faster of slower.
+Draw a circle of `count` * other, smaller circles, each with a radius of `radius`. Optional speed paramater makes this section of the circle spin faster of slower.
 
 ##### `magicCircle.cast().text(fontSize, text, optionalSpeed, optionalReverseDirection)`
-Draw a circle of text equal to [text], with a font height of [fontSize];
+Draw a circle of text equal to `text`, with a font height of `fontSize`;
 
 ##### `magicCircle.cast().space(distance)`
 Creates an empty space equal to [distance] between the proceeding and preceeding elements.
@@ -64,7 +64,9 @@ Makes the magic circle disappear. Runs a cleanup as well to reduce processor str
 
 
 #### Styling
-Limited styling is currently available.
+##### Setting Global Styles
+
+You can change the default colors for the elements like so.
 
 ```javascript
 magicCircle.styles.colors.ring = "#f0f";  // styles the rings
@@ -72,3 +74,22 @@ magicCircle.styles.colors.text = "#f00";  // colors the text
 magicCircle.styles.colors.smallRing = "#f0c";  // colors the smaller rings in circleRing()
 ```
 
+##### Styling Individual Elements
+
+You can change the color of an element any time after it has been cast.
+
+###### `color()`
+
+The `color()` function can be used to change the fill color of text and rings, and the stroke color of circle rings.
+
+```
+	magic.cast().ring(5).color("magenta");
+```
+
+###### `fill()`
+
+The fill function can be used to change the color of the fill of circle rings
+
+```
+	magic.cast().circleRing(6,12).color("orange");
+```
