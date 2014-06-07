@@ -136,7 +136,7 @@ function romanize(num) {
 
 
   var caster = magic.cast();
-  var SCALE = 0.5;
+  var SCALE = 1;
 
   function drawRing(canto, verso) {
 
@@ -157,7 +157,7 @@ function romanize(num) {
 
 
 
-    var totalSize = 24;
+    var totalSize = 24 * SCALE;
 
     var subTexts = [];
 
@@ -167,12 +167,12 @@ function romanize(num) {
       .color(canto.color)
       .backspace(totalSize);
     var text1 = caster
-      .text(10, canto.description, 1, verso % 2)
+      .text(10  * SCALE, canto.description, 1, verso % 2)
       .color('#eee')
       .getLast();
 
     var text2 = caster
-      .text(14, canto.name, 1, verso % 2)
+      .text(14  * SCALE, canto.name, 1, verso % 2)
       .color('white')
       .getLast();
 
@@ -208,7 +208,7 @@ function romanize(num) {
     var subTexts = [];
 
 
-    var totalSize = 50;
+    var totalSize = 50  * SCALE;
     // if (level.subcircles) {
     //     totalSize += 20 * level.subcircles.length;
     // }
@@ -223,20 +223,20 @@ function romanize(num) {
     }
 
     caster
-      .ring(50)
+      .ring(totalSize)
       .color(level.color)
-      .backspace(50)
+      .backspace(totalSize)
     var text4 = caster
-      .text(15, level.description, i / 6, i % 2)
+      .text(15  * SCALE, level.description, i / 6, i % 2)
       .color('white')
       .getLast();
     caster
     var text3 = caster
-      .text(25 + i, 'CIRCLE ' + romanize(i) || "" + ": " + level.name, i / 6, i % 2)
+      .text(25  * SCALE, 'CIRCLE ' + romanize(i) || "" + ": " + level.name, i / 6, i % 2)
       .color('white')
       .getLast();
     caster
-      .ring(5)
+      .ring(5  * SCALE)
       .color('white')
       .backspace(totalSize)
       .ring(totalSize)
@@ -254,8 +254,8 @@ function romanize(num) {
   })
 
   magic.cast()
-    .ring(5)
-    .text(15, "Welcome to Hell!");
+    .ring(5  * SCALE)
+    .text(15  * SCALE, "Welcome to Hell!");
 
 
 // setTimeout(function(){
