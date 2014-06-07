@@ -106,13 +106,13 @@ magicCircle.styles.colors.smallRing = "#f0c";  // colors the smaller rings in ci
 You can change the color of an element any time after it has been cast.
 
 ##### Color
-![Magic Circle Man](https://raw.githubusercontent.com/danielstern/MagicCircles/master/examples/color.jpg)
+![Magic Circle Man](https://raw.githubusercontent.com/danielstern/MagicCircles/master/examples/colors.jpg)
 ##### `color(newColor)`
 
 The `color()` function can be used to change the fill color of text and rings, and the stroke color of circle rings.
 
 ```
-	magic.cast().ring(5).color("magenta");
+magic.cast().ring(5).color("magenta");
 ```
 
 ##### Fill
@@ -122,5 +122,5 @@ The `color()` function can be used to change the fill color of text and rings, a
 The fill function can be used to change the color of the fill of circle rings
 
 ```
-	magic.cast().circleRing(6,12).color("orange");
+magic.cast().circleRing(6,12).color("orange");
 ```
