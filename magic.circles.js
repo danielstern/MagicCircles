@@ -160,6 +160,9 @@ var MagicCircle = function(selector) {
           transition
             .attr("stroke", newColor);
       },
+      on: function(event, listener) {
+        circle.on(event, listener)
+      },
       disperse: function() {
         var deferred = Q.defer();
         circle
@@ -235,6 +238,7 @@ var MagicCircle = function(selector) {
             .attr("fill", newColor);
         })
       },
+     
       disperse: function() {
         var deferred = Q.defer();
         animation.stop();
@@ -310,6 +314,11 @@ var MagicCircle = function(selector) {
 
     return {
       ref: ring,
+      rotation: function(rot) {
+        ring
+            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")  rotate(" + rot + ")");
+
+      },
       recolor: function(newColor) {
         transition = transition || text.transition();
         transition
@@ -379,11 +388,23 @@ var MagicCircle = function(selector) {
 
         return this;
       },
+      getLast: function() {
+        return this.last;
+      },
       fill: function(color) {
         if (this.last.fill) {
           this.last.fill(color);
         } else {
           console.warn("Cant fill this element", this.last);
+        }
+
+        return this;
+      },
+      rotation: function(rotation) {
+        if (this.last.rotation) {
+          this.last.rotation(rotation);
+        } else {
+          console.warn("Cant fill rotation element", this.last);
         }
 
         return this;
@@ -413,7 +434,23 @@ var MagicCircle = function(selector) {
       },
       disperse: function() {
         magicCircle.disperse();
-      }
+      },
+      on: function(event,listener) {
+        var target = this.last;
+        var returner = this;
+        if (this.last.on) {
+          this.last.on(event,function(){
+            returner.last = target;
+            // console.log("setting new last", target);
+            listener(returner,target);
+          })
+        } else {
+          console.warn("Can't attach a listener to this object");
+        }
+
+        return this;
+
+      },
     }
 
     return magicCircle.caster;
