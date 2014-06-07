@@ -68,7 +68,9 @@ var MagicCircle = function(selector) {
     height = $(selector).height();
 
     svg = d3.select(selector)
-      .append("svg");
+      .append("svg")
+      .attr("width", width)
+      .attr("height", height)
     defs = svg.append("defs");
 
     var blurFilter = defs.append("filter")
