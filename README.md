@@ -56,6 +56,7 @@ Draws a ring with a width of `strokeWidth`. If a margin is included, adds that m
 #####` magicCircle.cast().circleRing(count, radius, optionalSpeed, optionalReverseDirection)`
 
 ![Magic Circle Man](https://raw.githubusercontent.com/danielstern/MagicCircles/master/examples/circleRing1.jpg)
+
 Draw a circle of `count` * other, smaller circles, each with a radius of `radius`. Optional speed paramater makes this section of the circle spin faster of slower.
 
 You can create some cool effects by using some irrational numbers.
