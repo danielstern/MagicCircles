@@ -1,8 +1,15 @@
 .container {
 
-	width: 500px;
+	/*width: 500px;*/
 	background-color: white;
+	/*height: 500px;*/
+}
+
+#headerCircle {
 	height: 500px;
+
+	width: 500px;
+
 }
 
 artboard {

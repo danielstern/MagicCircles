@@ -139,7 +139,13 @@ var MagicCircle = function(selector) {
       .attr("stroke", magicCircle.styles.colors.ring)
       .attr("fill", "none")
       .style("filter", "url(#drop-shadow)")
-      .attr("stroke-width", strokeWidth || radius / 100)
+      .attr("stroke-width", strokeWidth || radius / 100);
+
+    if (strokeWidth > 5) {
+      circle
+        .style("filter", "none")
+
+    }
 
     var transition = circle.transition()
       .duration(magicCircle.styles.animation.inSpeed)
