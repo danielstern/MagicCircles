@@ -24,7 +24,10 @@ svg {
 		/*position: absolute;*/
 		width: 500px;
 		height: 500px;
+
 }
+
+svg { max-height: 100%; }
 
 artboard#circles, artboard#circles svg {
     width: 2000px;

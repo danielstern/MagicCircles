@@ -73,8 +73,12 @@ var MagicCircle = function(selector) {
 
     svg = d3.select(selector)
       .append("svg")
-      .attr("width", width)
-      .attr("height", height)
+      // .attr("width", width)
+      // .attr("height", height)
+      .attr("class","main")
+      // .attr("shape-rendering","optimizeSpeed")
+      // .attr("viewBox","0 0 500 500")
+      // .attr("transform","scale(0.2)")
     defs = svg.append("defs");
 
     var blurFilter = defs.append("filter")
@@ -160,6 +164,14 @@ var MagicCircle = function(selector) {
       ref: circle,
       recolor: function(newColor) {
           transition = transition || circle.transition();
+          if (newColor == "useNone") {
+            // console.log("")
+            transition
+              .attr("stroke", "rgba(0,0,0,0)")
+              .attr("fill-opacity", "0.0");
+
+            return;
+          }
           transition
             .attr("stroke", newColor);
       },
