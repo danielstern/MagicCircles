@@ -127,7 +127,7 @@ var MagicCircle = function(selector) {
   };
 
   // methods
-  this.draw.circle = function(radius) {
+  this.draw.circle = function(radius, strokeWidth) {
 
     var circle = svg.append("circle");
 
@@ -139,17 +139,16 @@ var MagicCircle = function(selector) {
       .attr("stroke", magicCircle.styles.colors.ring)
       .attr("fill", "none")
       .style("filter", "url(#drop-shadow)")
-      .attr("stroke-width", radius / 100)
+      .attr("stroke-width", strokeWidth || radius / 100)
 
     var transition = circle.transition()
       .duration(magicCircle.styles.animation.inSpeed)
-      .attr("r", radius)
+      .attr("r", radius + strokeWidth/2)
       .each("end",function(){transition = null});
 
     return {
       ref: circle,
       recolor: function(newColor) {
-        console.log("transition?")
           transition = transition || circle.transition();
           transition
             .attr("stroke", newColor);
@@ -219,6 +218,14 @@ var MagicCircle = function(selector) {
           var transition = circle.t || circle.transition();
           transition
             .attr("stroke", newColor);
+        })
+      },
+      fill: function(newColor) {
+        _.each(circles, function(circle) {
+          circle.style("filter","none");
+          var transition = circle.t || circle.transition();
+          transition
+            .attr("fill", newColor);
         })
       },
       disperse: function() {
@@ -347,10 +354,11 @@ var MagicCircle = function(selector) {
     magicCircle.caster = {
       selector: selector,
       last: null,
-      ring: function(spaceBefore, spaceAfter) {
-        var circle = draw.circle(magicCircle.currentRadius);
+      ring: function(strokeWidth, spaceBefore, spaceAfter) {
+        var circle = draw.circle(magicCircle.currentRadius, strokeWidth || 1);
         if (spaceBefore) this.space(spaceBefore);
         magicCircle.allElements.push(circle);
+        if (strokeWidth) magicCircle.currentRadius += strokeWidth;
         this.last = circle;
         if (spaceAfter) this.space(spaceAfter);
         return this;
@@ -360,6 +368,15 @@ var MagicCircle = function(selector) {
           this.last.recolor(color);
         } else {
           console.warn("Cant recolor this element", this.last);
+        }
+
+        return this;
+      },
+      fill: function(color) {
+        if (this.last.fill) {
+          this.last.fill(color);
+        } else {
+          console.warn("Cant fill this element", this.last);
         }
 
         return this;
