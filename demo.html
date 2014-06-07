@@ -35,10 +35,8 @@ angular.module("MagicCirclesDemo", [])
     })
     .controller("CastingController", function($scope) {
         var magic = new MagicCircle("#casting", 2);
-        // magic
-        //     .cast()
-        //     .space(10)
-        //     .ring(5)
+        magic.cast();
+        magic.currentRadius = 50;
 
         $scope.circle = magic;
         $scope.lol = lol;

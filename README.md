@@ -45,12 +45,34 @@ MC (Magic Circles) has the following depencies, that will need to be loaded befo
 This is the function used to initialize a ring. It a returns a chainable caster object.
   
 ##### `magicCircle.cast().ring(strokeWidth,optionalSpaceBefore,optionalSpaceAfter)`
+
+![Magic Circle Man](https://raw.githubusercontent.com/danielstern/MagicCircles/master/examples/ring.jpg)
+
 Draws a ring with a width of `strokeWidth`. If a margin is included, adds that much space after the ring (since rings take up no space)
+
+
   
 #####` magicCircle.cast().circleRing(count, radius, optionalSpeed, optionalReverseDirection)`
+
+![Magic Circle Man](https://raw.githubusercontent.com/danielstern/MagicCircles/master/examples/circleRing1.jpg)
 Draw a circle of `count` * other, smaller circles, each with a radius of `radius`. Optional speed paramater makes this section of the circle spin faster of slower.
 
+You can create some cool effects by using some irrational numbers.
+
+![Magic Circle Man](https://raw.githubusercontent.com/danielstern/MagicCircles/master/examples/circleRing2.jpg)
+
+```javascript
+magic.cast()
+		.space(50)
+		.circleRing(16,16)
+		.circleRing(12,8)
+		.circleRing(8,32);
+```
+
 ##### `magicCircle.cast().text(fontSize, text, optionalSpeed, optionalReverseDirection)`
+
+![Magic Circle Man](https://raw.githubusercontent.com/danielstern/MagicCircles/master/examples/text.jpg)
+
 Draw a circle of text equal to `text`, with a font height of `fontSize`;
 
 ##### `magicCircle.cast().space(distance)`
