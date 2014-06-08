@@ -1,0 +1,16 @@
+artboard text {
+   font-family:"Bree Serif";
+}
+.floater {
+   position: absolute;
+   top: 50px;
+   left: 50px;
+   font-size: 1em;
+   font-family:"Bree Serif";
+}
+.floater h1 {
+   font-size: 1.4rem;
+}
+.floater h2 {
+   font-size: 1.2rem;
+}

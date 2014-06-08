@@ -27,6 +27,6 @@ angular.module("MagicCirclesDemo", ['ngRoute'])
         controller: 'Gallery'
       }).
       otherwise({
-        redirectTo: '/home'
+        redirectTo: '/casting'
       });
   }]);
