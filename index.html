@@ -1,83 +1,99 @@
 <doctype html>
-<head>
-    <link rel="stylesheet" type="text/css" href="circles.css">
-    <!-- <link rel="stylesheet" type="text/css" href="../azureda/azureda.css"> -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.8/d3.min.js"></script>
-    <script src="bower_components/underscore/underscore.js"></script>
-    <script src="bower_components/q/q.js"></script>
-		<script src='lol.js'></script>
-</head>
 
-<body>
-	<h1 style='display:none;'>
-		Magic Circles
-	</h1>
-	<div class='container' id='headerCircle'>
-	</div>
-	<ol>
-		<li>
-		<a href="https://github.com/danielstern/MagicCircles">	Github Page</a>
-		</li>
-		<li>
-			<a href="demo.html">Demo Page</a>
-		</li>
-		<p>
-			Doesn't work? Try it in Chrome.
-		</p>
+    <head>
+        <link rel="stylesheet" type="text/css" href="circles.css">
+        <!-- <link rel="stylesheet" type="text/css" href="../azureda/azureda.css"> -->
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/d3/d3.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.8/d3.min.js"></script>
+        <script src="bower_components/underscore/underscore.js"></script>
+        <script src="bower_components/q/q.js"></script>
+        <script src='lol.js'></script>
+    </head>
 
-</body>
+    <body>
+        <h1 style='display:none;'>
+            Magic Circles
+        </h1>
+        <div class='container' id='headerCircle'>
+        </div>
+        <ol>
+            <li>
+                <a href="https://github.com/danielstern/MagicCircles">	Github Page</a>
+            </li>
+            <li>
+                <a href="demo.html">Demo Page</a>
+            </li>
+            <li>
+                <a href="examples/9circles.html">Dante's Inferno Visualization</a>
+            </li>
+            <p>
+              <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://github.com/danielstern/MagicCircles" data-text="A cool library for drawing magic circles with JavaScript!" data-size="large" data-related="danielsternband" data-hashtags="javascript">Tweet</a>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+            </p>
+
+    </body>
 
 
-<script src='magic.circles.js'></script>
-<script>
-	var intro = new MagicCircle("#headerCircle");
-	var caster = intro.cast()
-			.circleRing(12,16)
-			.ring(5)
-					.color(lol.randomColor())
-			.ring(0)
-					.color(lol.randomColor())
-			.ring()
-			.text(10,lol.hipster())
-				.color(lol.randomColor())
-			.ring()
-			.circleRing(8,16,2,true)
-				.color(lol.randomColor())
-			.backspace(24)
-			.circleRing(24,8,4,false)
-			.space(8)
-			.ring(5)
-					.color(lol.randomColor())
-			.ring()
-			.text(24,"Magic Circles by Azureda",1)
-				.color(lol.randomColor())
-			.ring()
-					.color(lol.randomColor())
-			.circleRing(48,4,2)
-			.ring(5)
-			.ring()
-			.text(12,"Make your own today! The astonishing circle framework by international technology innovators Azureda and Friends!",1)
-				.color(lol.randomColor())
-			.ring(15)
-				.color(lol.randomColor())
-			.backspace(16)
-				.circleRing(8,9,2,true)
-				.color("white")
-				.fill("white")
-				
-	var intro = new MagicCircle("#headerCircle")
-		.cast()
-		.space(50)
-		.circleRing(8,16)
-			.fill('green')
-			.color('green')
-		.ring(50)
-			.color('red')
-		.backspace(45)
-		.circleRing(10,20)
-			.fill('white')
-			.color('white')
+    <script src='magic.circles.js'></script>
+    <script>
+    var intro = new MagicCircle("#headerCircle");
+    // var caster = intro.cast()
+    // 		.circleRing(12,16)
+    // 		.ring(5)
+    // 				.color(lol.randomColor())
+    // 		.ring(0)
+    // 				.color(lol.randomColor())
+    // 		.ring()
+    // 		.text(10,lol.hipster())
+    // 			.color(lol.randomColor())
+    // 		.ring()
+    // 		.circleRing(8,16,2,true)
+    // 			.color(lol.randomColor())
+    // 		.backspace(24)
+    // 		.circleRing(24,8,4,false)
+    // 		.space(8)
+    // 		.ring(5)
+    // 				.color(lol.randomColor())
+    // 		.ring()
+    // 		.text(24,"Magic Circles by Azureda",1)
+    // 			.color(lol.randomColor())
+    // 		.ring()
+    // 				.color(lol.randomColor())
+    // 		.circleRing(48,4,2)
+    // 		.ring(5)
+    // 		.ring()
+    // 		.text(12,"Make your own today! The astonishing circle framework by international technology innovators Azureda and Friends!",1)
+    // 			.color(lol.randomColor())
+    // 		.ring(15)
+    // 			.color(lol.randomColor())
+    // 		.backspace(16)
+    // 			.circleRing(8,9,2,true)
+    // 			.color("white")
+    // 			.fill("white")
 
-</script>
-<script src='examples/9levels.js'>
+    var intro = new MagicCircle("#headerCircle")
+        .cast()
+        .space(20)
+        .circleRing(8, 8)
+        .fill('green')
+        .color('green')
+        .text(8, "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+        .ring(25)
+        .color('red')
+        .backspace(25)
+        .circleRing(10, 10)
+        .fill('white')
+        .color('white')
+        .space(10)
+        .text(15, "DANIEL STERN PRESENTS OLD TYME POKER NIGHT")
+        .color("blue")
+        .ring(5)
+        .text(8, "FROM THE INTERNATIONAL CHIEFS OF MERRIMENT WHO BROUGHT YOU SUCH AMAZING ESCAPADES AS THE FANTASTIC FLYING HORSE STAN AND THE ASTOUNDING")
+        .ring(3)
+        .circleRing(104, 4)
+        .ring(2)
+        .text(9, "MILLIONS AWESOME INFRINGEMENT PLATONIC ZERO HOUR EXCELLENT PARTY TIME WAYNE'S WORLD MILLIONS AWESOME INFRINGEMENT PLATONIC ZERO HOUR EXCELLENT PARTY TIME WAYNE'S WORLD")
+        .ring(3)
+    </script>
+    <script src='examples/9levels.js'>

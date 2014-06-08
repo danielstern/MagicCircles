@@ -129,8 +129,12 @@ function romanize(num) {
     color: "black",
   }]
   magic.cast()
-    .ring(50)
+    .ring(150)
     .color('black')
+    .backspace(150)
+    .circleRing(24,75,4,true)
+    .color("gray")
+
 
   hell = hell.reverse();
 
@@ -257,14 +261,4 @@ function romanize(num) {
     .ring(5  * SCALE)
     .text(15  * SCALE, "Welcome to Hell!");
 
-
-// setTimeout(function(){
-//     console.log("Svg?",$("#circles svg.main"))
-//   d3.select("#circles svg.main")
-//     .attr("transform","translate(0,0) scale(2)")
-//     // .attr("opacity",0)
-
-//     // .attr('opacity',0)
-
-// },1000)
 })()
