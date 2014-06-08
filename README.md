@@ -82,7 +82,7 @@ Draw a circle of text equal to `text`, with a font height of `fontSize`;
 ##### `magicCircle.cast().space(distance)`
 Creates an empty space equal to [distance] between the proceeding and preceeding elements.
 
-##### Distance
+##### Backspace
 ##### `magicCircle.cast().backspace(distance)`
 Moves the drawing radius inwards [distance], cool for overlapping effects!
 
@@ -124,4 +124,27 @@ The fill function can be used to change the color of the fill of circle rings
 
 ```
 magic.cast().circleRing(6,12).color("orange");
+```
+
+#### Interactivity
+You can trigger mouse events for hovering or clicking on rings. Currently only rings are supported as they're the only thing that makes sense for interacivy.
+
+##### On
+##### `on(eventName,listener)`
+
+The `on` function is used to attach an event listener to a ring. 
+
+Often you will want to create invisible "sensor" rings, which can be done by using `color("useNone")`. See demo page for example.
+
+```
+magic.cast()
+  .space(50)
+  .text(25,"You're the")
+    .color('blue')
+  .backspace(25)
+  .ring(25)
+    .color('useNone')
+    .on('mouseover',function(target){
+      alert("Ring now dog!")
+   })
 ```

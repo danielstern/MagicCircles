@@ -40,7 +40,7 @@
                 text.animate();
             }
 
-            function rotateText2() {
+            function toggleCircles() {
                 text2.rotation(-35);
                 circles.fill("red")
             }
@@ -52,13 +52,13 @@
 
             caster.ring(25)
             var text2 = interact.cast()
-                .text(25,"Interactivity!")
+                .text(25,"CLICK ME")
                 .getLast();
 
             caster.backspace(25)
                 .ring(25)
                 .color("useNone")
-                .on("mouseover", rotateText2)
+                .on("click", toggleCircles)
                 .on("mouseout", resumeAnimation2)
 
             var circles =
