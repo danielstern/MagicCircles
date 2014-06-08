@@ -140,7 +140,7 @@ function romanize(num) {
 
 
   var caster = magic.cast();
-  var SCALE = 1;
+  var SCALE = 0.5;
 
   function drawRing(canto, verso) {
 

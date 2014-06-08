@@ -221,7 +221,7 @@ var MagicCircle = function(selector) {
         .duration(magicCircle.styles.animation.inSpeed)
         .attr("r", innerRadius)
         .each("end", function() {
-          delete circle.t;
+          circle.t = undefined;
         });
       circle.t = transition;
       circles.push(circle)
@@ -240,15 +240,17 @@ var MagicCircle = function(selector) {
       ref: ring,
       recolor: function(newColor) {
         _.each(circles, function(circle) {
-          var transition = circle.t || circle.transition();
+          circle.transition().duration(0);
+          var transition = circle.transition();
           transition
             .attr("stroke", newColor);
         })
       },
       fill: function(newColor) {
         _.each(circles, function(circle) {
+          circle.transition().duration(0);
           circle.style("filter","none");
-          var transition = circle.t || circle.transition();
+          var transition = circle.transition();
           transition
             .attr("fill", newColor);
         })

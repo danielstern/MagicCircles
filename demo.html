@@ -6,9 +6,70 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/q/q.js"></script>
     <script src='lol.js'></script>
+    <script src='magic.circles.js'></script>
 </head>
 
 <body ng-app="MagicCirclesDemo" ng-controller="Main">
+    <div class="container">
+        <h2>Interactivity</h2>
+        <p>Limited interactivity is available. You can currently listen to hover events on rings.</p>
+        <artboard id='interactivity'>
+
+        </artboard>
+        <script>
+            var interact = new MagicCircle("#interactivity");
+            var caster =interact.cast()
+                .space(50)            
+                .ring(25);
+
+            var text = interact.cast()
+                .text(25,"Hover over me!")
+                .getLast();
+
+            caster.backspace(25)
+                .ring(25)
+                .color("useNone")
+                .on("mouseover", rotateText)
+                .on("mouseout", resumeAnimation)
+
+            function rotateText() {
+                text.rotation(-35);
+            }
+
+            function resumeAnimation() {
+                text.animate();
+            }
+
+            function rotateText2() {
+                text2.rotation(-35);
+                circles.fill("red")
+            }
+
+            function resumeAnimation2() {
+                text2.animate();
+                circles.fill("blue");
+            }
+
+            caster.ring(25)
+            var text2 = interact.cast()
+                .text(25,"Interactivity!")
+                .getLast();
+
+            caster.backspace(25)
+                .ring(25)
+                .color("useNone")
+                .on("mouseover", rotateText2)
+                .on("mouseout", resumeAnimation2)
+
+            var circles =
+                caster.ring(25)
+                .circleRing(8,8)
+                .getLast();
+
+        </script>
+
+
+    </div>
     <h1>
         Magic Circles Demos
     </h1>
@@ -33,7 +94,7 @@
 </body>
 
 
-<script src='magic.circles.js'></script>
+
 <script>
 angular.module("MagicCirclesDemo", [])
     .controller("Main", function($scope) {
