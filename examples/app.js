@@ -14,6 +14,18 @@ angular.module("MagicCirclesDemo", ['ngRoute'])
         templateUrl: 'Interactivity/interactivity.html',
         controller: 'Interactivity'
       }).
+      when('/repeating', {
+        templateUrl: 'Repeating/repeating.html',
+        controller: 'Repeating'
+      }).
+      when('/fillStroke', {
+        templateUrl: 'FillStroke/fillstroke.html',
+        controller: 'FillStroke'
+      }).
+      when('/gallery', {
+        templateUrl: 'gallery/Gallery.html',
+        controller: 'Gallery'
+      }).
       otherwise({
         redirectTo: '/home'
       });
