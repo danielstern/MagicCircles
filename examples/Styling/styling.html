@@ -1,0 +1,28 @@
+<h2>
+    Styling
+</h2>
+<p>
+    It's possible to style the magic ring. 
+
+    <pre>
+    // Set Default Styles
+    var magic = new MagicCircle("#repeating", 2);
+        magic.styles.colors.ring = "#973b67";
+        magic.styles.colors.text = "#69a33c";
+        magic.styles.colors.smallRing = "#3c71af";
+
+    // Dynamic Recoloring
+        magic.cast()
+          .ring()
+             .color("#F00")
+          .text(16,"BAR")
+             .color("#BA5")
+    </pre>
+</p>
+
+<button onclick="rerollColor()">
+    New Colors
+</button>
+<artboard id='styling'>
+
+</artboard>
