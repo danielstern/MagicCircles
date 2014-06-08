@@ -24,9 +24,13 @@ Magic Circles uses the following simple syntax.
   var magicCircle = new MagicCircle("#myDiv");
   
   magicCircle.cast()
-    .ring()
-    .text("HOWDY!")
-    .ring()
+    .ring(25) // draws a ring with a width of 25.
+    .text(16,"Magic Circles by Azureda") // makes a ring of text 16px high.
+    .ring(5)
+      .color('purple') // makes a snazzy purple ring
+    .text(14,"I II III IV V")
+    // ... etc;
+
 ```
 
 Each element that you define (or cast) is added to the ring in another concentric circle. If this does not make sense, check out the first example on the demo page.
@@ -148,3 +152,24 @@ magic.cast()
       alert("Ring now dog!")
    })
 ```
+
+##### `getLast()`
+
+Returns a permanent reference to the last ring created. This works well with interactivity;
+
+```
+var caster = magic.cast()
+  .space(50);
+var ring = caster.ring(50)
+  .color('blue');
+
+setTimeout(function(){
+  caster
+  .target(ring)
+  .color("pink");
+})
+```
+
+##### `target(element)`
+
+Changes the active target of the caster to an element returned by `getLast()`;

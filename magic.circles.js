@@ -400,6 +400,10 @@ var MagicCircle = function(selector) {
         if (spaceAfter) this.space(spaceAfter);
         return this;
       },
+      target:function(element){
+        this.last = element;
+        return this;
+      },
       color: function(color) {
         if (this.last.recolor) {
           this.last.recolor(color);
