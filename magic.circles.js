@@ -214,7 +214,7 @@ var MagicCircle = function(selector) {
         .attr("cy", height / 2 + (Math.sin((offset + completeness) * RAD)) * q * radius)
         .attr("stroke", magicCircle.styles.colors.smallRing)
         .attr("fill", "none")
-        .style("filter", "url(#drop-shadow)")
+        // .style("filter", "url(#drop-shadow)")
         .attr("stroke-width", 0.5 + innerRadius / 15);
 
       var transition = circle.transition()
@@ -240,18 +240,15 @@ var MagicCircle = function(selector) {
       ref: ring,
       recolor: function(newColor) {
         _.each(circles, function(circle) {
-          circle.transition().duration(0);
-          var transition = circle.transition();
-          transition
-            .attr("stroke", newColor);
+          console.log("Recoloring",circle.t);
+          // circle.t.duration(0)
+          circle
+             .attr("stroke", newColor);
         })
       },
       fill: function(newColor) {
         _.each(circles, function(circle) {
-          circle.transition().duration(0);
-          circle.style("filter","none");
-          var transition = circle.transition();
-          transition
+          circle
             .attr("fill", newColor);
         })
       },
