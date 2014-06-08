@@ -23,10 +23,14 @@ angular.module("MagicCirclesDemo", ['ngRoute'])
         controller: 'FillStroke'
       }).
       when('/gallery', {
-        templateUrl: 'gallery/Gallery.html',
+        templateUrl: 'Gallery/gallery.html',
         controller: 'Gallery'
       }).
+      when('/home', {
+        templateUrl: 'Home/home.html',
+        controller: 'Home'
+      }).
       otherwise({
-        redirectTo: '/casting'
+        redirectTo: '/home'
       });
   }]);
