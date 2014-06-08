@@ -1,22 +1,31 @@
 <head>
     <link rel="stylesheet" type="text/css" href="styles/circles.css">
-    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.8/d3.min.js"></script>
-    <script src="bower_components/underscore/underscore.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/q/q.js"></script>
-    <script src='lol.js'></script>
-    <script src='magic.circles.js'></script>
+    <script src="../bower_components/underscore/underscore.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="../bower_components/q/q.js"></script>
+    <script src='../lol.js'></script>
+    <script src='../magic.circles.js'></script>
 
+
+    <script src="app.js"></script>
     <!-- include-controllers -->
         <!-- Casting Controller -->
         <script src="Casting/Casting.js"></script>
     <!-- end-include-controllers -->
 </head>
 
-<body ng-app="MagicCirclesDemo" ng-controller="Main">
+<body ng-app="MagicCirclesDemo" >
+    <h1>Magic Circles</h1>
+    <h2>The world's awesomest, most useless library.</h2>
+    <ul>
+        <li>
+            <a href="#casting">Free Casting Circles</a>
+        </li>
+    </ul>
     <div class="container" ng-view>
- 
 
     </div>
   <!--   <h1>
