@@ -37,7 +37,6 @@ var MagicCircle = function(selector) {
     height;
 
   var svg;
-
   this.id = Math.floor(Math.random()*10000000);
 
   // initializers
@@ -103,8 +102,8 @@ var MagicCircle = function(selector) {
 
     svg = d3.select(selector)
       .append("svg")
-      // .attr("width", width)
-      // .attr("height", height)
+      .attr("width", width)
+      .attr("height", height)
       .attr("class","main")
       // .attr("shape-rendering","optimizeSpeed")
       // .attr("viewBox","0 0 500 500")
@@ -306,7 +305,8 @@ var MagicCircle = function(selector) {
 
     var rotation = 0;
 
-    var runeId = lol.guid();
+    var runeId = magicCircle.id + Math.floor(Math.random() * 1000000);
+    console.log("runied?",runeId);
 
     var path = defs.append("path");
     path

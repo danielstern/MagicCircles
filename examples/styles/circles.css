@@ -4,22 +4,14 @@ http://colourco.de/monochrome-light/5/%2324466d
 */
 .container {
 
-	/*width: 500px;*/
-	
-
-	/* background-color: white; */
-	/*height: 500px;*/
-	
-
-	/* width: 90%; */
-
 	margin: auto;
+	max-width: 500px;
+	background-color: white;
+	padding: 20px;
+	padding-top:10px;	
+	border-radius: 5px;
+	margin-top: -25px;
 
-	/* padding: 25px; */
-
-	/* margin-top: 25px; */
-
-	border-radius: -14px;
 
 }
 
@@ -46,7 +38,15 @@ svg {
 
 html {
 	font-family: "Helvetica";
+	font-size: 1.0rem;
+	line-height: 1.8rem;
 }
+
+body {
+	padding: 1rem;
+	background-color: #213f62;
+	}
+
 
 a {
 	color: #1e3a5a;
@@ -66,11 +66,6 @@ a {
 	right: 0;
 }
 
-body {
-	/* background-color: #7a7a7a
-
-
- */}
 
 
 .banner {
@@ -122,6 +117,7 @@ wrapper {
 	margin: auto;
 		padding-top: 75px;
 	display: block;
+	
 }
 #menu:hover {
 	right: -20px;
@@ -151,4 +147,10 @@ artboard#circles, artboard#circles svg {
 #circle2 {
 	width: 250px;
 	height: 250px;
+}
+
+.footer {
+	font-size: 8px;
+	text-align: center;
+	margin-top: 80px;
 }

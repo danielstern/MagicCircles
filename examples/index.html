@@ -30,42 +30,28 @@
 
 <body ng-app="MagicCirclesDemo">
     <wrapper>
-    <!-- <a href="#home"><h1>Magic Circles</h1></a> -->
-    <!-- <h2>The world's    awesomest, most useless library.</h2> -->
-    <div class="header">
-        <div id='logo-main'>
-            <a href="#home">
-                <div class='banner'>Magic Circles</div>
-            </a>
-        </div>
-        <div id='menu'>
-            <div class='banner'>Menu</div>
-            <!-- <ul>
-                <li>
-                    <a href="#casting">Free Casting Circles</a>
-                </li>
-                <li>
-                    <a href="#interactivity">Interactivity</a>
-                </li>
-                <li>
-                    <a href="#styling">Adding Styles</a>
-                </li>
-                <li>
-                    <a href="#fillStroke">Advanced Styling</a>
-                </li>
-                <li>
-                    <a href="#repeating">Creating Repeating Patterns</a>
-                </li>
-                <li>
-                    <a href="#gallery">Circle Gallery</a>
-                </li>
-            </ul> -->
-        </div>
-    </div>
 
-    <div class="container" ng-view>
-    </div>
-</wrapper>
+        <div class="header">
+            <div id='logo-main'>
+                <a href="#home">
+                    <div class='banner'>Magic Circles</div>
+                </a>
+            </div>
+            <div id='menu'>
+                <div class='banner'>Menu</div>
+
+            </div>
+        </div>
+
+        <div class="container">
+            <div ng-view>
+            </div>
+
+            <div class='footer'>
+                Magic Circles Copyright (c) 2014 Azureda - <a href="http://opensource.org/licenses/BSD-3-Clause" target="_blank">License Information</a>
+            </div>
+        </div>
+    </wrapper>
 </body>
 
 <script>
@@ -101,11 +87,12 @@ function showMenuButton() {
 }
 
 var canshowmenu = true;
+
 function forceMenuHide() {
     menu.disperse();
     showMenuButton();
     canshowmenu = false;
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
 
 
     $('#menu').css("pointer-events", "none");
@@ -124,19 +111,19 @@ var options = [{
     name: "Styling",
     link: "styling",
     color: "#5e5e5e",
-},{
+}, {
     name: "Fill",
     link: "fillStroke",
     color: "#24466d",
-},{
+}, {
     name: "Patterns",
     link: "repeating",
     color: "#1a324d",
-},{
+}, {
     name: "Interactivity",
     link: "interactivity",
     color: "#0f1d2d",
-},{
+}, {
     name: "Gallery",
     link: "gallery",
     color: "#05080d",
@@ -144,8 +131,8 @@ var options = [{
 
     function showMenu() {
         menu.cast()
-            .circleRing(32,25,3)
-        _.each(options,function(option){
+            .circleRing(32, 25, 3)
+        _.each(options, function(option) {
             console.log('casting option');
 
             menu.cast()
@@ -165,10 +152,10 @@ var options = [{
                     window.location.hash = option.link;
                     forceMenuHide();
                 })
-                .on('mouseover',function(e){
+                .on('mouseover', function(e) {
                     text.rotation(-25);
                 })
-                .on('mouseout',function(e){
+                .on('mouseout', function(e) {
                     text.animate();
                 })
             // .backspace(16)
