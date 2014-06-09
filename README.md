@@ -82,6 +82,14 @@ magic.cast()
 
 Draw a circle of text equal to `text`, with a font height of `fontSize`;
 
+<a name="autofit"></a>
+
+You can pass the string `"autofit"` as the fontSize variable. If so, Magic Circles will automatically size the text for you.
+
+![Autofit](https://raw.githubusercontent.com/danielstern/MagicCircles/master/project_images/autofit.jpg)
+
+*Note: This will not work as expected if you are applying certain custom styles via CSS such as leading. For that you will need to manually calculate size.*
+
 ##### Space
 ##### `magicCircle.cast().space(distance)`
 Creates an empty space equal to [distance] between the proceeding and preceeding elements.
@@ -174,29 +182,5 @@ setTimeout(function(){
 
 Changes the active target of the caster to an element returned by `getLast()`;
 
-<a name="getLength"></a>
-##### `getLength()`
 
-Returns the length in pixels of a text ring.
-
-```
-var text = magic.cast()
-  .text("16","Magic Circles!!!")
-  .getLast();
-  
-  console.log(text.getLength());
-  // 143;
-```
-
-##### `getCircumference()`
-
-Returns the inner circumference of a text element.
-
-```
-var text = magic.cast()
-  .text("16","Magic Circles!!!")
-  .getLast();
-  
-  console.log(text.getCircumference());
-  // 234;
 ```
