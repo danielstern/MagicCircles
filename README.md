@@ -83,6 +83,7 @@ magic.cast()
 Draw a circle of text equal to `text`, with a font height of `fontSize`;
 
 <a name="autofit"></a>
+###### Autofit
 
 You can pass the string `"autofit"` as the fontSize variable. If so, Magic Circles will automatically size the text for you.
 
@@ -175,7 +176,7 @@ setTimeout(function(){
   caster
   .target(ring)
   .color("pink");
-})
+},2000)
 ```
 
 ##### `target(element)`
