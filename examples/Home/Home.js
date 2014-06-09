@@ -22,7 +22,7 @@
             .color(lol.randomColor())
         .ring();
       var text = caster
-        .text(24,"Magic Circles by Azureda",1)
+        .text("autofit","Magic Circles by Azureda",1)
         .color(lol.randomColor())
         .getLast();
       caster
@@ -31,7 +31,7 @@
         .circleRing(48,4,2)
         .ring(5)
         .ring()
-        .text(12,"Make your own today! The astonishing circle framework by international technology innovators Azureda and Friends!",1)
+        .text("autofit","Make your own today! The astonishing circle framework by international technology innovators Azureda and Friends!",1)
           .color(lol.randomColor())
         .ring(15)
           .color(lol.randomColor())
@@ -47,6 +47,6 @@
         console.log("fit size?",fitSize)
 
       caster
-        .text(fitSize,autoFitTestText)
+        .text("autofit",autoFitTestText)
         // console.log("text circumference?",text.getCircumference());
      })

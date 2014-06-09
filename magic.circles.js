@@ -300,7 +300,7 @@ var MagicCircle = function(selector) {
     }
   }
 
-  this.draw.runeRing = function(radius, text, fontSize, speed, reverse) {
+  this.draw.runeRing = function(radius, text, fontSize, speed, reverse, leading) {
 
     var rotation = 0;
 
@@ -332,7 +332,7 @@ var MagicCircle = function(selector) {
       .attr("class", "tester")
       .style("font-size", fontSize + "px")
       .attr("xlink:href", "#s3" + runeId)
-      // .style("letter-spacing", magicCircle.styles.type.leading)
+      .style("letter-spacing", magicCircle.styles.type.leading)
       .style("text-transform", magicCircle.styles.type.typecase)
       .style("pointer-events", "none")
       .style("filter", "url(#drop-shadow" + magicCircle.id + ")")
@@ -346,7 +346,7 @@ var MagicCircle = function(selector) {
       .append("textPath")
       .style("font-size", fontSize + "px")
       .attr("xlink:href", "#s3" + runeId)
-      // .style("letter-spacing", magicCircle.styles.type.leading)
+      .style("letter-spacing", leading || magicCircle.styles.type.leading)
       .style("text-transform", magicCircle.styles.type.typecase)
       .style("pointer-events", "none")
       .style("filter", "url(#drop-shadow" + magicCircle.id + ")")
@@ -464,16 +464,13 @@ var MagicCircle = function(selector) {
         var errorMargin = 2;
 
         var textSizeA = 10;
-        var runeRing = magicCircle.draw.runeRing(magicCircle.currentRadius, text, textSizeA, 0, true);
+        var runeRing = magicCircle.draw.runeRing(magicCircle.currentRadius, text, textSizeA, 0, "0");
         var length = runeRing.getLength();
 
         var circumference = this.getCircumference();
 
         var fitRatio = circumference / length;
         var textSizeB = textSizeA * fitRatio;
-
-        // debugger;
-
 
         runeRing.disperse();
 
@@ -533,9 +530,15 @@ var MagicCircle = function(selector) {
         magicCircle.currentRadius -= length;
         return this;
       },
-      text: function(height, text, speed, reverse) {
+      text: function(height, text, speed, reverse,leading) {
+        if (height == "autofit") {
+          var circumference = this.getCircumference();
+          height = this.getTextFitSize(text);
+          leading = "0";
+        }
+
         var padding = 2;
-        var text = draw.runeRing(magicCircle.currentRadius + padding, text, height, speed || 1, reverse);
+        var text = draw.runeRing(magicCircle.currentRadius + padding, text, height, speed || 1, reverse, leading);
         magicCircle.allElements.push(text);
         magicCircle.currentRadius += height;
         this.last = text;
