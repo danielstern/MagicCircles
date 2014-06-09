@@ -29,6 +29,7 @@
 </head>
 
 <body ng-app="MagicCirclesDemo">
+    <wrapper>
     <!-- <a href="#home"><h1>Magic Circles</h1></a> -->
     <!-- <h2>The world's    awesomest, most useless library.</h2> -->
     <div class="header">
@@ -64,6 +65,7 @@
 
     <div class="container" ng-view>
     </div>
+</wrapper>
 </body>
 
 <script>
@@ -103,11 +105,13 @@ function forceMenuHide() {
     menu.disperse();
     showMenuButton();
     canshowmenu = false;
+    window.scrollTo(0,0);
 
 
-    // $('#menu').css("pointer-events", "none");
+    $('#menu').css("pointer-events", "none");
     setTimeout(function() {
         canshowmenu = true;
+        $('#menu').css("pointer-events", "auto");
     }, 1500)
 }
 
