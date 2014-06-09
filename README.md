@@ -181,6 +181,3 @@ setTimeout(function(){
 ##### `target(element)`
 
 Changes the active target of the caster to an element returned by `getLast()`;
-
-
-```
