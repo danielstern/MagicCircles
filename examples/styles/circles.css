@@ -81,7 +81,7 @@ body {
 #menu {
 	width: 350px;
 	height: 300px;
-	position: absolute;
+	position: fixed;
 	right: -100px;
 	top: 50px;
 	transition: 0.3s all;

@@ -213,7 +213,7 @@ var MagicCircle = function(selector) {
           .duration(magicCircle.styles.animation.inSpeed)
           .attr("opacity", 0)
           .attr("r", 0)
-          .each("end", deferred.resolve);
+          .each("end", deferred.resolve, circle);
 
 
         return deferred.promise;
@@ -293,7 +293,7 @@ var MagicCircle = function(selector) {
         transition
           .duration(magicCircle.styles.animation.inSpeed)
           .attr("opacity", 0)
-          .each("end", deferred.resolve);
+          .each("end", deferred.resolve, ring);
 
         return deferred.promise;
       }
@@ -376,7 +376,7 @@ var MagicCircle = function(selector) {
         transition = text.transition();
         transition
           .attr("opacity", 0)
-          .each("end", deferred.resolve);
+          .each("end", deferred.resolve, text);
 
           // text.attr("opacity",0);
 
@@ -394,12 +394,13 @@ var MagicCircle = function(selector) {
     var elementsDispersed = 0;
     _.each(magicCircle.allElements, function(element) {
       element.disperse()
-        .then(function() {
+        .then(function(el) {
           elementsDispersed++;
-          if (elementsDispersed == elementCount && !magicCircle.active) {
-            svg.remove()
-            svg = null;
-          }
+          el.remove();
+          // if (elementsDispersed == elementCount && !magicCircle.active) {
+          //   svg.remove()
+          //   svg = null;
+          // }
         })
     })
 

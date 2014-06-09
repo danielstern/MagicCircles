@@ -67,7 +67,6 @@
 </body>
 
 <script>
-console.log("running script?");
 var logo = new MagicCircle("#logo-main");
 logo.cast()
     .ring(35)
@@ -99,14 +98,16 @@ function showMenuButton() {
         .color("#565656")
 }
 
+var canshowmenu = true;
 function forceMenuHide() {
     menu.disperse();
     showMenuButton();
+    canshowmenu = false;
 
 
-    $('#menu').css("pointer-events", "none");
+    // $('#menu').css("pointer-events", "none");
     setTimeout(function() {
-        $('#menu').css("pointer-events", "all");
+        canshowmenu = true;
     }, 1500)
 }
 
@@ -114,47 +115,68 @@ function forceMenuHide() {
 var options = [{
     name: "Casting",
     link: "casting",
-    color: "red",
+    color: "#737373",
 }, {
     name: "Styling",
     link: "styling",
-    color: "blue",
+    color: "#5e5e5e",
+},{
+    name: "Fill",
+    link: "fillStroke",
+    color: "#24466d",
+},{
+    name: "Patterns",
+    link: "repeating",
+    color: "#1a324d",
+},{
+    name: "Interactivity",
+    link: "interactivity",
+    color: "#0f1d2d",
+},{
+    name: "Gallery",
+    link: "gallery",
+    color: "#05080d",
 }]
 
     function showMenu() {
         menu.cast()
-            .space(50)
-            .ring(16)
-            .color('blue')
-            .backspace(16)
-            .text(16, "Casting", 1)
-            .color('white')
-            .backspace(16)
-            .ring(16)
-            .color('useNone')
-            .on('click', function(a) {
-                console.log("clicked the ring");
-                window.location.hash = "casting";
-                forceMenuHide();
-            })
+            .circleRing(32,25,3)
+        _.each(options,function(option){
+            console.log('casting option');
 
-        .backspace(16)
-
-        // menu.cast()
-        // .text(16,"Styling",1)
-        // .ring(2)
-        // .color("#565656")
+            menu.cast()
+                .ring(16)
+                .color(option.color)
+                .backspace(16);
+            var text = menu.cast()
+                .text(16, option.name, 1)
+                .color('white')
+                .getLast();
+            menu.cast()
+                .backspace(16)
+                .ring(16)
+                .color('useNone')
+                .on('click', function(a) {
+                    console.log("clicked the ring");
+                    window.location.hash = option.link;
+                    forceMenuHide();
+                })
+                .on('mouseover',function(e){
+                    text.rotation(-25);
+                })
+                .on('mouseout',function(e){
+                    text.animate();
+                })
+            // .backspace(16)
+        })
     }
 
 $('#menu').on("mouseenter", function(e) {
-    console.log('mouseover', $(e.target).parent()[0], this);
-    if ($(e.target).parent()[0] != this) return;
     menu.disperse();
     showMenu();
 })
 
 $('#menu').on("mouseleave", function(e) {
-    console.log("mouse out");
     menu.disperse();
     showMenuButton();
 })
