@@ -38,6 +38,8 @@ var MagicCircle = function(selector) {
 
   var svg;
 
+  this.id = Math.floor(Math.random()*10000000);
+
   // initializers
   this.draw = {};
   var animator = undefined;
@@ -110,7 +112,7 @@ var MagicCircle = function(selector) {
     defs = svg.append("defs");
 
     var blurFilter = defs.append("filter")
-      .attr("id", "drop-blur")
+      .attr("id", "drop-blur" + magicCircle.id)
       .attr("height", "130%")
 
     blurFilter.append("feGaussianBlur")
@@ -133,7 +135,7 @@ var MagicCircle = function(selector) {
 
 
     var shadowFilter = defs.append("filter")
-      .attr("id", "drop-shadow")
+      .attr("id", "drop-shadow" + magicCircle.id)
       .attr("height", "130%")
 
     shadowFilter.append("feGaussianBlur")
@@ -174,7 +176,7 @@ var MagicCircle = function(selector) {
       .attr("opacity", 1)
       .attr("stroke", magicCircle.styles.colors.ring)
       .attr("fill", "none")
-      .style("filter", "url(#drop-shadow)")
+      .style("filter", "url(#drop-shadow"+ magicCircle.id+")")
       .attr("stroke-width", strokeWidth || radius / 100);
 
     if (strokeWidth > 5) {
@@ -335,7 +337,7 @@ var MagicCircle = function(selector) {
       .style("letter-spacing", magicCircle.styles.type.leading)
       .style("text-transform", magicCircle.styles.type.typecase)
       .style("pointer-events", "none")
-      .style("filter", "url(#drop-shadow)")
+      .style("filter", "url(#drop-shadow"+  magicCircle.id+")")
       .text(text)
       .attr("fill", magicCircle.styles.colors.text)
       .attr("opacity", 0);
