@@ -37,7 +37,7 @@ var MagicCircle = function(selector) {
     height;
 
   var svg;
-  this.id = Math.floor(Math.random()*10000000);
+  this.id = Math.floor(Math.random() * 10000000);
 
   // initializers
   this.draw = {};
@@ -97,17 +97,15 @@ var MagicCircle = function(selector) {
 
     width = $(selector).width();
     height = $(selector).height();
-    
-    console.log("Inited", selector, width,height);
 
     svg = d3.select(selector)
       .append("svg")
       .attr("width", width)
       .attr("height", height)
-      .attr("class","main")
-      // .attr("shape-rendering","optimizeSpeed")
-      // .attr("viewBox","0 0 500 500")
-      // .attr("transform","scale(0.2)")
+      .attr("class", "main")
+    // .attr("shape-rendering","optimizeSpeed")
+    // .attr("viewBox","0 0 500 500")
+    // .attr("transform","scale(0.2)")
     defs = svg.append("defs");
 
     var blurFilter = defs.append("filter")
@@ -175,7 +173,7 @@ var MagicCircle = function(selector) {
       .attr("opacity", 1)
       .attr("stroke", magicCircle.styles.colors.ring)
       .attr("fill", "none")
-      .style("filter", "url(#drop-shadow"+ magicCircle.id+")")
+      .style("filter", "url(#drop-shadow" + magicCircle.id + ")")
       .attr("stroke-width", strokeWidth || radius / 100);
 
     if (strokeWidth > 5) {
@@ -186,23 +184,24 @@ var MagicCircle = function(selector) {
 
     var transition = circle.transition()
       .duration(magicCircle.styles.animation.inSpeed)
-      .attr("r", radius + strokeWidth/2)
-      .each("end",function(){transition = null});
+      .attr("r", radius + strokeWidth / 2)
+      .each("end", function() {
+        transition = null
+      });
 
     return {
       ref: circle,
       recolor: function(newColor) {
-          transition = transition || circle.transition();
-          if (newColor == "useNone") {
-            // console.log("")
-            transition
-              .attr("stroke", "rgba(0,0,0,0)")
-              .attr("fill-opacity", "0.0");
-
-            return;
-          }
+        transition = transition || circle.transition();
+        if (newColor == "useNone") {
           transition
-            .attr("stroke", newColor);
+            .attr("stroke", "rgba(0,0,0,0)")
+            .attr("fill-opacity", "0.0");
+
+          return;
+        }
+        transition
+          .attr("stroke", newColor);
       },
       on: function(event, listener) {
         circle.on(event, listener)
@@ -243,8 +242,8 @@ var MagicCircle = function(selector) {
         .attr("cy", height / 2 + (Math.sin((offset + completeness) * RAD)) * q * radius)
         .attr("stroke", magicCircle.styles.colors.smallRing)
         .attr("fill", "none")
-        // .style("filter", "url(#drop-shadow)")
-        .attr("stroke-width", 0.5 + innerRadius / 15);
+      // .style("filter", "url(#drop-shadow)")
+      .attr("stroke-width", 0.5 + innerRadius / 15);
 
       var transition = circle.transition()
         .duration(magicCircle.styles.animation.inSpeed)
@@ -270,7 +269,7 @@ var MagicCircle = function(selector) {
       recolor: function(newColor) {
         _.each(circles, function(circle) {
           circle
-             .attr("stroke", newColor);
+            .attr("stroke", newColor);
         })
       },
       fill: function(newColor) {
@@ -279,7 +278,7 @@ var MagicCircle = function(selector) {
             .attr("fill", newColor);
         })
       },
-     
+
       disperse: function() {
         var deferred = Q.defer();
         animation.stop();
@@ -306,7 +305,6 @@ var MagicCircle = function(selector) {
     var rotation = 0;
 
     var runeId = magicCircle.id + Math.floor(Math.random() * 1000000);
-    console.log("runied?",runeId);
 
     var path = defs.append("path");
     path
@@ -337,7 +335,7 @@ var MagicCircle = function(selector) {
       .style("letter-spacing", magicCircle.styles.type.leading)
       .style("text-transform", magicCircle.styles.type.typecase)
       .style("pointer-events", "none")
-      .style("filter", "url(#drop-shadow"+  magicCircle.id+")")
+      .style("filter", "url(#drop-shadow" + magicCircle.id + ")")
       .text(text)
       .attr("fill", magicCircle.styles.colors.text)
       .attr("opacity", 0);
@@ -361,11 +359,11 @@ var MagicCircle = function(selector) {
       rotation: function(rot) {
         timer.stop();
         ring
-            .transition()
-            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")  rotate(" + rot + ")")
+          .transition()
+          .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")  rotate(" + rot + ")")
 
       },
-      animate:function() {
+      animate: function() {
         timer.start();
       },
       recolor: function(newColor) {
@@ -380,7 +378,14 @@ var MagicCircle = function(selector) {
           .attr("opacity", 0)
           .each("end", deferred.resolve, text);
 
-          // text.attr("opacity",0);
+        // bug fix for Firefox
+        //***
+        setTimeout(function() {
+          ring.remove();
+          text.remove();
+        }, 500);
+        //**
+
 
         return deferred.promise;
 
@@ -399,10 +404,6 @@ var MagicCircle = function(selector) {
         .then(function(el) {
           elementsDispersed++;
           el.remove();
-          // if (elementsDispersed == elementCount && !magicCircle.active) {
-          //   svg.remove()
-          //   svg = null;
-          // }
         })
     })
 
@@ -435,7 +436,7 @@ var MagicCircle = function(selector) {
         if (spaceAfter) this.space(spaceAfter);
         return this;
       },
-      target:function(element){
+      target: function(element) {
         this.last = element;
         return this;
       },
@@ -495,13 +496,14 @@ var MagicCircle = function(selector) {
       disperse: function() {
         magicCircle.disperse();
       },
-      on: function(event,listener) {
+      on: function(event, listener) {
         var target = this.last;
         var returner = this;
         if (this.last.on) {
-          this.last.on(event,function(){
+          this.last.on(event, function() {
             returner.last = target;
-            listener(returner,target);1
+            listener(returner, target);
+            1
           })
         } else {
           console.warn("Can't attach a listener to this object");
