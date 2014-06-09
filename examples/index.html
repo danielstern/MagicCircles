@@ -102,40 +102,59 @@ function showMenuButton() {
 function forceMenuHide() {
     menu.disperse();
     showMenuButton();
+
+
+    $('#menu').css("pointer-events", "none");
+    setTimeout(function() {
+        $('#menu').css("pointer-events", "all");
+    }, 1500)
 }
 
 
+var options = [{
+    name: "Casting",
+    link: "casting",
+    color: "red",
+}, {
+    name: "Styling",
+    link: "styling",
+    color: "blue",
+}]
 
-function showMenu() {
-    menu.cast()
-        .space(50)
-        .ring(16)
+    function showMenu() {
+        menu.cast()
+            .space(50)
+            .ring(16)
             .color('blue')
-        .backspace(16)
-        .text(16,"Casting",1)
+            .backspace(16)
+            .text(16, "Casting", 1)
             .color('white')
-        .backspace(16)
-        .ring(16)
-        .color('useNone')
-        .on('click',function(a){
-            console.log("clicked the ring");
-            window.location.hash = "casting";
-            forceMenuHide();
-        })
+            .backspace(16)
+            .ring(16)
+            .color('useNone')
+            .on('click', function(a) {
+                console.log("clicked the ring");
+                window.location.hash = "casting";
+                forceMenuHide();
+            })
+
         .backspace(16)
 
-    // menu.cast()
+        // menu.cast()
         // .text(16,"Styling",1)
         // .ring(2)
         // .color("#565656")
-}
+    }
 
-$('#menu').on("mouseover",function(e){
+$('#menu').on("mouseenter", function(e) {
+    console.log('mouseover', $(e.target).parent()[0], this);
+    if ($(e.target).parent()[0] != this) return;
     menu.disperse();
     showMenu();
 })
 
-$('#menu').on("mouseout",function(e){
+$('#menu').on("mouseleave", function(e) {
+    console.log("mouse out");
     menu.disperse();
     showMenuButton();
 })
