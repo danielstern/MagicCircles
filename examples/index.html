@@ -51,4 +51,16 @@
     <div class="container" ng-view>
 
     </div>
+
+    <div id='logo-main'>
+        <div>Magic Circles</div>
+    </div>
+    <script>
+        var logo = new MagicCircle("#logo-main");
+        logo.cast()
+            .circleRing(16,8)
+            .ring(2)
+            .circleRing(16,10)
+            .ring(3)
+    </script>
 </body>

@@ -22,12 +22,28 @@ artboard {
 
 svg {
 		/*position: absolute;*/
-		width: 500px;
-		height: 500px;
+		/*width: 500px;*/
+		/*height: 500px;*/
 
 }
 
 
+
+#logo-main {
+	max-width: 250px;
+	width: 80%;
+	height: 150px;
+	margin: auto;
+	position: absolute;
+	left: 0;
+	top: 120;
+	right: 0;
+
+}
+
+#logo-main text {
+
+}
 
 artboard#circles, artboard#circles svg {
     width: 1400px;

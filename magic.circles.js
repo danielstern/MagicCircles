@@ -233,7 +233,7 @@ var MagicCircle = function(selector) {
         .transition()
         .ease("linear")
         .duration(100)
-        .attr("transform", "rotate(" + offset + ", " + width / 2 + ", " + width / 2 + ")");
+        .attr("transform", "rotate(" + offset + ", " + width / 2 + ", " + height / 2 + ")");
     });
 
     return {
