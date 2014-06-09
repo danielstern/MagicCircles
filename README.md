@@ -87,6 +87,15 @@ Draw a circle of text equal to `text`, with a font height of `fontSize`;
 
 You can pass the string `"autofit"` as the fontSize variable. If so, Magic Circles will automatically size the text for you.
 
+```
+magic.cast()
+.ring(2,2,20)
+  .text("autofit","This text has been automatically resized!")
+  .ring(2,2,2)
+  .text("autofit","Thanks Azureda!")
+  .ring(2,2,2)
+```
+
 ![Autofit](https://raw.githubusercontent.com/danielstern/MagicCircles/master/project_images/autofit.jpg)
 
 *Note: This will not work as expected if you are applying certain custom styles via CSS such as leading. For that you will need to manually calculate size.*
