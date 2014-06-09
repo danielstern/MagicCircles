@@ -1,3 +1,7 @@
+/* Color Scheme 
+
+http://colourco.de/monochrome-light/5/%2324466d
+*/
 .container {
 
 	/*width: 500px;*/
@@ -7,7 +11,6 @@
 
 #headerCircle {
 	height: 500px;
-
 	width: 500px;
 
 }
@@ -15,7 +18,7 @@
 artboard {
 	display: block;
 	/*-webkit-animation: jewelbox 100s infinite linear;*/
-	width: 500px;
+	max-width: 500px;
 	height: 500px;
 	top: 100px;
 }
@@ -27,22 +30,81 @@ svg {
 
 }
 
+html {
+	font-family: "Helvetica";
+}
+
+a {
+	color: #1e3a5a;
+}
+
 
 
 #logo-main {
 	max-width: 250px;
 	width: 80%;
-	height: 150px;
+	height: 130px;
 	margin: auto;
 	position: absolute;
 	left: 0;
-	top: 120;
+	top: -36;
 	right: 0;
-
 }
 
-#logo-main text {
+body {
+	padding-top: 75px;
+}
 
+
+.banner {
+	border: 1px solid black;
+	width: 190px;
+	margin: auto;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: "Bree serif";
+	font-size: 19px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 29px;
+	background-color: #565656;
+	line-height: 28px;
+	letter-spacing: 3px;
+	color: white;
+	border: white;
+}
+
+
+#menu {
+	width: 350px;
+	height: 300px;
+	position: absolute;
+	right: -100px;
+	top: 50px;
+	transition: 0.3s all;
+}
+
+#menu .banner {
+	width: 110px;
+	font-size: 17px;
+	opacity: 1;
+	transition: 0.2s opacity;
+	pointer-events: none;
+}
+
+#menu text {
+	pointer-events: none;
+}
+
+#menu:hover {
+	right: 0px;
+}
+
+#menu:hover .banner {
+	opacity: 0;
 }
 
 artboard#circles, artboard#circles svg {

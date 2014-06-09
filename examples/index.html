@@ -21,46 +21,123 @@
     <script src="Gallery/Gallery.js"></script>
     <script src="Home/Home.js"></script>
     <!-- end-include-controllers -->
+    <link href='http://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light|Bree+Serif&subset=latin,cyrillic-ext,cyrillic,latin-ext' rel='stylesheet' type='text/css'>
+
+
+
 
 </head>
 
 <body ng-app="MagicCirclesDemo">
-    <a href="#home"><h1>Magic Circles</h1></a>
+    <!-- <a href="#home"><h1>Magic Circles</h1></a> -->
     <!-- <h2>The world's    awesomest, most useless library.</h2> -->
-    <ul>
-        <li>
-            <a href="#casting">Free Casting Circles</a>
-        </li>
-        <li>
-            <a href="#interactivity">Interactivity</a>
-        </li>
-        <li>
-            <a href="#styling">Adding Styles</a>
-        </li>
-        <li>
-            <a href="#fillStroke">Advanced Styling</a>
-        </li>
-        <li>
-            <a href="#repeating">Creating Repeating Patterns</a>
-        </li>
-        <li>
-            <a href="#gallery">Circle Gallery</a>
-        </li>
-    </ul>
-   
+    <div class="header">
+        <div id='logo-main'>
+            <a href="#home">
+                <div class='banner'>Magic Circles</div>
+            </a>
+        </div>
+        <div id='menu'>
+            <div class='banner'>Menu</div>
+            <!-- <ul>
+                <li>
+                    <a href="#casting">Free Casting Circles</a>
+                </li>
+                <li>
+                    <a href="#interactivity">Interactivity</a>
+                </li>
+                <li>
+                    <a href="#styling">Adding Styles</a>
+                </li>
+                <li>
+                    <a href="#fillStroke">Advanced Styling</a>
+                </li>
+                <li>
+                    <a href="#repeating">Creating Repeating Patterns</a>
+                </li>
+                <li>
+                    <a href="#gallery">Circle Gallery</a>
+                </li>
+            </ul> -->
+        </div>
+    </div>
+
     <div class="container" ng-view>
-
     </div>
-
-    <div id='logo-main'>
-        <div>Magic Circles</div>
-    </div>
-    <script>
-        var logo = new MagicCircle("#logo-main");
-        logo.cast()
-            .circleRing(16,8)
-            .ring(2)
-            .circleRing(16,10)
-            .ring(3)
-    </script>
 </body>
+
+<script>
+console.log("running script?");
+var logo = new MagicCircle("#logo-main");
+logo.cast()
+    .ring(35)
+    .color("#1e3a5a")
+    .backspace(35)
+    .circleRing(16, 8)
+    .color("white")
+    .ring(2)
+    .color("#565656")
+    .circleRing(16, 10)
+    .color("white")
+    .ring(3)
+    .color("#565656")
+
+var menu = new MagicCircle("#menu");
+
+function showMenuButton() {
+    menu.cast()
+        .ring(25)
+        .color("#1e3a5a")
+        .backspace(35)
+        .circleRing(15, 10)
+        .color("white")
+        .ring(2)
+        .color("#565656")
+        .circleRing(8, 5)
+        .color("white")
+        .ring(2)
+        .color("#565656")
+}
+
+function forceMenuHide() {
+    menu.disperse();
+    showMenuButton();
+}
+
+
+
+function showMenu() {
+    menu.cast()
+        .space(50)
+        .ring(16)
+            .color('blue')
+        .backspace(16)
+        .text(16,"Casting",1)
+            .color('white')
+        .backspace(16)
+        .ring(16)
+        .color('useNone')
+        .on('click',function(a){
+            console.log("clicked the ring");
+            window.location.hash = "casting";
+            forceMenuHide();
+        })
+        .backspace(16)
+
+    // menu.cast()
+        // .text(16,"Styling",1)
+        // .ring(2)
+        // .color("#565656")
+}
+
+$('#menu').on("mouseover",function(e){
+    menu.disperse();
+    showMenu();
+})
+
+$('#menu').on("mouseout",function(e){
+    menu.disperse();
+    showMenuButton();
+})
+showMenuButton();
+</script>

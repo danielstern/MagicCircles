@@ -240,8 +240,6 @@ var MagicCircle = function(selector) {
       ref: ring,
       recolor: function(newColor) {
         _.each(circles, function(circle) {
-          console.log("Recoloring",circle.t);
-          // circle.t.duration(0)
           circle
              .attr("stroke", newColor);
         })
@@ -347,10 +345,12 @@ var MagicCircle = function(selector) {
       },
       disperse: function() {
         var deferred = Q.defer();
-        transition = transition || text.transition();
+        transition = text.transition();
         transition
           .attr("opacity", 0)
           .each("end", deferred.resolve);
+
+          // text.attr("opacity",0);
 
         return deferred.promise;
 
@@ -360,13 +360,15 @@ var MagicCircle = function(selector) {
 
   this.disperse = function() {
 
+    magicCircle.active = false;
+
     var elementCount = magicCircle.allElements.length;
     var elementsDispersed = 0;
     _.each(magicCircle.allElements, function(element) {
       element.disperse()
         .then(function() {
           elementsDispersed++;
-          if (elementsDispersed == elementCount) {
+          if (elementsDispersed == elementCount && !magicCircle.active) {
             svg.remove()
             svg = null;
           }
@@ -387,6 +389,8 @@ var MagicCircle = function(selector) {
     var draw = this.draw;
     if (!animator) animator = setInterval(magicCircle.animate, 100);
     if (!svg) this.init();
+
+    magicCircle.active = true;
 
     magicCircle.caster = {
       selector: selector,
