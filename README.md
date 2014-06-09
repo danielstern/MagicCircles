@@ -187,3 +187,16 @@ var text = magic.cast()
   console.log(text.getLength());
   // 143;
 ```
+
+##### `getCircumference()`
+
+Returns the inner circumference of a text element.
+
+```
+var text = magic.cast()
+  .text("16","Magic Circles!!!")
+  .getLast();
+  
+  console.log(text.getCircumference());
+  // 234;
+```

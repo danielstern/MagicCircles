@@ -328,11 +328,25 @@ var MagicCircle = function(selector) {
       .attr('transform', "translate(" + width / 2 + "," + height / 2 + ")  rotate(" + rotation + ")")
       .style("pointer-events", "none")
 
-    var text = ring.append("text")
+    var text2 = ring.append("text")
+      .attr("class", "tester")
       .style("font-size", fontSize + "px")
-      .append("textPath")
       .attr("xlink:href", "#s3" + runeId)
-      .style("letter-spacing", magicCircle.styles.type.leading)
+      // .style("letter-spacing", magicCircle.styles.type.leading)
+      .style("text-transform", magicCircle.styles.type.typecase)
+      .style("pointer-events", "none")
+      .style("filter", "url(#drop-shadow" + magicCircle.id + ")")
+      .text(text)
+      .attr("fill", magicCircle.styles.colors.text);
+    var length = ring.select('text').node().getComputedTextLength();
+    text2.remove();
+
+
+    var text = ring.append("text")
+      .append("textPath")
+      .style("font-size", fontSize + "px")
+      .attr("xlink:href", "#s3" + runeId)
+      // .style("letter-spacing", magicCircle.styles.type.leading)
       .style("text-transform", magicCircle.styles.type.typecase)
       .style("pointer-events", "none")
       .style("filter", "url(#drop-shadow" + magicCircle.id + ")")
@@ -340,7 +354,8 @@ var MagicCircle = function(selector) {
       .attr("fill", magicCircle.styles.colors.text)
       .attr("opacity", 0);
 
-      window.__text = ring.select('text');
+
+
 
     var transition = text.transition()
       .duration(magicCircle.styles.animation.inSpeed)
@@ -349,6 +364,7 @@ var MagicCircle = function(selector) {
       .each("end", function() {
         transition = null;
       });
+
 
     var use = ring.append("use")
       .attr("xlink:href", "#s3" + runeId)
@@ -369,7 +385,9 @@ var MagicCircle = function(selector) {
         timer.start();
       },
       getLength: function() {
-        return  ring.select('text').node().getComputedTextLength();
+
+        console.log("length?", length)
+        return length;
       },
       recolor: function(newColor) {
         transition = transition || text.transition();
@@ -440,6 +458,31 @@ var MagicCircle = function(selector) {
         this.last = circle;
         if (spaceAfter) this.space(spaceAfter);
         return this;
+      },
+      getTextFitSize: function(text) {
+
+        var errorMargin = 2;
+
+        var textSizeA = 10;
+        var runeRing = magicCircle.draw.runeRing(magicCircle.currentRadius, text, textSizeA, 0, true);
+        var length = runeRing.getLength();
+
+        var circumference = this.getCircumference();
+
+        var fitRatio = circumference / length;
+        var textSizeB = textSizeA * fitRatio;
+
+        // debugger;
+
+
+        runeRing.disperse();
+
+        return textSizeB;
+
+
+      },
+      getCircumference: function() {
+        return magicCircle.currentRadius * 2 * Math.PI;
       },
       target: function(element) {
         this.last = element;

@@ -40,5 +40,13 @@
           .color("white")
           .fill("white");
 
-        console.log("text length?",text.getLength())
+
+         var autoFitTestText = "Regarding the length of text the link seems to indicate BBox and getComputedTextLength() may return slightly different values, but ones that are fairly close to each other.";
+
+        var fitSize = caster.getTextFitSize(autoFitTestText);
+        console.log("fit size?",fitSize)
+
+      caster
+        .text(fitSize,autoFitTestText)
+        // console.log("text circumference?",text.getCircumference());
      })
