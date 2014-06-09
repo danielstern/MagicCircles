@@ -20,9 +20,12 @@
         .space(8)
         .ring(5)
             .color(lol.randomColor())
-        .ring()
+        .ring();
+      var text = caster
         .text(24,"Magic Circles by Azureda",1)
-          .color(lol.randomColor())
+        .color(lol.randomColor())
+        .getLast();
+      caster
         .ring()
             .color(lol.randomColor())
         .circleRing(48,4,2)
@@ -35,5 +38,7 @@
         .backspace(16)
           .circleRing(8,9,2,true)
           .color("white")
-          .fill("white")
+          .fill("white");
+
+        console.log("text length?",text.getLength())
      })

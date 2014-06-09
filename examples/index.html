@@ -1,3 +1,4 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://developers.facebook.com/schema/">
 <head>
     <link rel="stylesheet" type="text/css" href="styles/circles.css">
     <script src="../bower_components/jquery/dist/jquery.js"></script>
@@ -11,6 +12,13 @@
 
 
     <script src="app.js"></script>
+
+    <title="Magic Circles by Azureda"></title>
+
+    <meta property="og:title" content="Magic Circles" />
+    <meta property="og:description" content="The world's awesomest, most useless library." />
+
+        <meta property='og:image' content='http://azureda.com/magicCircles/project_images/logo.jpg'/>
 
     <!-- include-controllers -->
     <script src="Casting/Casting.js"></script>
@@ -41,9 +49,38 @@
                 <div class='banner'>Menu</div>
 
             </div>
+
         </div>
 
         <div class="container">
+
+            <div class="social">
+                <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://github.com/danielstern/MagicCircles" data-text="A cool library for drawing magic circles with JavaScript!" data-size="large" data-related="danielsternband" data-hashtags="javascript">Tweet</a>
+                <script>
+                ! function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0],
+                        p = /^http:/.test(d.location) ? 'http' : 'https';
+                    if (!d.getElementById(id)) {
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = p + '://platform.twitter.com/widgets.js';
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }
+                }(document, 'script', 'twitter-wjs');
+                </script>
+                
+              <!--   <div id="fb-root"></div>
+                <script>(function(d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0];
+                  if (d.getElementById(id)) return;
+                  js = d.createElement(s); js.id = id;
+                  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+                  fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+                <div class="fb-like" data-href="http://www.azureda.com/magicCircles" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div> -->
+
+                </script>
+            </div>
             <div ng-view>
             </div>
 
@@ -127,6 +164,10 @@ var options = [{
     name: "Gallery",
     link: "gallery",
     color: "#05080d",
+},{
+    name: "Check it out on Github",
+    href: "https://github.com/danielstern/MagicCircles",
+    color: "#05080d",
 }]
 
     function showMenu() {
@@ -149,7 +190,11 @@ var options = [{
                 .color('useNone')
                 .on('click', function(a) {
                     console.log("clicked the ring");
-                    window.location.hash = option.link;
+                    if (option.link) {
+                        window.location.hash = option.link;
+                    } else if (option.href) {
+                        window.location = option.href;
+                    }
                     forceMenuHide();
                 })
                 .on('mouseover', function(e) {
@@ -173,3 +218,15 @@ $('#menu').on("mouseleave", function(e) {
 })
 showMenuButton();
 </script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-40501021-1', 'azureda.com');
+  ga('send', 'pageview');
+
+</script>
+</html>

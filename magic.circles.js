@@ -340,6 +340,8 @@ var MagicCircle = function(selector) {
       .attr("fill", magicCircle.styles.colors.text)
       .attr("opacity", 0);
 
+      window.__text = ring.select('text');
+
     var transition = text.transition()
       .duration(magicCircle.styles.animation.inSpeed)
       .ease("linear")
@@ -365,6 +367,9 @@ var MagicCircle = function(selector) {
       },
       animate: function() {
         timer.start();
+      },
+      getLength: function() {
+        return  ring.select('text').node().getComputedTextLength();
       },
       recolor: function(newColor) {
         transition = transition || text.transition();

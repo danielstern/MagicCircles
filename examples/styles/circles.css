@@ -92,7 +92,7 @@ a {
 
 #menu {
 	width: 350px;
-	height: 300px;
+	height: 350px;
 	position: absolute;
 	right: -100px;
 	top: -114px;
@@ -122,6 +122,10 @@ wrapper {
 #menu:hover {
 	right: -20px;
 	top: 20px;
+}
+
+.social div {
+	margin-bottom: 10px;
 }
 
 #menu:hover .banner {

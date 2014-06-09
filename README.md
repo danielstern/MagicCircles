@@ -173,3 +173,17 @@ setTimeout(function(){
 ##### `target(element)`
 
 Changes the active target of the caster to an element returned by `getLast()`;
+
+<a name="getLength"></a>
+##### `getLength()`
+
+Returns the length in pixels of a text ring.
+
+```
+var text = magic.cast()
+  .text("16","Magic Circles!!!")
+  .getLast();
+  
+  console.log(text.getLength());
+  // 143;
+```
