@@ -41,6 +41,7 @@ MC (Magic Circles) has the following depencies, that will need to be loaded befo
 - d3.js
 - jquery
 - underscore.js
+- q.js
 
 
 #### drawing

@@ -3,43 +3,28 @@
 
 
     var intro = new MagicCircle("#headerCircle");
+    intro.styles.colors = {
+      ring: "#151d3b",
+      text: "#1a1640",
+      smallRing: "#291744",
+    };
+
     var caster = intro.cast()
         .circleRing(12,16)
         .ring(5)
-            .color(lol.randomColor())
         .ring(0)
-            .color(lol.randomColor())
         .ring()
-        .text(10,lol.hipster())
-          .color(lol.randomColor())
+        .text("autofit","Wow! Amaze! Such circle!")
         .ring()
-        .circleRing(8,16,2,true)
-          .color(lol.randomColor())
-        .backspace(24)
-        .circleRing(24,8,4,false)
-        .space(8)
-        .ring(5)
-            .color(lol.randomColor())
-        .ring();
-      var text = caster
+        .circleRing(48,12,2,true)
+        .ring()
         .text("autofit","Magic Circles by Azureda",1)
-        .color(lol.randomColor())
-        .getLast();
-      caster
         .ring()
-            .color(lol.randomColor())
         .circleRing(48,4,2)
         .ring(5)
         .ring()
         .text("autofit","Make your own today! The astonishing circle framework by international technology innovators Azureda and Friends!",1)
-          .color(lol.randomColor())
-        .ring(15)
-          .color(lol.randomColor())
-        .backspace(16)
-          .circleRing(8,9,2,true)
-          .color("white")
-          .fill("white")
-      .space(50)
+        .ring()
 
 
      })
