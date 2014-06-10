@@ -1,5 +1,20 @@
 <h2>Interactivity</h2>
-<p>You can add mouse events like hover and click to rings. You can also make rings invisible but sensitive to mouse events, creating "sensor" rings. Currently only rings are supported</p>
-<artboard id='interactivity'>
+<p>You can listen for any interactivity event on a ring element.</p>
+<artboard class='full' id='interactivity'>
 
 </artboard>
+<pre>
+  <code class='hljs-javascript'>// draw text
+  var text = interact.cast()
+      .text(25, "Hover over me!")
+      .getLast();
+  // now backspace over it and draw a sensor ring
+    interact.cast()
+      .backspace(25)
+      .ring(25)
+      .color("useNone")
+      .on("mouseenter", function rotateText() {
+        text.rotation(-35);
+    })
+}     </code>
+</pre>

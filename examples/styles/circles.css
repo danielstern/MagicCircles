@@ -5,7 +5,9 @@ http://colourco.de/monochrome-light/5/%2324466d
 .container {
 
 	margin: auto;
-	max-width: 500px;
+	
+
+	/* max-width: 600px; */
 	background-color: white;
 	padding: 20px;
 	padding-top:10px;	
@@ -27,6 +29,7 @@ artboard {
 	width: 300;
 	height: 300;
 	top: 100px;
+	margin: auto;
 }
 
 artboard.mini {
@@ -44,8 +47,8 @@ artboard.full {
 }
 
 pre {
-	margin: 0
-}
+	/* margin: 0
+ */}
 
 svg {
 		/*position: absolute;*/

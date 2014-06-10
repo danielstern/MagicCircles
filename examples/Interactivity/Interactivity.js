@@ -1,9 +1,13 @@
 angular.module("MagicCirclesDemo")
   .controller("Interactivity", function($scope) {
     var interact = new MagicCircle("#interactivity");
-    var caster = interact.cast()
-      .space(50)
-      .ring(25);
+    var caster = interact.cast();
+    var innerCircleRing = caster
+      .circleRing(24,26)
+        .color('rgba(0,0,0,0)')
+        .getLast();
+    caster
+      .ring(1);
 
     var text = interact.cast()
       .text(25, "Hover over me!")
@@ -17,10 +21,12 @@ angular.module("MagicCirclesDemo")
 
     function rotateText() {
       text.rotation(-35);
+      innerCircleRing.recolor('green');
     }
 
     function resumeAnimation() {
       text.animate();
+      innerCircleRing.recolor('none');
     }
 
     function toggleCircles() {
@@ -33,7 +39,7 @@ angular.module("MagicCirclesDemo")
       circles.fill("blue");
     }
 
-    caster.ring(25)
+    caster.ring(12)
     var text2 = interact.cast()
       .text(25, "CLICK ME")
       .getLast();
@@ -45,9 +51,21 @@ angular.module("MagicCirclesDemo")
       .on("mouseout", untoggleCircles)
 
     var circles =
-      caster.ring(25)
-      .circleRing(8, 8)
+      caster.ring(1)
+      .circleRing(24, 8)
+        .fill('blue')
       .getLast();
+
+    caster.ring()
+
+
+    
+    $scope.$on('$viewContentLoaded', function() {
+      $('pre code').each(function(i, block) {
+        console.log("hljs?", hljs)
+        hljs.highlightBlock(block);
+      });
+    }); //call it here
 
 
   })
