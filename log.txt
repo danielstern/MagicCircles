@@ -1,0 +1,642 @@
+commit 850f662f509449dc0ef40c9ff7cfc0f7aedcad9a
+Author: unknown <daniel@danielstern.ca>
+Date:   Mon Jun 9 21:49:55 2014 -0400
+
+    improved home page example
+
+commit f16cb1253da9b22edb53019abe58f4b9eb35d91c
+Author: unknown <daniel@danielstern.ca>
+Date:   Mon Jun 9 20:12:35 2014 -0400
+
+    cleaned up code.
+
+commit 8288a58dc5c7e24b915135ab765ae94c8183e810
+Author: unknown <daniel@danielstern.ca>
+Date:   Mon Jun 9 20:08:51 2014 -0400
+
+    cleaned up code.
+
+commit 03882328c53609ba98dd076c2330babd4241d39c
+Author: unknown <daniel@danielstern.ca>
+Date:   Mon Jun 9 19:54:08 2014 -0400
+
+    fixed bug in readme
+
+commit 59919f6ade85a0613ddcc446a406047c90ff680d
+Author: unknown <daniel@danielstern.ca>
+Date:   Mon Jun 9 19:52:51 2014 -0400
+
+    fixed bug in readme
+
+commit 8e6b382f7c244ebc4d758329e1fd1f8bdd0fb089
+Author: unknown <daniel@danielstern.ca>
+Date:   Mon Jun 9 19:51:28 2014 -0400
+
+    fixed bug in readme
+
+commit f49b015f9499c2da1759a42096c3ac3c07ce5ba6
+Author: unknown <daniel@danielstern.ca>
+Date:   Mon Jun 9 19:49:12 2014 -0400
+
+    updated readme. branch successful!
+
+commit a852d312c04a89e3676cfc7e2dddd7e022b3e5ea
+Author: unknown <daniel@danielstern.ca>
+Date:   Mon Jun 9 19:37:21 2014 -0400
+
+    autofit function works!!
+
+commit 6e26fd04833bfdbc40bdd39e3ae4749dba1d5148
+Author: unknown <daniel@danielstern.ca>
+Date:   Mon Jun 9 19:28:22 2014 -0400
+
+    length calculate works without letter spacing
+
+commit b30e4641b28f346d93d27f482a68fcf87a982ab1
+Author: unknown <daniel@danielstern.ca>
+Date:   Mon Jun 9 18:25:05 2014 -0400
+
+    added new function get length"
+
+commit b7af97ec6565b536567605ba29363e84e8d19839
+Author: unknown <daniel@danielstern.ca>
+Date:   Sun Jun 8 23:14:44 2014 -0400
+
+    fixed ff bug
+
+commit b1c2b8f184e076366613529ec365d6cce03d143d
+Author: unknown <daniel@danielstern.ca>
+Date:   Sun Jun 8 23:08:24 2014 -0400
+
+    fixed small FF bug
+
+commit bd03400b7764badc61983852870a86fdc6dbf137
+Author: unknown <daniel@danielstern.ca>
+Date:   Sun Jun 8 22:43:00 2014 -0400
+
+    new menu is uber sweet
+
+commit 30e33a44421721432c6daebb0f04d29a2e52fe9d
+Author: unknown <daniel@danielstern.ca>
+Date:   Sun Jun 8 22:27:15 2014 -0400
+
+    fixed filter bug
+
+commit aa15fa4836b6e0873740fa2df56c3928c749620c
+Author: unknown <daniel@danielstern.ca>
+Date:   Sun Jun 8 22:23:04 2014 -0400
+
+    working on menu, need to fix styling bug
+
+commit dc29cfe4f26156191805e8d38821d5171610eedb
+Author: unknown <daniel@danielstern.ca>
+Date:   Sun Jun 8 22:01:31 2014 -0400
+
+    fixed menu lol only took hours
+
+commit 44c322e99a8dc67610fd55a78f0a7342dab02d44
+Author: unknown <daniel@danielstern.ca>
+Date:   Sun Jun 8 21:11:08 2014 -0400
+
+    laying out fat menu
+
+commit beeeafdb7c6992950c185d0ea6c2a7f39e62f409
+Author: unknown <daniel@danielstern.ca>
+Date:   Sun Jun 8 20:18:18 2014 -0400
+
+    working on demo page, fixed small bug
+
+commit 063bd164c12c630db9dbeb8a214afc265efa46b3
+Author: unknown <daniel@danielstern.ca>
+Date:   Sun Jun 8 17:18:19 2014 -0400
+
+    updated readme
+
+commit c43e101d50e8849dd1b9c721ce82170ffcc7735e
+Author: unknown <daniel@danielstern.ca>
+Date:   Sun Jun 8 17:17:42 2014 -0400
+
+    updated readme
+
+commit 190d7adbcbddfa96330871d9d15c650385d2b720
+Author: unknown <daniel@danielstern.ca>
+Date:   Sun Jun 8 16:40:55 2014 -0400
+
+    added more examples and functionality
+
+commit fe590bbf248035c1c9fb09a4d24a79000e16c230
+Author: unknown <daniel@danielstern.ca>
+Date:   Sun Jun 8 16:32:56 2014 -0400
+
+    update to readme
+
+commit bdd0f4224348db3c43ae38bc1fb1ad10d5fe9cfb
+Author: unknown <daniel@danielstern.ca>
+Date:   Sun Jun 8 16:31:46 2014 -0400
+
+    examples successfully refactored into static app
+
+commit d54218bf8bc4b7f4c48d192b57360e4e65226dea
+Author: unknown <daniel@danielstern.ca>
+Date:   Sun Jun 8 16:20:41 2014 -0400
+
+    all functionality is go
+
+commit 7df115468b31c98747143751d55d0c1d0921cf09
+Author: unknown <daniel@danielstern.ca>
+Date:   Sun Jun 8 16:14:39 2014 -0400
+
+    refactor working good!
+
+commit 49672f90e2c3893441ace9fb089463b7a1ea8e0b
+Author: unknown <daniel@danielstern.ca>
+Date:   Sun Jun 8 16:04:52 2014 -0400
+
+    first view working!!!
+
+commit a4d403d693c73e6c8dba9d33647a8d1a54e5eb24
+Author: unknown <daniel@danielstern.ca>
+Date:   Sun Jun 8 15:41:27 2014 -0400
+
+    working on project, pausing to investige cg-angular as possible scaffolding solution
+
+commit 0e1b9f9a2b74d0d50fb8ada5ed5e75167ea7b66c
+Author: unknown <daniel@danielstern.ca>
+Date:   Sun Jun 8 10:55:28 2014 -0400
+
+    updated docs
+
+commit 85b76c41edb83f7496dd8449a247888b2e50d9d0
+Author: unknown <daniel@danielstern.ca>
+Date:   Sun Jun 8 10:40:27 2014 -0400
+
+    fixed broken demo, all demos and examples work
+
+commit d919e59f7715361b2cc840afc303c0c536564189
+Author: unknown <daniel@danielstern.ca>
+Date:   Sun Jun 8 10:32:09 2014 -0400
+
+    interactivity example done
+
+commit 88386ec81645fa2a8d27161f8370740a1520ac8a
+Author: unknown <daniel@danielstern.ca>
+Date:   Sun Jun 8 09:36:04 2014 -0400
+
+    undoing changes
+
+commit c5bfc8d8aceeecc1b8be84ba2a6f6362f63c974e
+Author: unknown <daniel@danielstern.ca>
+Date:   Sun Jun 8 09:35:27 2014 -0400
+
+    testing readme
+
+commit 37e08a1db024e793496af8093f09cda94eb0328c
+Author: unknown <daniel@danielstern.ca>
+Date:   Sat Jun 7 19:23:11 2014 -0400
+
+    dantes inferno demo down
+
+commit 3b4cb33e7a91dd9c5b827ee9704c795e51d62a02
+Author: unknown <daniel@danielstern.ca>
+Date:   Sat Jun 7 19:12:07 2014 -0400
+
+    works, adding scale to example
+
+commit 726a5cd671c09c5b88b657736d3b1e6288b8e9bd
+Author: unknown <daniel@danielstern.ca>
+Date:   Sat Jun 7 18:25:47 2014 -0400
+
+    improved coloring and responsiveness for inner levels
+
+commit 1fcf59f083601f4986c29a72559eb4e47c1ab205
+Author: unknown <daniel@danielstern.ca>
+Date:   Sat Jun 7 18:07:13 2014 -0400
+
+    rotation works more tightly
+
+commit 2f99c1070f80dde0ec7fd420d211e7971dabd677
+Author: unknown <daniel@danielstern.ca>
+Date:   Sat Jun 7 17:48:25 2014 -0400
+
+    hovering works!!
+
+commit 2d2eed392a457a52c9c25e84c2f61c7887473681
+Author: unknown <daniel@danielstern.ca>
+Date:   Sat Jun 7 17:07:25 2014 -0400
+
+    workin on 9 levels
+
+commit 16a614ab82e3e51c03bcfd9a76533abbf08c8c01
+Author: unknown <daniel@danielstern.ca>
+Date:   Sat Jun 7 10:56:33 2014 -0400
+
+    working on new demo
+
+commit 7441189509847071691d664dc389e64ba592b24d
+Author: unknown <daniel@danielstern.ca>
+Date:   Fri Jun 6 22:37:10 2014 -0400
+
+    updated readme
+
+commit 1bf02c38b56658c6bee019cf65c1ec411b232b96
+Author: unknown <daniel@danielstern.ca>
+Date:   Fri Jun 6 22:35:49 2014 -0400
+
+    updated readme
+
+commit ed0c87dc3baffae732b51fbe9c462b4fbdbefa41
+Author: unknown <daniel@danielstern.ca>
+Date:   Fri Jun 6 22:34:02 2014 -0400
+
+    updated readme
+
+commit f149a4e0565bd3816c1c6d845b8af487f8ab9939
+Author: unknown <daniel@danielstern.ca>
+Date:   Fri Jun 6 22:26:08 2014 -0400
+
+    updated readme
+
+commit fe456ae376960dcf61f61fbe418bacfc86678b08
+Author: unknown <daniel@danielstern.ca>
+Date:   Fri Jun 6 22:18:30 2014 -0400
+
+    added to docs
+
+commit cf11aca4abc3e3eeed200c4a44f1fbb487c30583
+Author: unknown <daniel@danielstern.ca>
+Date:   Fri Jun 6 20:46:13 2014 -0400
+
+    added new demo
+
+commit ce584708fe8c5f59951bf0ffbf576701fdf7a2f6
+Author: unknown <daniel@danielstern.ca>
+Date:   Fri Jun 6 20:25:07 2014 -0400
+
+    added fill!, ring width
+
+commit 7272b20621023a9e93cfc2e4e4befb4458ad74b6
+Author: unknown <daniel@danielstern.ca>
+Date:   Fri Jun 6 20:06:39 2014 -0400
+
+    added feature to magic circles
+
+commit 056508df62aea3dcfaa806446f92a1f3a526ea0c
+Author: unknown <daniel@danielstern.ca>
+Date:   Fri Jun 6 19:27:18 2014 -0400
+
+    updated demo
+
+commit c18e07e50ea18b1154a3e22c5caf29069ed297d0
+Author: unknown <daniel@danielstern.ca>
+Date:   Fri Jun 6 12:56:06 2014 -0400
+
+    added full recoloring spport
+
+commit e58fcb11be770df0f4c75addaea66f3c6fb70668
+Author: unknown <daniel@danielstern.ca>
+Date:   Fri Jun 6 12:50:57 2014 -0400
+
+    added recolorin to circles
+
+commit e65993f1cf09d95b1e180a5a35eef04dd4fd59e9
+Author: unknown <daniel@danielstern.ca>
+Date:   Fri Jun 6 12:13:45 2014 -0400
+
+    fixed transition bug
+
+commit e712646b3c9231a53b9f204d4cf44b03c180f6a0
+Author: unknown <daniel@danielstern.ca>
+Date:   Fri Jun 6 12:07:14 2014 -0400
+
+    added recolor element!
+
+commit 1499531731e5289026da8a5cc2aea50a0d709345
+Author: unknown <daniel@danielstern.ca>
+Date:   Fri Jun 6 11:55:27 2014 -0400
+
+    fixed bug with disappearng
+
+commit bfdcc4e631babd109d274e87c10124d9f32b848e
+Author: unknown <daniel@danielstern.ca>
+Date:   Fri Jun 6 11:45:03 2014 -0400
+
+    added async
+
+commit 48fadb6115f28d25a41d59a2865fce0e397279df
+Author: unknown <daniel@danielstern.ca>
+Date:   Fri Jun 6 11:20:47 2014 -0400
+
+    updated readme, added scaffolding for more customization
+
+commit a5dfd37ee15251f59d233c4caff3e1b4a260eb49
+Merge: 07fccaa 5d1ca02
+Author: unknown <daniel@danielstern.ca>
+Date:   Fri Jun 6 10:55:07 2014 -0400
+
+    Merge branch 'master' of github.com:danielstern/MagicCircles
+
+commit 5d1ca022693b794a9a931e33ac10ed2d7fd0a1b1
+Author: Azureda <daniel@danielstern.ca>
+Date:   Thu Jun 5 17:09:35 2014 -0400
+
+    Update README.md
+
+commit 07fccaa0971f0eb0552411a35f0c7716c78a3f19
+Author: unknown <daniel@danielstern.ca>
+Date:   Thu Jun 5 17:04:58 2014 -0400
+
+    added to splash page
+
+commit 9469934292352c692e2c74ffb8e6da5391e19d48
+Author: Azureda <daniel@danielstern.ca>
+Date:   Thu Jun 5 16:49:19 2014 -0400
+
+    Update README.md
+
+commit f62c826b37797dba21b1c34edd0528bb3cfb82ad
+Author: Azureda <daniel@danielstern.ca>
+Date:   Thu Jun 5 16:47:45 2014 -0400
+
+    Update README.md
+
+commit d784321322e9e32d99c825be351e28cbae989ade
+Author: Azureda <daniel@danielstern.ca>
+Date:   Thu Jun 5 16:41:36 2014 -0400
+
+    Update README.md
+
+commit ec0a622f65c6a9682ab606e635460089d25aabdc
+Author: Azureda <daniel@danielstern.ca>
+Date:   Thu Jun 5 16:41:04 2014 -0400
+
+    Update README.md
+
+commit ed15beda4c577f17a4ba116cd18437e572b0281f
+Author: unknown <daniel@danielstern.ca>
+Date:   Thu Jun 5 16:32:09 2014 -0400
+
+    thing
+
+commit b36efd353a7fc769448dba6ff24555423005dea6
+Author: Azureda <daniel@danielstern.ca>
+Date:   Thu Jun 5 16:30:03 2014 -0400
+
+    Create README.md
+
+commit c3d8eee0edec2aef9acb399431da972be5587a59
+Author: unknown <daniel@danielstern.ca>
+Date:   Thu Jun 5 16:28:13 2014 -0400
+
+    added logo
+
+commit 2acc1b612124c3c22ff5c82e731a13563003da2b
+Author: unknown <daniel@danielstern.ca>
+Date:   Thu Jun 5 16:08:49 2014 -0400
+
+    demos complete!
+
+commit f2268895305c62c645bd25c9ebbc40635950466c
+Author: unknown <daniel@danielstern.ca>
+Date:   Thu Jun 5 15:40:40 2014 -0400
+
+    works, refactor good
+
+commit 2cb239338429105c15ad0fd3bd1a43b4a6dbe5fd
+Author: unknown <daniel@danielstern.ca>
+Date:   Thu Jun 5 15:17:50 2014 -0400
+
+    not workin
+
+commit a04ce3e66bdc03b290d05164305817127ac7a163
+Author: unknown <daniel@danielstern.ca>
+Date:   Thu Jun 5 14:23:01 2014 -0400
+
+    self-casting is getting there
+
+commit 1c81ed05a471d862b6d58432914ecad48b61da56
+Author: unknown <daniel@danielstern.ca>
+Date:   Thu Jun 5 13:27:16 2014 -0400
+
+    added first tutorial
+
+commit a82a0f8142b3d185d47d327eb233ff728892070e
+Author: unknown <daniel@danielstern.ca>
+Date:   Wed Jun 4 19:01:39 2014 -0400
+
+    added stuf
+
+commit 3c0cdab848803c17a986761e4dcc2eba64f4a2f1
+Author: unknown <daniel@danielstern.ca>
+Date:   Wed Jun 4 18:49:44 2014 -0400
+
+    fix text bug
+
+commit 4ea118949041b1fa3214d79f330626bc250877d2
+Author: unknown <daniel@danielstern.ca>
+Date:   Wed Jun 4 18:41:20 2014 -0400
+
+    works
+
+commit 39d33399fb0dbeb77483f7e0bcb380c33ca34d2d
+Author: unknown <daniel@danielstern.ca>
+Date:   Wed Jun 4 18:34:21 2014 -0400
+
+    fixed gbg cleans;
+
+commit ff183ab6102ce6c0557679f8360cc8d2ca677198
+Author: unknown <daniel@danielstern.ca>
+Date:   Wed Jun 4 18:13:40 2014 -0400
+
+    dispersion works!!
+
+commit 83d7b674e40f7fb1f1341617bdc088eabd6d9cff
+Author: unknown <daniel@danielstern.ca>
+Date:   Wed Jun 4 18:04:31 2014 -0400
+
+    disperse framework workin
+
+commit 968b5dc01d52e0cb9a0eb694ea62c0dfdfabfdc1
+Author: unknown <daniel@danielstern.ca>
+Date:   Wed Jun 4 17:48:40 2014 -0400
+
+    tightened filters
+
+commit 8b383644f2b5ac110f4290a6c2901251b9a38a24
+Author: unknown <daniel@danielstern.ca>
+Date:   Wed Jun 4 17:11:23 2014 -0400
+
+    removed unnecessary references to selector
+
+commit f7333ab0ef4f57b0aeb206d4f982a28849c76d61
+Author: unknown <daniel@danielstern.ca>
+Date:   Wed Jun 4 17:10:00 2014 -0400
+
+    added blur to stuff
+
+commit 96e2843e6c62c034513392cd178bb0117e29549f
+Author: unknown <daniel@danielstern.ca>
+Date:   Wed Jun 4 16:59:49 2014 -0400
+
+    all things workin!
+
+commit 852106f90ccc510180b08ebcdac4b532350bcdba
+Author: unknown <daniel@danielstern.ca>
+Date:   Wed Jun 4 16:38:16 2014 -0400
+
+    recursive syntax workin good
+
+commit 5e437e371cea5fc02abb0267c1923ec109384243
+Author: unknown <daniel@danielstern.ca>
+Date:   Wed Jun 4 16:24:59 2014 -0400
+
+    recursive syntax!
+
+commit 78d32d1427344fd5bd37a988b8251809df9d6f4d
+Author: unknown <daniel@danielstern.ca>
+Date:   Wed Jun 4 16:12:40 2014 -0400
+
+    fixed bug with different sized div
+
+commit 3b1d2a802a94df04e0ab8c1255ae3ec564c2336a
+Author: unknown <daniel@danielstern.ca>
+Date:   Wed Jun 4 07:34:53 2014 -0400
+
+    modularized user vars
+
+commit 8dd93cac3737369c5df60af02c6f55c1cd6a5d01
+Author: unknown <daniel@danielstern.ca>
+Date:   Wed Jun 4 07:29:49 2014 -0400
+
+    refactored animation
+
+commit 162b6b62fe03d821b494106fc7640fbfe86e8093
+Author: unknown <daniel@danielstern.ca>
+Date:   Wed Jun 4 07:11:15 2014 -0400
+
+    modularized creation function
+
+commit 4a7fada927238fcaf47c9b4a708c12f59ef0a252
+Author: unknown <daniel@danielstern.ca>
+Date:   Wed Jun 4 06:58:00 2014 -0400
+
+    modularized colors
+
+commit 865efde1aea395d9ea22bf7fcd33d4589c96f8e9
+Author: unknown <daniel@danielstern.ca>
+Date:   Wed Jun 4 06:44:30 2014 -0400
+
+    added shadows
+
+commit 72fb87055a99a7b2e9509371dd1a6535a429ad09
+Author: unknown <daniel@danielstern.ca>
+Date:   Wed Jun 4 06:38:44 2014 -0400
+
+    added drop shadow!!!
+
+commit 3bae49110d58584fc29edbbfd095d51548d1f880
+Author: unknown <daniel@danielstern.ca>
+Date:   Wed Jun 4 06:00:54 2014 -0400
+
+    spinning rings works for real!
+
+commit 014889f486b567ff435d0a7c63449cf93d809897
+Author: unknown <daniel@danielstern.ca>
+Date:   Wed Jun 4 05:47:27 2014 -0400
+
+    ring works but is glitchy
+
+commit 3cf942c8ac6d40589317d08896c510660863d702
+Author: unknown <daniel@danielstern.ca>
+Date:   Wed Jun 4 05:44:55 2014 -0400
+
+    spinnin circle ring!!!
+
+commit e4d605ac7b747885f2eee7a94897e1975507a56d
+Author: unknown <daniel@danielstern.ca>
+Date:   Tue Jun 3 18:02:35 2014 -0400
+
+    animated circles seem to fly off page
+
+commit 8bb1875af23f89bf5eb12ab342daf1a7cd9dd98c
+Author: unknown <daniel@danielstern.ca>
+Date:   Tue Jun 3 17:37:14 2014 -0400
+
+    circle rings work! ohhhhhhhhhhhhhhh
+
+commit 9cb6180be290470096140a46983440538d7b82fa
+Author: unknown <daniel@danielstern.ca>
+Date:   Tue Jun 3 17:35:57 2014 -0400
+
+    circle ring works!!
+
+commit 9ee08ed59ab2abffb0b3059a525ed808d467c098
+Author: unknown <daniel@danielstern.ca>
+Date:   Tue Jun 3 17:21:44 2014 -0400
+
+    added circle rings but... unresponsive
+
+commit 6655670abef177b62ee5b6260b5ef1f154ff311f
+Author: unknown <daniel@danielstern.ca>
+Date:   Tue Jun 3 17:08:28 2014 -0400
+
+    so sweet
+
+commit 0b0837150c31628b54651bd7d20fc63489d08282
+Author: unknown <daniel@danielstern.ca>
+Date:   Tue Jun 3 16:30:51 2014 -0400
+
+    trippy spinning text spins? hell yes
+
+commit 069fc2d26d1441f89113f1c7f4f2c5e413120c94
+Author: unknown <daniel@danielstern.ca>
+Date:   Tue Jun 3 16:07:27 2014 -0400
+
+    tightened presentation
+
+commit cdf6c474b2cb4277e4e25d4e6c22b655ff71690c
+Author: unknown <daniel@danielstern.ca>
+Date:   Tue Jun 3 16:05:55 2014 -0400
+
+    you got yerself a trippy circle there
+
+commit 171d41f5211ffe3432839698ede3dcf06a4d30e7
+Author: unknown <daniel@danielstern.ca>
+Date:   Tue Jun 3 16:00:54 2014 -0400
+
+    multiple trippy text!!
+
+commit 89b6168ceb44632b99b5663678d799ef7278d2cc
+Author: unknown <daniel@danielstern.ca>
+Date:   Tue Jun 3 15:53:11 2014 -0400
+
+    aligned text to circle???? no way!
+
+commit e548036da806defc3c998afb8832176ac2ab11ae
+Author: unknown <daniel@danielstern.ca>
+Date:   Tue Jun 3 15:45:42 2014 -0400
+
+    CIRCULAR TEXT!!! NOWAY!!!
+
+commit 3dd2722e830ce8434f30b7ca77b7f86e46ba9b75
+Author: unknown <daniel@danielstern.ca>
+Date:   Tue Jun 3 14:48:12 2014 -0400
+
+    positioned text
+
+commit e3535bf862d12faeca09d1b71580fe56a67953d3
+Author: unknown <daniel@danielstern.ca>
+Date:   Tue Jun 3 14:39:08 2014 -0400
+
+    added cool radial animation for some reason
+
+commit 01b8adddd0b5d284ccad030463eb2b52aab095fd
+Author: unknown <daniel@danielstern.ca>
+Date:   Tue Jun 3 14:32:45 2014 -0400
+
+    TWO circles?!
+
+commit 65ceb250a161aafb73a04ff585c398fca95ee250
+Author: unknown <daniel@danielstern.ca>
+Date:   Tue Jun 3 14:29:34 2014 -0400
+
+    created first ever magic circle!

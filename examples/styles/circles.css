@@ -158,3 +158,8 @@ artboard#circles, artboard#circles svg {
 	text-align: center;
 	margin-top: 80px;
 }
+
+
+code {
+	line-height: normal;	
+}
