@@ -100,10 +100,10 @@ var MagicCircle = function(selector) {
 
     svg = d3.select(selector)
       .append("svg")
-      // .attr("width", width)
-      // .attr("height", height)
-      .attr("class", "main")
-    // .attr("shape-rendering","optimizeSpeed")
+       .attr("width", width)
+       .attr("height", height)
+       .attr("class", "main")
+       .attr("shape-rendering","optimizeSpeed")
     // .attr("viewBox","0 0 500 500")
     // .attr("transform","scale(0.2)")
     defs = svg.append("defs");
@@ -332,6 +332,7 @@ var MagicCircle = function(selector) {
       .style("font-size", fontSize + "px")
       .attr("xlink:href", "#s3" + runeId)
       .style("text-transform", magicCircle.styles.type.typecase)
+      .style("filter", "url(#drop-shadow" + magicCircle.id + ")")
       .text(text)
     var length = ring.select('text').node().getComputedTextLength();
     testTextLengthNode.remove();
@@ -453,7 +454,7 @@ var MagicCircle = function(selector) {
 
         var errorMargin = 2;
 
-        var textSizeA = 10;
+        var textSizeA = 3;
         var runeRing = magicCircle.draw.runeRing(magicCircle.currentRadius, text, textSizeA, 0, "0");
         var length = runeRing.getLength();
 
