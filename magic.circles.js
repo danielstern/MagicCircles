@@ -100,8 +100,8 @@ var MagicCircle = function(selector) {
 
     svg = d3.select(selector)
       .append("svg")
-      .attr("width", width)
-      .attr("height", height)
+      // .attr("width", width)
+      // .attr("height", height)
       .attr("class", "main")
     // .attr("shape-rendering","optimizeSpeed")
     // .attr("viewBox","0 0 500 500")

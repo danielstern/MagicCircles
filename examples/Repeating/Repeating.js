@@ -10,15 +10,18 @@ angular.module("MagicCirclesDemo")
     //magic.styles.colors = fire;
     var miscRing = function(count) {
 
-
+      magic.cast()
+        .space(50)
+        .ring()
       for (var i = 0; i < count; i++) {
 
         magic.cast()
-          .circleRing(getRandomNumber(3) * (count + 3), getRandomNumber(2) * (count + 1), getRandomNumber(3) * (count + 1), getRandomNumber(1) * (count + 1))
+          .text("autofit", lol.physics() + lol.physics() + lol.physics())
+            .color(lol.randomColor())
           .ring()
-          .text(getRandomNumber(4) * (count + 1), lol.physics() + lol.physics() + lol.physics())
-          .ring()
-          .text(getRandomNumber(4) * (count + 1), lol.hipster(), 3, true)
+          .circleRing(getRandomNumber(24) + 24, getRandomNumber(3) + 3, 2, true)
+            .fill(lol.randomColor())
+            .color(lol.randomColor())
           .ring()
       }
 
@@ -26,11 +29,19 @@ angular.module("MagicCirclesDemo")
     }
 
 
-    miscRing(5);
+    miscRing(3);
 
-    window.reroll = function() {
+    $scope.reroll = function() {
       console.log("Rerolling");
       magic.disperse();
-      setTimeout(miscRing, 2000, getRandomNumber(5) + 3)
+      setTimeout(miscRing, 2000, getRandomNumber(3) + 1)
     }
+
+    
+    $scope.$on('$viewContentLoaded', function() {
+      $('pre code').each(function(i, block) {
+        console.log("hljs?", hljs)
+        hljs.highlightBlock(block);
+      });
+    }); //call it here
   })

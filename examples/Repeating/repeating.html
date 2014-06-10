@@ -1,19 +1,32 @@
-<h2>
-    Repeating Pattern
-</h2>
-<p>
-    Generates a repeating circle pattern using random variables. Press reroll to disperse and make a new one. Good for demonstrating how Magic Circles can be different every time, like snowflakes, and never quite get boring.
-</p>
+<div class='example'>
+    <h2>Repeating Pattern</h2>
+    <p>
+       	Magic Circles is ideal for randomly generating dynamic images. They are like snowflakes!
+    </p>
+    <pre>
+      <code class='hljs-javascript'>   var drawRandomCircle = function(count) {
 
-<button onclick="reroll()">
-    Reroll
-</button>
-<artboard id='repeating'>
+      magic.cast()
+        .space(50)
+        .ring()
+      for (var i = 0; i < count; i++) {
 
-</artboard>
+        magic.cast()
+          .text("autofit", lol.physics()) 
+            .color(lol.randomColor())
+          .ring()
+          .circleRing(getRandomNumber(24),6)
+            .fill(lol.randomColor())
+            .color(lol.randomColor())
+          .ring()
+      }
+    }     </code>
+    </pre>
+    <artboard id='repeating' class='full'>
 
-<script>
+    </artboard>
 
-
-</script>
-
+    <button ng-click="reroll()">
+        Reroll
+    </button>
+</div>
