@@ -1,20 +1,57 @@
 <h2>
-    Fill, Stroke and Color
+    Layering
 </h2>
 <p>
-    You can dynamically color and style rings to create cool patterns.
+    You can layer several elements on top of each other for cool effects.
 </p>
+<div class='example'>
+<h3>Layering Text over Rings</h3>
+<p>You can layer text or other elements over one another like in the example below.</p>
+    <pre>
+  <code class='hljs-javascript'>var magic = new MagicCircle("#layeringExample");
+magic.cast()
+  .space(50)
+  .ring(25)
+  .color("magenta")
+  .backspace(20)
+  .text(20, "DISCO PARTY")
+  .color("white");
+        </code>
+    </pre>
 
-<artboard id='fillstroke'>
+    <artboard id='fillstroke'>
 
-</artboard>
+    </artboard>
+</div>
 
 
-<artboard id='fillstroke2'>
+<div class='example'>
+<h3>Inverting Elements</h3>
+<p>By layering elements the same color as the background over others, you can create interesting patterns.</p>
+  <pre>
+    <code class='hljs-javascript'>var magic = new MagicCircle("#layeringExample");
+  magic2.cast()
+    .space(50)
+    .ring(25)
+    .color('blue')
+    .ring(25)
+    .color('white')
+    .backspace(20)
+    .text(15, "SAILORS ENTHUSIAST MEETUP GROUP", 1, true)
+    .color("blue")
+    .ring(40)
+    .color('blue') // draw a blue ring
+    .backspace(42)
+    .circleRing(8, 30, 2) // draw white circles on top of it
+    .fill("white")
+    .color("white")
+      </code>
+  </pre>
+  <artboard id='fillstroke2'>
 
-</artboard>
+  </artboard>
+</div>
+
 
 <script>
-
 </script>
-

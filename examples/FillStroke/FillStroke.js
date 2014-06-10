@@ -40,4 +40,13 @@ angular.module("MagicCirclesDemo")
       .fill("white")
       .color("white")
 
+
+
+
+    $scope.$on('$viewContentLoaded', function() {
+      $('pre code').each(function(i, block) {
+        console.log("hljs?", hljs)
+        hljs.highlightBlock(block);
+      });
+    });
   })

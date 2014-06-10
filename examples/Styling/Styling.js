@@ -15,7 +15,7 @@ angular.module("MagicCirclesDemo")
     magic2.cast()
       .circleRing(12,12)
         .color('red')
-      .circleRing(14,14)
+      .circleRing(14,14,2,true)
         .color('blue')
         .fill('yellow')
 
