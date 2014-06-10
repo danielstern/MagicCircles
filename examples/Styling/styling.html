@@ -2,29 +2,46 @@
     Styling
 </h2>
 <p>
-    It's possible to style the magic ring. 
+    It's possible to style the magic ring.
+    <div class='example'>
+        <h3>Default Styles</h3>
+        <pre>
+      <code class='hljs-javascript'>  var magic = new MagicCircle("#stylingExample");
+        magic.styles.colors.ring = "blue";
+        magic.styles.colors.text = "red";
+        magic.styles.colors.smallRing = "green";
 
-    <pre>
-      <code class='hljs-javascript'>
-    // Set Default Styles
-    var magic = new MagicCircle("#repeating", 2);
-        magic.styles.colors.ring = "#973b67";
-        magic.styles.colors.text = "#69a33c";
-        magic.styles.colors.smallRing = "#3c71af";
-
-    // Dynamic Recoloring
         magic.cast()
-          .ring()
-             .color("#F00")
-          .text(16,"BAR")
-             .color("#BA5")
+          .circleRing(12,12)
+          .ring(10)
+          .text(16,"Red Text")
         </code>
     </pre>
+        <artboard id='styling' class='mini'>
+
+        </artboard>
+    </div>
+
+    <div class='example'>
+        <h3>Styling Individual Elements</h3>
+        <pre>
+      <code class='hljs-javascript'>  var magic = new MagicCircle("#stylingExample");
+        magic.cast()
+          .circleRing(12,12)
+            .color('red')
+          .cirlceRing(14,14)
+            .color('blue')
+            .fill('yellow')
+        </code>
+    </pre>
+        <artboard id='styling2' class='mini'>
+
+        </artboard>
+    </div>
+
+
 </p>
 
 <button onclick="rerollColor()">
     New Colors
 </button>
-<artboard id='styling'>
-
-</artboard>

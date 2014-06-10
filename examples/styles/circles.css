@@ -29,6 +29,16 @@ artboard {
 	top: 100px;
 }
 
+artboard.mini {
+	width: 150px;
+	height: 150px;
+	margin: auto;
+}
+
+pre {
+	margin: 0
+}
+
 svg {
 		/*position: absolute;*/
 		/*width: 500px;*/
