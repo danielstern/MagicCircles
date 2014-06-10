@@ -454,7 +454,7 @@ var MagicCircle = function(selector) {
 
         var errorMargin = 2;
 
-        var textSizeA = 3;
+        var textSizeA = 10;
         var runeRing = magicCircle.draw.runeRing(magicCircle.currentRadius, text, textSizeA, 0, "0");
         var length = runeRing.getLength();
 
