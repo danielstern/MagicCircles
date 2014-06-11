@@ -553,7 +553,7 @@ var MagicCircle = function(selector) {
 
         return this;
 
-      },
+      }
     }
 
     return magicCircle.caster;
