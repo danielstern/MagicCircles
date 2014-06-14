@@ -306,11 +306,15 @@ var MagicCircle = function(selector) {
 
     var runeId = magicCircle.id + Math.floor(Math.random() * 1000000);
 
+    var r = 60;
+    var size = radius;
+    var centerX = -size;
+    var centerY = 0;
+
     var path = defs.append("path");
     path
       .attr("id", "s3" + runeId)
-      .attr("d", "M 0,-1   C 0.5523, -1   1, -0.5523    1,0  C 1, 0.5523    0.5523, 1     0,1  C -0.5523, 1   -1, 0.5523    -1,0         C -1, -0.5523  -0.5523, -1   0,-1")
-      .attr("transform", "scale(" + radius + "," + radius + ")")
+      .attr("d", "m "+centerX+", "+centerY+" a -"+size+",-"+size+" 1 1,1 "+size*2+",0 a -"+size+",-"+size+" 1 1,1 -"+size*2+",0")
 
 
     var timer = magicCircle.onanimate(function() {
