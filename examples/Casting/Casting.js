@@ -9,31 +9,31 @@ angular.module("MagicCirclesDemo")
             type: "number",
             min: "1",
             max: "15",
-            default: "5"
+            value: "5"
           },
           color: {
             type: "color",
-            default: "#000"
+            value: "#000"
           }
         },
         text: {
           text: {
             type: "text",
-            default: lol.hipster()
+            value: lol.hipster()
           },
           autofit: {
-            type: "checkmark",
-            default: true,
+            type: "checkbox",
+            value: true,
           },
           size: {
             type: "number",
             min: "1",
             max: "15",
-            default: "5"
+            value: "5"
           },
           color: {
             type: "color",
-            default: "#000"
+            value: "#000"
           }
         },
         circleRing: {
@@ -41,24 +41,33 @@ angular.module("MagicCirclesDemo")
             type: "number",
             min: "1",
             max: "15",
-            default: "5"
+            value: "5"
           },
           color: {
             type: "color",
-            default: "#000"
+            value: "#000"
           }
         }
       }
 
 
       var magic = new MagicCircle("#casting", 2);
-      magic.cast().space(30)
+      magic.cast().space(30);
 
-      $scope.circle = magic;
-      $scope.lol = lol;
+      $scope.cast = function(thing) {
+        console.log("casting... THING!", thing);
+        var type = thing.name;
+      }
+
+
+
 
       $("[data-toggle='tooltip']").tooltip();
     }); //call it here
 
 
   })
+.controller("SpellController",function($scope,$element){
+    console.log("Spell contr init",$scope,$element);
+    $scope.values = {};
+})
