@@ -6,7 +6,7 @@ angular.module("MagicCirclesDemo")
       $scope.alchemy = {
         ring: {
           width: {
-            type: "number",
+            type: "range",
             min: "1",
             max: "15",
             value: "5"
@@ -26,7 +26,7 @@ angular.module("MagicCirclesDemo")
             value: true,
           },
           size: {
-            type: "number",
+            type: "range",
             min: "1",
             max: "15",
             value: "5"
@@ -38,10 +38,16 @@ angular.module("MagicCirclesDemo")
         },
         circleRing: {
           size: {
-            type: "number",
+            type: "range",
             min: "1",
             max: "15",
             value: "5"
+          },
+          children: {
+            type: "range",
+            min: "1",
+            max: "32",
+            value: "8"
           },
           color: {
             type: "color",
@@ -54,9 +60,21 @@ angular.module("MagicCirclesDemo")
       var magic = new MagicCircle("#casting", 2);
       magic.cast().space(30);
 
-      $scope.cast = function(thing) {
-        console.log("casting... THING!", thing);
-        var type = thing.name;
+      $scope.cast = function(spell,name) {
+        console.log("casting... spell!", spell,name);
+        // var type = thing.name;
+        switch (name) {
+            case "ring":
+                // console.log("castin' ring",spell);
+                magic.cast()
+                    .ring(parseInt(spell.width.value))
+                    .color(spell.color.value)
+                break;
+            case "text":
+                magic.cast()
+                    .text(spell.autofit.value ? "autofit" : parseInt(spell.size.value), spell.text.value)
+                    .color(spell.color.value);
+        }
       }
 
 

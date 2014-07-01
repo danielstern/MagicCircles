@@ -8,7 +8,7 @@
 	<div ng-repeat="(propertyName,property) in spell">
 		{{spellName}}.{{propertyName}} <input type={{property.type}} ng-model='property.value'>{{property.value}}
 	</div>
-	<button ng-click='cast(spell)'>Cast</button>
+	<button ng-click='cast(spell,spellName)'>Cast</button>
 </div>
 <artboard id='casting' class='xl'>
 
