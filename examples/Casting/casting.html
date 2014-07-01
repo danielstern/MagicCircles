@@ -3,12 +3,12 @@
 <p>
     If you can imagine it, you can cast it, in real time. Why learn code? 
 </p>
-<div ng-repeat="(spellName,spell) in alchemy" ng-controller="SpellController">
-	{{spellName}}
-	<div ng-repeat="(propertyName,property) in spell">
-		{{spellName}}.{{propertyName}} <input type={{property.type}} ng-model='property.value'>{{property.value}}
+<div class='spellDisplay' ng-repeat="(spellName,spell) in alchemy" ng-controller="SpellController">
+	<h3>{{spellName}}</h3>
+	<div class='spellPropertyDisplay' ng-repeat="(propertyName,property) in spell">
+		<!-- {{spellName}}. -->{{propertyName}} <input type={{property.type}} ng-model='property.value' title="{{property.value}}">
 	</div>
-	<button ng-click='cast(spell,spellName)'>Cast</button>
+	<button ng-click='cast(spell,spellName)' class='btn btn-default'>Cast</button>
 </div>
 <artboard id='casting' class='xl'>
 

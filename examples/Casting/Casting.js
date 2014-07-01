@@ -52,6 +52,10 @@ angular.module("MagicCirclesDemo")
           color: {
             type: "color",
             value: "#000"
+          },
+          fill: {
+            type: "color",
+            value: "#666"
           }
         }
       }
@@ -61,7 +65,7 @@ angular.module("MagicCirclesDemo")
       magic.cast().space(30);
 
       $scope.cast = function(spell,name) {
-        console.log("casting... spell!", spell,name);
+        // console.log("casting... spell!", spell,name);
         // var type = thing.name;
         switch (name) {
             case "ring":

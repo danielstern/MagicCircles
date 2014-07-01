@@ -2,160 +2,138 @@
 
 http://colourco.de/monochrome-light/5/%2324466d
 */
-.container {
-
-	margin: auto;
-	
-
-	max-width: 670px;
-	background-color: white;
-	padding: 20px;
-	padding-top:10px;	
-	border-radius: 5px;
-	margin-top: -25px;
-
-
+ .container {
+    margin: auto;
+    max-width: 670px;
+    background-color: white;
+    padding: 20px;
+    padding-top:10px;
+    border-radius: 5px;
+    margin-top: -25px;
 }
-
+.spellDisplay {
+    width: 33%;
+    float: left;
+    padding: 1rem;
+    font-size: 12px;
+}
+.spellDisplay input {
+    width: 49%;
+    float: right;
+}
+.spellPropertyDisplay {
+    height: 30px;
+}
 #headerCircle {
-	height: 500px;
-	width: 500px;
-
+    height: 500px;
+    width: 500px;
 }
-
 artboard {
-	display: block;
-	/*-webkit-animation: jewelbox 100s infinite linear;*/
-	width: 300px;
-	height: 300px;
-	top: 100px;
-	margin: auto;
+    display: block;
+    /*-webkit-animation: jewelbox 100s infinite linear;*/
+    width: 300px;
+    height: 300px;
+    top: 100px;
+    margin: auto;
 }
-
 artboard.mini {
-	width: 150px;
-	height: 150px;
-	margin: auto;
+    width: 150px;
+    height: 150px;
+    margin: auto;
 }
-
 artboard.full {
-	width: 500px;
-	height: 500px;
-		
-	margin: auto;
-	display: block;
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    display: block;
 }
-
 artboard.xl {
-	width: 600px;
-	height: 600px;
-		
-	margin: auto;
-	display: block;
+    width: 600px;
+    height: 600px;
+    margin: auto;
+    display: block;
 }
-
 html {
-	font-family: "Helvetica";
-	font-size: 1.0rem;
-	line-height: 1.8rem;
+    font-family:"Helvetica";
+    font-size: 1.0rem;
+    line-height: 1.8rem;
 }
-
 body {
-	padding: 1rem;
-	background-color: #213f62;
-	}
-
-
+    padding: 1rem;
+    background-color: #213f62;
+}
 a {
-	color: #1e3a5a;
+    color: #1e3a5a;
 }
-
-
-
-
 #logo-main {
-	max-width: 250px;
-	width: 80%;
-	height: 130px;
-	margin: auto;
-	position: absolute;
-	left: 0;
-	top: -36px;
-	right: 0;
+    max-width: 250px;
+    width: 80%;
+    height: 130px;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    top: -36px;
+    right: 0;
 }
-
-
-
 .banner {
-	border: 1px solid black;
-	width: 190px;
-	margin: auto;
-	text-align: center;
-	text-transform: uppercase;
-	font-family: "Bree serif";
-	font-size: 19px;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	height: 29px;
-	background-color: #565656;
-	line-height: 28px;
-	letter-spacing: 3px;
-	color: white;
-	border: white;
+    border: 1px solid black;
+    width: 190px;
+    margin: auto;
+    text-align: center;
+    text-transform: uppercase;
+    font-family:"Bree serif";
+    font-size: 19px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 29px;
+    background-color: #565656;
+    line-height: 28px;
+    letter-spacing: 3px;
+    color: white;
+    border: white;
 }
-
-
 #menu {
-	width: 350px;
-	height: 350px;
-	position: absolute;
-	right: -100px;
-	top: -114px;
-	transition: 0.3s all;
+    width: 350px;
+    height: 350px;
+    position: absolute;
+    right: -100px;
+    top: -114px;
+    transition: 0.3s all;
 }
-
 #menu .banner {
-	width: 110px;
-	font-size: 17px;
-	opacity: 1;
-	transition: 0.2s opacity;
-	pointer-events: none;
+    width: 110px;
+    font-size: 17px;
+    opacity: 1;
+    transition: 0.2s opacity;
+    pointer-events: none;
 }
-
 #menu text {
-	pointer-events: none;
+    pointer-events: none;
 }
-
 wrapper {
-	position: relative;
-	max-width: 1028px;
-	margin: auto;
-		padding-top: 75px;
-	display: block;
-	
+    position: relative;
+    max-width: 1028px;
+    margin: auto;
+    padding-top: 75px;
+    display: block;
 }
 #menu:hover {
-	right: -20px;
-	top: 20px;
+    right: -20px;
+    top: 20px;
 }
-
 .social div {
-	margin-bottom: 10px;
+    margin-bottom: 10px;
 }
-
 #menu:hover .banner {
-	opacity: 0;
+    opacity: 0;
 }
-
 artboard#circles, artboard#circles svg {
     width: 1400px;
     height: 1400px;
 }
-
-
 @-webkit-keyframes jewelbox {
     0% {
         -webkit-transform: rotateY(0deg) rotateX(0deg);
@@ -164,20 +142,15 @@ artboard#circles, artboard#circles svg {
         -webkit-transform: rotateY(359deg) rotateX(359deg);
     }
 }
-
-
 #circle2 {
-	width: 250px;
-	height: 250px;
+    width: 250px;
+    height: 250px;
 }
-
 .footer {
-	font-size: 8px;
-	text-align: center;
-	margin-top: 80px;
+    font-size: 8px;
+    text-align: center;
+    margin-top: 80px;
 }
-
-
 code {
-	line-height: normal;	
+    line-height: normal;
 }
