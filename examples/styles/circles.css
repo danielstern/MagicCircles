@@ -12,7 +12,7 @@ http://colourco.de/monochrome-light/5/%2324466d
     margin-top: -25px;
 }
 .spellDisplay {
-    width: 33%;
+    width: 24%;
     float: left;
     padding: 1rem;
     font-size: 12px;
@@ -20,6 +20,15 @@ http://colourco.de/monochrome-light/5/%2324466d
 .spellDisplay input {
     width: 49%;
     float: right;
+}
+.casting-container {
+width: 1000px;
+position: relative;
+margin-left: -190px;
+background-color: white;
+z-index: 10;
+padding: 2rem;
+border-radius: 15px;
 }
 .spellPropertyDisplay {
     height: 30px;
@@ -32,6 +41,7 @@ artboard {
     display: block;
     /*-webkit-animation: jewelbox 100s infinite linear;*/
     width: 300px;
+    clear:both;
     height: 300px;
     top: 100px;
     margin: auto;

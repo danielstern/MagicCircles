@@ -65,11 +65,16 @@ angular.module("MagicCirclesDemo")
       magic.cast().space(30);
 
       $scope.cast = function(spell,name) {
-        // console.log("casting... spell!", spell,name);
+        console.log("casting... spell!", spell,name);
         // var type = thing.name;
         switch (name) {
+            case "circleRing":
+                magic.cast()
+                    .circleRing(parseInt(spell.children.value),parseInt(spell.size.value))
+                        .color(spell.color.value)
+                        .fill(spell.fill.value)
+                break;
             case "ring":
-                // console.log("castin' ring",spell);
                 magic.cast()
                     .ring(parseInt(spell.width.value))
                     .color(spell.color.value)
@@ -80,6 +85,8 @@ angular.module("MagicCirclesDemo")
                     .color(spell.color.value);
         }
       }
+
+      $scope.circle = magic;
 
 
 
