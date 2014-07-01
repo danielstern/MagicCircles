@@ -1,6 +1,7 @@
 angular.module("MagicCirclesDemo")
   .controller("FillStroke", function($scope) {
     var magic = new MagicCircle("#fillstroke", 3);
+    console.log("Hello fillstroke controller")
     magic.cast()
       .space(50)
       .ring(25)
@@ -42,10 +43,8 @@ angular.module("MagicCirclesDemo")
 
 
 
-
     $scope.$on('$viewContentLoaded', function() {
       $('pre code').each(function(i, block) {
-        console.log("hljs?", hljs)
         hljs.highlightBlock(block);
       });
     });

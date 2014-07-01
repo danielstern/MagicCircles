@@ -26,8 +26,8 @@ http://colourco.de/monochrome-light/5/%2324466d
 artboard {
 	display: block;
 	/*-webkit-animation: jewelbox 100s infinite linear;*/
-	width: 300;
-	height: 300;
+	width: 300px;
+	height: 300px;
 	top: 100px;
 	margin: auto;
 }
