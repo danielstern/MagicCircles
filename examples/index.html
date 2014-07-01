@@ -176,7 +176,7 @@ var options = [{
         menu.cast()
             .circleRing(32, 25, 3)
         _.each(options, function(option) {
-            console.log('casting option');
+            // console.log('casting option');
 
             menu.cast()
                 .ring(16)
@@ -191,7 +191,7 @@ var options = [{
                 .ring(16)
                 .color('useNone')
                 .on('click', function(a) {
-                    console.log("clicked the ring");
+                    // console.log("clicked the ring");
                     if (option.link) {
                         window.location.hash = option.link;
                     } else if (option.href) {

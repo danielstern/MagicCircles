@@ -1,7 +1,6 @@
 angular.module("MagicCirclesDemo")
   .controller("FillStroke", function($scope) {
     var magic = new MagicCircle("#fillstroke", 3);
-    console.log("Hello fillstroke controller")
     magic.cast()
       .space(50)
       .ring(25)

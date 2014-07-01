@@ -1,20 +1,14 @@
 <div>
 <h2>Casting Circles</h2>
 <p>
-    In this example, you can cast circles in real time. Click on the buttons below to make your own magic ring.
+    If you can imagine it, you can cast it, in real time. Why learn code? 
 </p>
-<button data-toggle="tooltip" data-placement="bottom" title="Draw a ring of a solid color" class='btn btn-default' ng-click='circle.cast().ring(5,2,2).color(lol.randomColor())'>
-    Ring
-</button>
-<button data-toggle="tooltip" data-placement="bottom" title="Draw a ring of text" class='btn btn-default' ng-click='circle.cast().text("autofit",lol.hipster()).color(lol.randomColor())'>
-    Text
-</button>
-<button data-toggle="tooltip" data-placement="bottom" title="Draw a ring made of smaller rings" class='btn btn-default' ng-click='circle.cast().circleRing(12, 10).fill(lol.randomColor())'>
-    Circles
-</button>
-<button data-toggle="tooltip" data-placement="bottom" title="Make all the rings disappear and start again" class='btn btn-default' ng-click='circle.disperse()'>
-    Disperse
-</button>
+<div ng-repeat="(name,spell) in alchemy">
+	{{name}}
+	<div ng-repeat="(name,property) in spell">
+		{{name}} <input>
+	</div>
+</div>
 <artboard id='casting' class='xl'>
 
 </artboard>
