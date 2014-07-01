@@ -12,23 +12,24 @@ http://colourco.de/monochrome-light/5/%2324466d
     margin-top: -25px;
 }
 .spellDisplay {
-    width: 24%;
-    float: left;
-    padding: 1rem;
-    font-size: 12px;
+width: 24%;
+float: left;
+padding: 1rem;
+font-size: 10px;
+text-transform: uppercase;
 }
 .spellDisplay input {
     width: 49%;
     float: right;
 }
 .casting-container {
-width: 1000px;
-position: relative;
-margin-left: -190px;
-background-color: white;
-z-index: 10;
-padding: 2rem;
-border-radius: 15px;
+/*    width: 1000px;*/
+    position: relative;
+    /*margin-left: -190px;*/
+    background-color: white;
+    z-index: 10;
+    /*padding: 2rem;*/
+    /*border-radius: 15px;*/
 }
 .spellPropertyDisplay {
     height: 30px;

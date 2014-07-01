@@ -5,7 +5,7 @@ angular.module("MagicCirclesDemo")
 
       $scope.alchemy = {
         ring: {
-          width: {
+          size: {
             type: "range",
             min: "1",
             max: "15",
@@ -36,7 +36,7 @@ angular.module("MagicCirclesDemo")
             value: "#000"
           }
         },
-        circleRing: {
+        "Circle Ring": {
           size: {
             type: "range",
             min: "1",
@@ -64,25 +64,31 @@ angular.module("MagicCirclesDemo")
       var magic = new MagicCircle("#casting", 2);
       magic.cast().space(30);
 
-      $scope.cast = function(spell,name) {
-        console.log("casting... spell!", spell,name);
+      $scope.cast = function(spell, name) {
+        console.log("casting... spell!", spell, name);
+        var span;
         // var type = thing.name;
         switch (name) {
-            case "circleRing":
-                magic.cast()
-                    .circleRing(parseInt(spell.children.value),parseInt(spell.size.value))
-                        .color(spell.color.value)
-                        .fill(spell.fill.value)
-                break;
-            case "ring":
-                magic.cast()
-                    .ring(parseInt(spell.width.value))
-                    .color(spell.color.value)
-                break;
-            case "text":
-                magic.cast()
-                    .text(spell.autofit.value ? "autofit" : parseInt(spell.size.value), spell.text.value)
-                    .color(spell.color.value);
+          case "Circle Ring":
+            magic.cast()
+              .circleRing(parseInt(spell.children.value), parseInt(spell.size.value))
+              .color(spell.color.value)
+              .fill(spell.fill.value)
+
+            span = parseInt(spell.size.value);
+            break;
+          case "ring":
+            magic.cast()
+              .ring(parseInt(spell.size.value))
+              .color(spell.color.value)
+            break;
+            span = parseInt(spell.size.value);
+          case "text":
+            magic.cast()
+              .text(spell.autofit.value ? "autofit" : parseInt(spell.size.value), spell.text.value)
+              .color(spell.color.value);
+            span = parseInt(spell.size.value);
+            break;
         }
       }
 
@@ -96,7 +102,7 @@ angular.module("MagicCirclesDemo")
 
 
   })
-.controller("SpellController",function($scope,$element){
-    console.log("Spell contr init",$scope,$element);
+  .controller("SpellController", function($scope, $element) {
+    // console.log("Spell contr init", $scope, $element);
     $scope.values = {};
-})
+  })
