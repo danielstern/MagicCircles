@@ -375,7 +375,7 @@ var MagicCircle = function(selector) {
         timer.stop();
         ring
           .transition()
-          .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")  rotate(" + rot + ")")
+          .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")  rotate(" + parseFloat(rot + 50) + ")")
 
       },
       animate: function() {
